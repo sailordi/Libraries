@@ -51,6 +51,11 @@ protected:
      * \return QHBoxLayout*
     */
     QHBoxLayout* hLayout(int pos);
+    /*! Returns a specific vBox layout
+     * \param pos - The position
+     * \return QVBoxLayout*
+    */
+    QVBoxLayout* vLayout(int pos);
 
 };
 #endif // MULTILAYOUTWIDGET_H

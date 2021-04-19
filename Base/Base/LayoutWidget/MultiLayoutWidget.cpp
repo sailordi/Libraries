@@ -33,3 +33,13 @@ QHBoxLayout* MultiLayoutWidget::hLayout(int pos) {
 
     return this->v_hLayouts.at(pos);
 }
+
+QVBoxLayout* MultiLayoutWidget::vLayout(int pos) {
+    if(pos < 0) {
+        return nullptr;
+    }else if(pos >= this->v_vLayouts.size() ) {
+        return nullptr;
+    }
+
+    return this->v_vLayouts.at(pos);
+}
