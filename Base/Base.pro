@@ -9,10 +9,12 @@ CONFIG(release,debug|release)   { TARGET = Base }
 CONFIG(debug,debug|release)     { TARGET = Base_D }
 
 SOURCES += \
-    Base/LayoutWidget/MultiLayoutWidget.cpp
+    Base/LayoutWidget/MultiLayoutWidget.cpp \
+    Base/LayoutWidget/SingleLayoutWidget.cpp
 
 HEADERS += \
-    Base/LayoutWidget/MultiLayoutWidget.h
+    Base/LayoutWidget/MultiLayoutWidget.h \
+    Base/LayoutWidget/SingleLayoutWidget.h
 
 # Default rules for deployment.
 unix {
