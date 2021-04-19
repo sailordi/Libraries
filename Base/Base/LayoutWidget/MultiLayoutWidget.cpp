@@ -12,3 +12,14 @@ MultiLayoutWidget::~MultiLayoutWidget() {
 
     delete this->v_p;
 }
+
+//Protected functions
+QGridLayout* MultiLayoutWidget::gLayout(int pos) {
+    if(pos < 0) {
+       return nullptr;
+    }else if(pos >= this->v_gLayouts.size() ) {
+       return nullptr;
+    }
+
+    return this->v_gLayouts.at(pos);
+}
