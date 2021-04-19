@@ -11,12 +11,14 @@ CONFIG(debug,debug|release)     { TARGET = Base_D }
 SOURCES += \
     Base/LayoutWidget/MultiLayoutWidget.cpp \
     Base/LayoutWidget/SingleLayoutWidget.cpp \
-    Base/Other/Helper.cpp
+    Base/Other/Helper.cpp \
+    Base/Other/QStringStream.cpp
 
 HEADERS += \
     Base/LayoutWidget/MultiLayoutWidget.h \
     Base/LayoutWidget/SingleLayoutWidget.h \
-    Base/Other/Helper.h
+    Base/Other/Helper.h \
+    Base/Other/QStringStream.h
 
 # Default rules for deployment.
 unix {
