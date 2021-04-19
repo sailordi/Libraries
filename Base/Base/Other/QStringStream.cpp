@@ -26,3 +26,7 @@ QString QStringStream::str() {
 QString* QStringStream::strP() {
     return &this->v_str;
 }
+
+QTextStream& QStringStream::stream() {
+    return *this->v_steam;
+}

@@ -37,6 +37,11 @@ public:
     */
     QString* strP();
 
+    /*! Returns a handle to the stream
+     * \returns QTextStream&
+    */
+    QTextStream& stream();
+
 private:
     QString v_str;
     QTextStream* v_steam = nullptr;
