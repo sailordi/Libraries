@@ -27,5 +27,11 @@ namespace Helper {
     */
     QString newRow(int num = 1);
 
+    /*! Pauses the program
+     * \param time - Amount of time to pause program
+     * \param sec - If time is in seconds[true] or milliseconds[false] [Default: true]
+    */
+    void pause(int time,bool sec = true);
+
 };
 #endif // HELPER_H
