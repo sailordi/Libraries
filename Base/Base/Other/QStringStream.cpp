@@ -18,3 +18,11 @@ QStringStream::~QStringStream() {
 bool QStringStream::isEmpty() {
     return this->v_str.isEmpty();
 }
+
+QString QStringStream::str() {
+    return this->v_str;
+}
+
+QString* QStringStream::strP() {
+    return &this->v_str;
+}

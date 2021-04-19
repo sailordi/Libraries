@@ -28,6 +28,15 @@ public:
     */
     bool isEmpty();
 
+    /*! Returns the text inside the stream
+     * \returns QString
+    */
+    QString str();
+    /*! Returns a pointer to the text inside the stream
+     * \returns QString*
+    */
+    QString* strP();
+
 private:
     QString v_str;
     QTextStream* v_steam = nullptr;
