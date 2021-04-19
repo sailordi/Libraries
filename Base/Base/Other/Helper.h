@@ -21,5 +21,11 @@ namespace Helper {
     */
     void quitProgram [[noreturn]](QString msg,int code);
 
+    /*!  Generates new rows for qt
+     * \param num - Number of new rows [Default: 1]
+     * \returns QString
+    */
+    QString newRow(int num = 1);
+
 };
 #endif // HELPER_H
