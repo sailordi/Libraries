@@ -14,3 +14,7 @@ QStringStream::~QStringStream() {
 
     delete this->v_steam;
 }
+
+bool QStringStream::isEmpty() {
+    return this->v_str.isEmpty();
+}

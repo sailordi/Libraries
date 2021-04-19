@@ -23,6 +23,11 @@ public:
     /*! Destructor */
     ~QStringStream();
 
+    /*! Checks if the stream is empty
+     * \returns bool
+    */
+    bool isEmpty();
+
 private:
     QString v_str;
     QTextStream* v_steam = nullptr;
