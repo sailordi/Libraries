@@ -42,10 +42,15 @@ protected:
     QList<QVBoxLayout*> v_vLayouts;
 
     /*! Returns a specific grid layout
-    * \param pos- The position
+    * \param pos - The position
     * \return QGridLayout*
    */
     QGridLayout* gLayout(int pos);
+    /*! Returns a specific hBox layout
+     * \param pos - The position
+     * \return QHBoxLayout*
+    */
+    QHBoxLayout* hLayout(int pos);
 
 };
 #endif // MULTILAYOUTWIDGET_H

@@ -23,3 +23,13 @@ QGridLayout* MultiLayoutWidget::gLayout(int pos) {
 
     return this->v_gLayouts.at(pos);
 }
+
+QHBoxLayout* MultiLayoutWidget::hLayout(int pos) {
+    if(pos < 0) {
+        return nullptr;
+    }else if(pos >= this->v_hLayouts.size() ) {
+        return nullptr;
+    }
+
+    return this->v_hLayouts.at(pos);
+}
