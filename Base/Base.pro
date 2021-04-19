@@ -8,9 +8,11 @@ CONFIG += staticlib
 CONFIG(release,debug|release)   { TARGET = Base }
 CONFIG(debug,debug|release)     { TARGET = Base_D }
 
-SOURCES +=
+SOURCES += \
+    Base/LayoutWidget/MultiLayoutWidget.cpp
 
-HEADERS +=
+HEADERS += \
+    Base/LayoutWidget/MultiLayoutWidget.h
 
 # Default rules for deployment.
 unix {
