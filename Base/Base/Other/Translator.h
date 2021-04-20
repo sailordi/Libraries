@@ -42,6 +42,13 @@ public:
     /*! Destructor */
     virtual ~Translator();
 
+    /*! Set's the language file's folder path & the locale to use
+     * \param path - The language file's folder path
+     * \param lang - The locale to use
+     * \param fileFilter - The file filter to be used
+    */
+    void setData(QString path,QLocale lang,QString fileFilter);
+
 signals:
 
 private slots:

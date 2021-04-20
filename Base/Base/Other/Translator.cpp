@@ -13,7 +13,14 @@ Translator::Translator(QObject *parent) : QObject(parent) {
 }
 
 Translator::Translator(QString path,QLocale lang,QString fileFilter,QObject *parent) : QObject(parent) {
+    this->setData(path,lang,fileFilter);
+}
 
+void Translator::setData(QString path,QLocale lang,QString fileFilter) {
+    this->v_langPath = path;
+    this->v_fileFilter = fileFilter;
+
+    this->switchLanguage(QLocale::languageToString(lang.language() ) );
 }
 
 //Protected functions
