@@ -61,6 +61,15 @@ public:
     */
     void reTranslateLanguageMenu(QMenu* m,QString title);
 
+    /*! Get's the strings used in retranslation for the supported languages
+     * \return QStringList
+    */
+    virtual QStringList supportedLanguageTranslations() = 0;
+    /*! Get's the supported languages
+     * \return QStringList
+    */
+    virtual QStringList supportedLanguages() = 0;
+
 signals:
     /*! Signal that tells the objects that a retranslation is Needed */
     void reTranslate();
@@ -98,7 +107,7 @@ protected:
     /*! Switches the current language to a new one and loads it to the translator
      * \param newLanguage - Language to be switched to
     */
-    void switchLanguage(const QString& newLanguage);
+    virtual void switchLanguage(const QString& newLanguage);
 
 };
 #endif // TRANSLATOR_H
