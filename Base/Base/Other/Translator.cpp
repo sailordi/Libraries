@@ -1,6 +1,9 @@
 #include "Translator.h"
 
+#include <QAction>
+#include <QActionGroup>
 #include <QLocale>
+#include <QMenu>
 
 //Public functions
 Translator::Translator(QObject *parent) : QObject(parent) {
@@ -34,4 +37,18 @@ QString Translator::getLocaleLettersFromFileName(const QString str) {
         }
 
         return this->getLocaleLetters(tmp);
+}
+
+void Translator::addActionToLangMenu(QString lang,QMenu* m,QActionGroup* g,QString currentLang) {
+    QAction *a = new QAction(Translator::tr(lang.toStdString().c_str() ),m);
+
+        a->setCheckable(true);
+        a->setData(this->getLocaleLettersFromFileName(lang) );
+
+        m->addAction(a);
+        g->addAction(a);
+
+        if(currentLang == lang) {
+            a->setChecked(true);
+        }
 }

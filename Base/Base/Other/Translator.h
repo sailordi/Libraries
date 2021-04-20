@@ -5,10 +5,16 @@
 #include <QTranslator>
 #include <QString>
 
+class QActionGroup;
+class QMenu;
+class QLocale;
+
 /*! \class Translator
  * \brief The class handles translation logic
  *
  * Incudes: QObject, QTranslator & QString
+ *
+ * Forward declarations: QActionGroup, QMenu & QLocale
  *
  * Inherits: QObject
  *
@@ -55,5 +61,14 @@ protected:
      *  \returns QString
     */
     virtual QString getLocaleLettersFromFileName(const QString str);
+
+    /*! Adds a language action to a menu
+     *  \param lang - The language
+     *  \param m - The menu
+     *  \param g - The action group
+     *  \param currentLang - The current language
+    */
+    void addActionToLangMenu(QString lang,QMenu* m,QActionGroup* g,QString currentLang);
+
 };
 #endif // TRANSLATOR_H
