@@ -70,5 +70,10 @@ protected:
     */
     void addActionToLangMenu(QString lang,QMenu* m,QActionGroup* g,QString currentLang);
 
+    /*! Switches the current language to a new one and loads it to the translator
+     * \param newLanguage - Language to be switched to
+    */
+    void switchLanguage(const QString& newLanguage);
+
 };
 #endif // TRANSLATOR_H

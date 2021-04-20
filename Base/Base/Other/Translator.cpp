@@ -2,6 +2,8 @@
 
 #include <QAction>
 #include <QActionGroup>
+#include <QApplication>
+#include <QDebug>
 #include <QLocale>
 #include <QMenu>
 
@@ -51,4 +53,27 @@ void Translator::addActionToLangMenu(QString lang,QMenu* m,QActionGroup* g,QStri
         if(currentLang == lang) {
             a->setChecked(true);
         }
+}
+
+void Translator::switchLanguage(const QString& newLanguage) {
+    if(this->v_currentLang == newLanguage) {
+            return;
+    }
+
+    qApp->removeTranslator(&this->v_trans);
+
+    this->v_currentLang = newLanguage;
+
+    QString f = this->v_fileFilter;
+    QString tmp = f.replace("*",this->getLocaleLetters(this->v_currentLang) );
+
+    if(this->v_trans.load(tmp,this->v_langPath) == false) {
+        qDebug().noquote()<<"Could not load "<<this->v_langPath+tmp;
+        this->v_found = false;
+        return;
+    }
+
+    this->v_found = true;
+
+    qApp->installTranslator(&this->v_trans);
 }
