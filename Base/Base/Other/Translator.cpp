@@ -23,6 +23,13 @@ void Translator::setData(QString path,QLocale lang,QString fileFilter) {
     this->switchLanguage(QLocale::languageToString(lang.language() ) );
 }
 
+//Private slots
+void Translator::languageChanged(QAction* a) {
+    this->switchLanguage(a->data().toString() );
+
+    emit this->reTranslate();
+}
+
 //Protected functions
 QString Translator::getLocaleLetters(const QString str) {
     QString locale = str;

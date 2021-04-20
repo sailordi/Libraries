@@ -5,6 +5,7 @@
 #include <QTranslator>
 #include <QString>
 
+class QAction;
 class QActionGroup;
 class QMenu;
 class QLocale;
@@ -14,7 +15,7 @@ class QLocale;
  *
  * Incudes: QObject, QTranslator & QString
  *
- * Forward declarations: QActionGroup, QMenu & QLocale
+ * Forward declarations: QAction, QActionGroup, QMenu & QLocale
  *
  * Inherits: QObject
  *
@@ -50,8 +51,14 @@ public:
     void setData(QString path,QLocale lang,QString fileFilter);
 
 signals:
+    /*! Signal that tells the objects that a retranslation is Needed */
+    void reTranslate();
 
 private slots:
+    /*! Slot that is called when the language is changed
+    * \param a - The action that vas triggered
+    */
+    void languageChanged(QAction* a);
 
 protected:
     QString v_langPath,v_currentLang,v_fileFilter;
