@@ -21,6 +21,15 @@ public:
     */
     int index() { return this->v_index; }
 
+    /*! Returns the key
+     * \returns const T
+    */
+    const T keyC() const {  return this->v_key; }
+    /*! Returns the key
+     * \returns T
+    */
+    T key() { return this->v_key; }
+
 private:
     int v_index;
     T v_key;
