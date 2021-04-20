@@ -50,6 +50,10 @@ protected:
      *  \returns QString
     */
     virtual QString getLocaleLetters(const QString str);
-
+    /*! Strips a file name down to get the locale letters
+     *  \param str - The file name
+     *  \returns QString
+    */
+    virtual QString getLocaleLettersFromFileName(const QString str);
 };
 #endif // TRANSLATOR_H
