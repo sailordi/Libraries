@@ -50,6 +50,12 @@ public:
     */
     void setData(QString path,QLocale lang,QString fileFilter);
 
+    /*! Populates the language menu
+     * \param m - The menu item to be language menu
+     * \param title - The menu title
+    */
+    void populateLanguageMenu(QMenu* m,QString title);
+
 signals:
     /*! Signal that tells the objects that a retranslation is Needed */
     void reTranslate();

@@ -1,9 +1,12 @@
 #include "Translator.h"
 
+#include <cassert>
+
 #include <QAction>
 #include <QActionGroup>
 #include <QApplication>
 #include <QDebug>
+#include <QDir>
 #include <QLocale>
 #include <QMenu>
 
@@ -21,6 +24,39 @@ void Translator::setData(QString path,QLocale lang,QString fileFilter) {
     this->v_fileFilter = fileFilter;
 
     this->switchLanguage(QLocale::languageToString(lang.language() ) );
+}
+
+void Translator::populateLanguageMenu(QMenu* m,QString title) {
+    assert(m != nullptr);
+
+        QList<QAction*> l = m->actions();
+
+        for(int i = 0; i < l.size(); i++) {
+            m->removeAction(l.takeFirst() );
+        }
+
+        QActionGroup* langGroup = new QActionGroup(m);
+
+        langGroup->setExclusive(true);
+
+        m->setTitle(title);
+
+        if(this->v_found == false) {
+            this->addActionToLangMenu(this->v_currentLang,m,langGroup,this->v_currentLang);
+            return;
+        }
+
+        connect(langGroup,&QActionGroup::triggered,this,&Translator::languageChanged);
+        QDir dir(this->v_langPath);
+        QStringList fileNames = dir.entryList(QStringList(this->v_fileFilter) );
+
+        for(int i = 0; i < fileNames.size(); i++) {
+            QString localeL = this->getLocaleLettersFromFileName(fileNames.at(i) );
+            QString lang = QLocale::languageToString(QLocale(localeL).language() );
+
+            this->addActionToLangMenu(lang,m,langGroup,this->v_currentLang);
+        }
+
 }
 
 //Private slots
