@@ -18,6 +18,7 @@ SOURCES += \
 HEADERS += \
     Base/LayoutWidget/MultiLayoutWidget.h \
     Base/LayoutWidget/SingleLayoutWidget.h \
+    Base/Other/CustomIndexedKey.h \
     Base/Other/Helper.h \
     Base/Other/QStringStream.h \
     Base/Other/Translator.h
