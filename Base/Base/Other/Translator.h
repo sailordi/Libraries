@@ -45,5 +45,11 @@ protected:
     QTranslator v_trans;
     bool v_found = true;
 
+    /*! Strips a string down to get a locale letters
+     *  \param str - String to strip
+     *  \returns QString
+    */
+    virtual QString getLocaleLetters(const QString str);
+
 };
 #endif // TRANSLATOR_H
