@@ -16,6 +16,13 @@ public:
     /*! Deconstructor */
     ~CustomIndexedKey() {  }
 
+    /*! Sorts CustomIndexedKey in ascending order (1 -> 10)
+     * \param c1 - First key
+     * \param c2 - Second key
+     * \returns bool
+    */
+    static bool sortAsc(const CustomIndexedKey<T>& c1,const CustomIndexedKey<T>& c2) { return c1.v_index < c2.v_index; }
+
     /*! Returns the index
      * \returns int
     */
