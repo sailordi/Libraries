@@ -16,6 +16,11 @@ public:
     /*! Deconstructor */
     ~CustomIndexedKey() {  }
 
+    /*! Returns the index
+     * \returns int
+    */
+    int index() { return this->v_index; }
+
 private:
     int v_index;
     T v_key;
