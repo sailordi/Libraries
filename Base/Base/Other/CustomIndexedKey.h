@@ -22,6 +22,12 @@ public:
      * \returns bool
     */
     static bool sortAsc(const CustomIndexedKey<T>& c1,const CustomIndexedKey<T>& c2) { return c1.v_index < c2.v_index; }
+    /*! Sorts CustomIndexedKey in descending order (10 -> 1)
+     * \param c1 - First key
+     * \param c2 - Second key
+     * \returns bool
+    */
+    static bool sortDes(const CustomIndexedKey<T>& c1,const CustomIndexedKey<T>& c2) { return c1.v_index > c2.v_index; }
 
     /*! Returns the index
      * \returns int
