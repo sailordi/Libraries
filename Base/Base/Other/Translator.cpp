@@ -59,6 +59,20 @@ void Translator::populateLanguageMenu(QMenu* m,QString title) {
 
 }
 
+void Translator::reTranslateLanguageMenu(QMenu* m,QString title) {
+    assert(m != NULL);
+
+        m->setTitle(title);
+
+        QList<QAction*> l = m->actions();
+
+        for(int i = 0; i < l.size(); i++) {
+            QAction* a = l.at(i);
+            a->setText(Translator::tr(a->data().toString().toStdString().c_str() ) );
+        }
+
+}
+
 //Private slots
 void Translator::languageChanged(QAction* a) {
     this->switchLanguage(a->data().toString() );

@@ -55,6 +55,11 @@ public:
      * \param title - The menu title
     */
     void populateLanguageMenu(QMenu* m,QString title);
+    /*! Retranslates the language menu item
+     * \param m - The menu to be retranslated
+     * \param title - The menu title
+    */
+    void reTranslateLanguageMenu(QMenu* m,QString title);
 
 signals:
     /*! Signal that tells the objects that a retranslation is Needed */
