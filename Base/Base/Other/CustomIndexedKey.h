@@ -30,6 +30,12 @@ public:
     */
     T key() { return this->v_key; }
 
+    /*! Operator to check if keys are the same
+    * \param other - The other key to be ckecked against
+    * \returns bool
+    */
+    bool operator==(const CustomIndexedKey<T>& other) const { return this->keyC() == other.keyC(); }
+
 private:
     int v_index;
     T v_key;
