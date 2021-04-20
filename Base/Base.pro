@@ -12,13 +12,15 @@ SOURCES += \
     Base/LayoutWidget/MultiLayoutWidget.cpp \
     Base/LayoutWidget/SingleLayoutWidget.cpp \
     Base/Other/Helper.cpp \
-    Base/Other/QStringStream.cpp
+    Base/Other/QStringStream.cpp \
+    Base/Other/Translator.cpp
 
 HEADERS += \
     Base/LayoutWidget/MultiLayoutWidget.h \
     Base/LayoutWidget/SingleLayoutWidget.h \
     Base/Other/Helper.h \
-    Base/Other/QStringStream.h
+    Base/Other/QStringStream.h \
+    Base/Other/Translator.h
 
 # Default rules for deployment.
 unix {
