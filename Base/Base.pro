@@ -14,6 +14,7 @@ SOURCES += \
     Base/Other/Helper.cpp \
     Base/Other/QStringStream.cpp \
     Base/Other/Translator.cpp \
+    Base/Settings/SettingsFile.cpp \
     Base/Settings/SettingsGroup.cpp
 
 HEADERS += \
@@ -23,6 +24,7 @@ HEADERS += \
     Base/Other/Helper.h \
     Base/Other/QStringStream.h \
     Base/Other/Translator.h \
+    Base/Settings/SettingsFile.h \
     Base/Settings/SettingsGroup.h
 
 # Default rules for deployment.
