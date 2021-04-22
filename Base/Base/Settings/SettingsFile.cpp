@@ -55,3 +55,7 @@ SettingsFile::~SettingsFile() {
 bool SettingsFile::isGoup(QString s) {
     return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\[|\\]") );
 }
+
+bool SettingsFile::isArray(QString s) {
+    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\¤") );
+}

@@ -40,6 +40,11 @@ private:
      *  \returns bool
     */
     bool isGoup(QString s);
+    /*! Checks if a string is an array
+     *  \param s - The string to check
+     *  \returns bool
+    */
+    bool isArray(QString s);
 
 };
 #endif // SETTINGSFILE_H
