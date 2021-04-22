@@ -179,6 +179,42 @@ int Settings::arraySize() {
     return bL->size();
 }
 
+void Settings::clearArray(bool throwError) {
+    if(this->v_groupN.isEmpty() == true && throwError == true) {
+        throw QString("Group has not been started can not clear array");
+    }
+    else if(this->v_groupN.isEmpty() == true && throwError == false) {
+        return;
+    }
+
+    if(this->v_arrayN.isEmpty() == true && throwError == true) {
+        throw QString("Array has not been started can not clear array "+this->v_groupN);
+    }
+    if(this->v_arrayN.isEmpty() == true && throwError == false) {
+        return;
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr && throwError == true) {
+        throw QString("Group can not be found [clear array] ")+this->v_groupN+QString("/")+this->v_arrayN;
+    }
+    if(g == nullptr && throwError == false) {
+        return;
+    }
+
+    QList<SettingsBlocks>* bL = g->arrayData(this->v_arrayN);
+
+    if(bL == nullptr && throwError == true) {
+        throw QString("Array can not be found [clear array] ")+this->v_arrayN;
+    }
+    if(bL == nullptr && throwError == false) {
+        return;
+    }
+
+    bL->clear();
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

@@ -86,6 +86,12 @@ public:
     */
     int arraySize();
 
+    /*! Clears a settings array for the current settings group
+     * \param throwError - If error should be thrown [Default: true]
+     * \throws QString
+    */
+    void clearArray(bool throwError = true);
+
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
    bool v_write;
