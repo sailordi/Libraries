@@ -25,28 +25,32 @@ public:
     * \param file - The file
     * \param write - If the file should be written to [Default: true]
     * \throws QString
-   */
-   Settings(QString file,bool write = true);
-   /*! Deconstructor
+    */
+    Settings(QString file,bool write = true);
+    /*! Deconstructor
     * \throws QString
-   */
-   ~Settings();
+    */
+    ~Settings();
 
-   /*! Starts the group
+    /*! Starts the group
     * \param groupName - The group name
     * \throws QString
-   */
-   void startGroup(QString groupName);
-   /*! Ends the group
+    */
+    void startGroup(QString groupName);
+    /*! Ends the group
     * \throws QString
-   */
-   void endGroup();
+    */
+    void endGroup();
 
-   /*! Starts the array
+    /*! Starts the array
     * \param arrayName - The array name
     * \throws QString
-   */
-   void startArray(QString arrayName);
+    */
+    void startArray(QString arrayName);
+    /*! Ends the array
+    * \throws QString
+    */
+    void endArray();
 
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";

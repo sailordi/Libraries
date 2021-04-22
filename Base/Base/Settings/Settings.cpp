@@ -58,6 +58,17 @@ void Settings::startArray(QString arrayName) {
     this->v_arrayN = arrayName;
 }
 
+void Settings::endArray() {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not end array");
+    }
+    if(this->v_arrayN.isEmpty() == true) {
+        throw QString("Array has not been started can not end array");
+    }
+
+    this->v_arrayN = "";
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);
