@@ -35,3 +35,9 @@ void SettingsGroup::addBlockData(QString key,QVariant val) {
             this->v_blocks->insert(k1,val);
         }
 }
+
+QVariant SettingsGroup::blockData(QString key,QVariant def) {
+    SettingsKey k(key);
+
+        return this->v_blocks->value(k,def);
+}

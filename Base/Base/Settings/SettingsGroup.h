@@ -35,6 +35,14 @@ public:
     */
     void addBlockData(QString key,QVariant val);
 
+    /*! Gets value from a settings block
+      * \param key - The key
+      * \param def - Default value [Defaiult: QVariant()]
+      * \returns QVariant
+     */
+    QVariant blockData(QString key,QVariant def = QVariant() );
+
+
 private:
     SettingsBlocks* v_blocks = nullptr;
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;
