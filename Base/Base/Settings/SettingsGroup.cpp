@@ -1,5 +1,7 @@
 #include "SettingsGroup.h"
 
+#include "Base/Other/Helper.h"
+
 //Public functions
 SettingsGroup::SettingsGroup() {
     this->v_blocks = new Blocks();
@@ -44,4 +46,30 @@ QVariant SettingsGroup::blockData(QString key,QVariant def) {
 
 QList<SettingsKey> SettingsGroup::blockKeys() {
     return this->v_blocks->keys();
+}
+
+void SettingsGroup::addArrayData(QString name,QList<QString> keys,QList<QVariant> vals) {
+    SettingsKey n1(name);
+    QList<SettingsBlocks>* l = nullptr;
+
+        if(this->v_arrays->contains(n1) == false) {
+            l = new QList<SettingsBlocks>();
+            SettingsKey n2(name,this->v_arrays->size() );
+            this->v_arrays->insert(n2,l);
+        }  else {
+            l = this->v_arrays->value(n1,nullptr);
+        }
+
+        if(l == nullptr) {
+            Helper::quitProgram("Error could not get or create list of blocks for "+name,1);
+        }
+
+        SettingsBlocks b;
+
+        for(int i = 0; i < keys.size(); i++) {
+            SettingsKey k(keys.at(i),i);
+            b.insert(k,vals.at(i) );
+        }
+
+        l->push_back(b);
 }

@@ -47,6 +47,13 @@ public:
     */
     QList<SettingsKey> blockKeys();
 
+    /*! Adds data to a settings array
+     * \param name - Array name
+     * \param keys - The keys
+     * \param vals - The values
+    */
+    void addArrayData(QString name,QList<QString> keys,QList<QVariant> vals);
+
 private:
     SettingsBlocks* v_blocks = nullptr;
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;
