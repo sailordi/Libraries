@@ -22,3 +22,16 @@ SettingsGroup::~SettingsGroup() {
     }
 
 }
+
+void SettingsGroup::addBlockData(QString key,QVariant val) {
+    SettingsKey k1(key);
+
+        if(this->v_blocks->contains(k1) == false) {
+            SettingsKey k2(key,this->v_blocks->size()+1);
+
+            this->v_blocks->insert(k2,val);
+        }
+        else {
+            this->v_blocks->insert(k1,val);
+        }
+}

@@ -29,6 +29,12 @@ public:
     /*! Deconstructor */
     ~SettingsGroup();
 
+    /*! Adds data to new settings block
+     * \param key - The key
+     * \param val - The value
+    */
+    void addBlockData(QString key,QVariant val);
+
 private:
     SettingsBlocks* v_blocks = nullptr;
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;
