@@ -70,5 +70,12 @@ private:
     */
     QVariant stringToVariant(QString s);
 
+    /*! Writes a key and a value to a file
+     *  \param s - Textstream
+     *  \param key - The key to be written
+     *  \param val - The value
+    */
+    void writeKeyValue(QTextStream* s,QString key,QVariant val);
+
 };
 #endif // SETTINGSFILE_H

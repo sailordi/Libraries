@@ -13,6 +13,8 @@
 #include <QTextStream>
 #include <QVariant>
 
+#include "Base/Other/Helper.h"
+
 //Public functions
 SettingsFile::SettingsFile(QString file,bool read) {
     this->v_f = new QFile(file);
@@ -154,4 +156,8 @@ QVariant SettingsFile::stringToVariant(QString s) {
     }
 
     return QVariant();
+}
+
+void SettingsFile::writeKeyValue(QTextStream* s,QString key,QVariant val) {
+    *s<<key<<QString("=")<<this->variantToString(val)<<Helper::newRow();
 }
