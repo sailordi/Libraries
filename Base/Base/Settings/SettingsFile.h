@@ -7,12 +7,14 @@ class QFile;
 class QTextStream;
 class QVariant;
 
+class SettingsGroup;
+
 /*! \class SettingsFile
  * \brief The class handles writing/reading settings to/from a file
  *
  * Incudes: QString
  *
- * Forward declarations: QFile, QTextStream & QVariant
+ * Forward declarations: QFile, QTextStream, QVariant & SettingsGroup
  *
  * \author Created by: Sailordi
  * \author Last to touch it: Sailordi
@@ -82,6 +84,11 @@ private:
      *  \returns QString
     */
     QString parseGroupName(QString str);
+    /*! Parses settings block from a string
+     *  \param str - String to parse block from
+     *  \param gD - Group to add block to
+    */
+    void parseBlock(QString str,SettingsGroup* gD);
 
 };
 #endif // SETTINGSFILE_H

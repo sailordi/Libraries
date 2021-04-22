@@ -14,6 +14,7 @@
 #include <QVariant>
 
 #include "Base/Other/Helper.h"
+#include "Base/Settings/SettingsGroup.h"
 
 //Public functions
 SettingsFile::SettingsFile(QString file,bool read) {
@@ -167,4 +168,10 @@ QString SettingsFile::parseGroupName(QString str) {
     str.replace("]","");
 
     return str;
+}
+
+void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
+    QStringList l = str.split(QRegExp("\\=") );
+
+        (l.size() == 2) ? gD->addBlockData(l.first(),this->stringToVariant(l.last() ) ) : gD->addBlockData(l.first(),"");
 }
