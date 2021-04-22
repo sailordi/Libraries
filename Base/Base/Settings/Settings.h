@@ -42,6 +42,10 @@ private:
     * \throws QString
    */
    void load();
+   /*! Saves all settings groups to a file
+    * \throws QString
+   */
+   void save();
 
 };
 #endif // SETTINGS_H

@@ -12,6 +12,7 @@ Settings::Settings(QString file,bool write) {
 }
 
 Settings::~Settings() {
+    this->save();
 
     QList<SettingsKey> gN = this->v_groups->keys();
 
@@ -47,5 +48,33 @@ void Settings::load() {
             this->v_groups->insert(cK,g);
 
         }while(f.atEnd() == false);
+
+}
+
+void Settings::save() {
+    if(this->v_write == false) {
+        return;
+    }
+
+    SettingsFile f(this->v_file,false);
+
+    if(f.open() == false) {
+        throw QString("Could not open file saving settings [File: ")+this->v_file+QString("]");
+    }
+
+    QList<SettingsKey> gN = this->v_groups->keys();
+
+    std::sort(gN.begin(),gN.end(),SettingsKey::sortAsc);
+
+    for(int i = 0; i < gN.size(); i++) {
+        SettingsKey cK = gN.at(i);
+        SettingsGroup* g = this->v_groups->value(cK,nullptr);
+
+        if(g == nullptr) {
+            break;
+        }
+
+        f.write(cK.key(),g);
+    }
 
 }
