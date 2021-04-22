@@ -62,6 +62,17 @@ SettingsFile::~SettingsFile() {
 
 }
 
+bool SettingsFile::open() {
+    if(this->v_f == nullptr) {
+        return false;
+    }
+    if(this->v_s == nullptr) {
+        return false;
+    }
+
+    return this->v_f->isOpen();
+}
+
 //Private functions
 bool SettingsFile::isGoup(QString s) {
     return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\[|\\]") );

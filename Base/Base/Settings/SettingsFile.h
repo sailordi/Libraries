@@ -33,6 +33,11 @@ public:
     /*! Deconstructor */
     ~SettingsFile();
 
+    /*! Check`s if the file is open
+     * \returns bool
+    */
+    bool open();
+
 private:
     QFile* v_f = nullptr;
     QTextStream* v_s = nullptr;
