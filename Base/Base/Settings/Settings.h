@@ -42,6 +42,12 @@ public:
    */
    void endGroup();
 
+   /*! Starts the array
+    * \param arrayName - The array name
+    * \throws QString
+   */
+   void startArray(QString arrayName);
+
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
    bool v_write;
