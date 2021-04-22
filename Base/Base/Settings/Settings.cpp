@@ -23,6 +23,19 @@ Settings::~Settings() {
     delete this->v_groups;
 }
 
+void Settings::startGroup(QString groupName) {
+    if(this->v_groupN.isEmpty() == false) {
+        throw QString("Group has not been ended can not start new group");
+    }
+
+    this->v_groupN = groupName;
+
+    if(this->v_groups->contains(SettingsKey(this->v_groupN) ) == false) {
+        this->v_groups->insert(SettingsKey(this->v_groupN,this->v_groups->size() ),new SettingsGroup() );
+    }
+
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

@@ -32,6 +32,12 @@ public:
    */
    ~Settings();
 
+   /*! Starts the group
+    * \param groupName - The group name
+    * \throws QString
+   */
+   void startGroup(QString groupName);
+
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
    bool v_write;
