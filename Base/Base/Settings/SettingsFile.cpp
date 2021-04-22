@@ -50,3 +50,8 @@ SettingsFile::~SettingsFile() {
     }
 
 }
+
+//Private functions
+bool SettingsFile::isGoup(QString s) {
+    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\[|\\]") );
+}

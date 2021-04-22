@@ -6,6 +6,19 @@
 class QFile;
 class QTextStream;
 
+/*! \class SettingsFile
+ * \brief The class handles writing/reading settings to/from a file
+ *
+ * Incudes: QString
+ *
+ * Forward declarations: QFile & QTextStream
+ *
+ * \author Created by: Sailordi
+ * \author Last to touch it: Sailordi
+ *
+ * \date Created: 2021-04-22
+ * \date Last update: 2021-04-22
+*/
 class SettingsFile
 {
 public:
@@ -21,6 +34,12 @@ private:
     QFile* v_f = nullptr;
     QTextStream* v_s = nullptr;
     bool v_read;
+
+    /*! Checks if a string is a group name
+     *  \param s - The string to check
+     *  \returns bool
+    */
+    bool isGoup(QString s);
 
 };
 #endif // SETTINGSFILE_H
