@@ -38,5 +38,10 @@ private:
 
    QHash<SettingsKey,SettingsGroup*>* v_groups = nullptr;
 
+   /*! Loads all settings groups from a file
+    * \throws QString
+   */
+   void load();
+
 };
 #endif // SETTINGS_H
