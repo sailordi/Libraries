@@ -62,6 +62,48 @@ SettingsFile::~SettingsFile() {
 
 }
 
+void SettingsFile::write(QString groupName,SettingsGroup* gD) {
+    if(this->v_read == true) {
+         throw QString("SettingsFile is not in write mode");
+     }
+
+     *this->v_s<<QString("[")<<groupName<<QString("]")<<Helper::newRow();
+
+     QList<SettingsKey> keys = gD->blockKeys();
+     QList<SettingsKey> names = gD->arrayNames();
+
+     std::sort(keys.begin(),keys.end(),SettingsKey::sortAsc);
+     std::sort(names.begin(),names.end(),SettingsKey::sortAsc);
+     //Write Blocks
+     for(int i = 0; i < keys.size(); i++) {
+         SettingsKey k = keys.at(i);
+         writeKeyValue(this->v_s,k.key(),gD->blockData(k.key() ) );
+     }
+     //Write Arrays
+     for(int i = 0; i < names.size(); i++) {
+         SettingsKey n = names.at(i);
+         QList<SettingsBlocks>* bL = gD->arrayData(n.key() );
+
+         *this->v_s<<n.key()<<QString("¤")<<QString::number(bL->size() )<<Helper::newRow();
+
+         for(int j = 0,col = 1; j < bL->size(); j++,col++) {
+             SettingsBlocks b = bL->at(j);
+             QList<SettingsKey> kL = b.keys();
+
+             std::sort(kL.begin(),kL.end(),SettingsKey::sortAsc);
+
+             for(int k = 0; k < kL.size(); k++) {
+                 SettingsKey t = kL.at(k);
+                 *this->v_s<<QString::number(col)<<QString("¤");
+                 writeKeyValue(this->v_s,t.key(),b.value(t,QVariant() ) );
+             }
+
+         }
+
+     }
+
+}
+
 bool SettingsFile::atEnd() {
     if(this->v_f == nullptr) {
         return false;

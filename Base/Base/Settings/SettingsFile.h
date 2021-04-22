@@ -33,6 +33,13 @@ public:
     /*! Deconstructor */
     ~SettingsFile();
 
+    /*! Writes a settings group to file
+     * \param groupName - The group's name
+     * \param gD - The settings group data
+     * \throws QString
+    */
+    void write(QString groupName,SettingsGroup* gD);
+
     /*! Check´s if the file is at end
      * \returns bool
     */
