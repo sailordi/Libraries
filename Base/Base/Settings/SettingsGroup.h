@@ -60,6 +60,11 @@ public:
     */
     QList<SettingsBlocks>* arrayData(QString name);
 
+    /*! Returns list of all settings array names
+     * \returns QList<SettingsCustomKey>
+    */
+    QList<SettingsKey> arrayNames();
+
 private:
     SettingsBlocks* v_blocks = nullptr;
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;

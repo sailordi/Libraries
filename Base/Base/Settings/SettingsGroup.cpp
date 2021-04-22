@@ -79,3 +79,7 @@ QList<SettingsBlocks>* SettingsGroup::arrayData(QString name) {
 
         return this->v_arrays->value(n,nullptr);
 }
+
+QList<SettingsKey> SettingsGroup::arrayNames() {
+    return this->v_arrays->keys();
+}
