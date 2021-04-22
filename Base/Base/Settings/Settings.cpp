@@ -100,6 +100,20 @@ void Settings::addArrayData(QList<QString> keys, QList<QVariant> vals) {
     g->addArrayData(this->v_arrayN,keys,vals);
 }
 
+QVariant Settings::getBlockData(QString key,QVariant def) {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not get data [block]");
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr) {
+        throw QString("Group can not be found [get data block] ")+this->v_groupN+QString("/")+this->v_arrayN;
+    }
+
+    return g->blockData(key,def);
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

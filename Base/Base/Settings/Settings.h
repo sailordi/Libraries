@@ -65,6 +65,14 @@ public:
     */
     void addArrayData(QList<QString> keys,QList<QVariant> vals);
 
+    /*! Gets the data from a block for the current settings group
+     * \param key - String used fro the key
+     * \param def - Default value [Defaiult: QVariant()]
+     * \returns QVariant
+     * \throws QString
+    */
+    QVariant getBlockData(QString key,QVariant def = QVariant()  );
+
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
    bool v_write;
