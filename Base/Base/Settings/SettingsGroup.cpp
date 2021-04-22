@@ -73,3 +73,9 @@ void SettingsGroup::addArrayData(QString name,QList<QString> keys,QList<QVariant
 
         l->push_back(b);
 }
+
+QList<SettingsBlocks>* SettingsGroup::arrayData(QString name) {
+    SettingsKey n(name);
+
+        return this->v_arrays->value(n,nullptr);
+}

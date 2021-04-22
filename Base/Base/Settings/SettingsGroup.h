@@ -54,6 +54,12 @@ public:
     */
     void addArrayData(QString name,QList<QString> keys,QList<QVariant> vals);
 
+    /*! Returns the data from a settings array
+     * \param name - The array name
+     * \returns QList<SettingsBlocks>*
+    */
+    QList<SettingsBlocks>* arrayData(QString name);
+
 private:
     SettingsBlocks* v_blocks = nullptr;
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;
