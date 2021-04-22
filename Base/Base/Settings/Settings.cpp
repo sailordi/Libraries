@@ -83,6 +83,23 @@ void Settings::addBlockData(QString key,QVariant val) {
     g->addBlockData(key,val);
 }
 
+void Settings::addArrayData(QList<QString> keys, QList<QVariant> vals) {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not add data [array]");
+    }
+    if(this->v_arrayN.isEmpty() == true) {
+        throw QString("Array has not been started can not add data [array] "+this->v_groupN);
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr) {
+        throw QString("Group can not be found [add data array] ")+this->v_groupN+QString("/")+this->v_arrayN;
+    }
+
+    g->addArrayData(this->v_arrayN,keys,vals);
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

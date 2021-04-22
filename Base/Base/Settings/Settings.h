@@ -58,6 +58,12 @@ public:
      * \throws QString
     */
     void addBlockData(QString key,QVariant val);
+    /*! Adds data to a settings array for the current settings group
+     * \param keys - Strings used for the keys
+     * \param vals - The values
+     * \throws QString
+    */
+    void addArrayData(QList<QString> keys,QList<QVariant> vals);
 
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
