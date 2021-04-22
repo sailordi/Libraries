@@ -114,6 +114,48 @@ QVariant Settings::getBlockData(QString key,QVariant def) {
     return g->blockData(key,def);
 }
 
+QList<QList<QVariant> > Settings::getArrayData(QList<QString> keys,QList<QVariant> defs) {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not get data [get data array]");
+    }
+    if(this->v_arrayN.isEmpty() == true) {
+        throw QString("Array has not been started can not get data [get data array] "+this->v_groupN);
+    }
+
+    if(keys.size() != defs.size() ) {
+        throw QString("Keys and defs size has to be the same cannot get data [get data array] ")+QString::number(keys.size() )+" / "+QString::number(defs.size() );
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr) {
+        throw QString("Group can not be found [get data array] ")+this->v_groupN+QString("/")+this->v_arrayN;
+    }
+
+    QList<SettingsBlocks>* bL = g->arrayData(this->v_arrayN);
+    QList<QList<QVariant> > ret;
+
+    if(bL == nullptr || (bL != nullptr && bL->size() == 0) ) {
+        ret.push_back(defs);
+        return ret;
+    }
+
+    for(int i = 0; i < bL->size(); i++) {
+        QList<QVariant> tmp;
+        SettingsBlocks b = bL->at(i);
+
+        for(int j = 0; j < keys.size(); j++) {
+            QString k = keys.at(j);
+            QVariant d = defs.at(j);
+
+            tmp.push_back(b.value(k,d) );
+        }
+        ret.push_back(tmp);
+    }
+
+    return ret;
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

@@ -72,6 +72,13 @@ public:
      * \throws QString
     */
     QVariant getBlockData(QString key,QVariant def = QVariant()  );
+    /*! Gets the data from a settings array for the current settings group
+     * \param keys - Strings used for the keys
+     * \param defs - Default values
+     * \returns QList<QList<QVariant> >
+     * \throws QString
+    */
+    QList<QList<QVariant> > getArrayData(QList<QString> keys,QList<QVariant> defs);
 
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
