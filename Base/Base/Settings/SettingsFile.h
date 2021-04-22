@@ -33,6 +33,11 @@ public:
     /*! Deconstructor */
     ~SettingsFile();
 
+    /*! Check´s if the file is at end
+     * \returns bool
+    */
+    bool atEnd();
+
     /*! Check`s if the file is open
      * \returns bool
     */

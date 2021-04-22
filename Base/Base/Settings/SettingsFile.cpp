@@ -62,6 +62,17 @@ SettingsFile::~SettingsFile() {
 
 }
 
+bool SettingsFile::atEnd() {
+    if(this->v_f == nullptr) {
+        return false;
+    }
+    if(this->v_s == nullptr) {
+        return false;
+    }
+
+    return this->v_s->atEnd();
+}
+
 bool SettingsFile::open() {
     if(this->v_f == nullptr) {
         return false;
