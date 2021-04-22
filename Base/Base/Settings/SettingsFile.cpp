@@ -70,3 +70,12 @@ bool SettingsFile::isBlock(QString s) {
 
     return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\=") );
 }
+
+QStringList SettingsFile::separate(QString type,QString str) {
+    if(type.isEmpty() == false) {
+        str.replace(type,"");
+        str.replace("(","");
+        str.replace(")","");
+    }
+    return str.split(QRegExp("\\s+") );
+}

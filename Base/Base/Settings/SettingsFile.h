@@ -51,5 +51,12 @@ private:
     */
     bool isBlock(QString s);
 
+    /*! Separates a string into the variables in it
+     *  \param type - Type string that encapsulates the variables
+     *  \param str - String with variables
+     *  \returns QStringList
+    */
+    QStringList separate(QString type,QString str);
+
 };
 #endif // SETTINGSFILE_H
