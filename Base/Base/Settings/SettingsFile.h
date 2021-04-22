@@ -39,6 +39,12 @@ public:
      * \throws QString
     */
     void write(QString groupName,SettingsGroup* gD);
+    /*! Reads a settings group from the file
+     * \param groupName - The group's name
+     * \param gD - The settings group data
+     * \throws QString
+    */
+    void read(QString& groupName,SettingsGroup* gD);
 
     /*! Check´s if the file is at end
      * \returns bool

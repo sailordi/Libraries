@@ -104,6 +104,48 @@ void SettingsFile::write(QString groupName,SettingsGroup* gD) {
 
 }
 
+void SettingsFile::read(QString& groupName,SettingsGroup* gD) {
+    if(this->v_read == false) {
+        throw QString("SettingsFile is not in read mode");
+    }
+
+    QString str = "";
+    qint64 pos;
+    bool first = true;
+
+    do {
+        pos = this->v_s->pos();
+        str = this->v_s->readLine();
+
+        if(str.isEmpty() == true) {
+            return;
+        }
+
+        if(isGoup(str) == true && first == true) {
+            groupName = this->parseGroupName(str);
+        }
+        else if(isGoup(str) == true && first == false) {
+            this->v_s->seek(pos);
+            return;
+        }
+
+        if(isBlock(str) == true) {
+            this->parseBlock(str,gD);
+        }
+
+        if(isArray(str) == true) {
+            this->v_s->seek(pos);
+            this->parseArray(this->v_s,gD);
+        }
+
+        if(first == true) {
+            first = false;
+        }
+
+    }while(true);
+
+}
+
 bool SettingsFile::atEnd() {
     if(this->v_f == nullptr) {
         return false;
