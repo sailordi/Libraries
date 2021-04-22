@@ -5,13 +5,14 @@
 
 class QFile;
 class QTextStream;
+class QVariant;
 
 /*! \class SettingsFile
  * \brief The class handles writing/reading settings to/from a file
  *
  * Incudes: QString
  *
- * Forward declarations: QFile & QTextStream
+ * Forward declarations: QFile, QTextStream & QVariant
  *
  * \author Created by: Sailordi
  * \author Last to touch it: Sailordi
@@ -57,6 +58,12 @@ private:
      *  \returns QStringList
     */
     QStringList separate(QString type,QString str);
+
+    /*! Converts QVariant to QString
+     *  \param v - Variant to convert to QString
+     *  \returns QString
+    */
+    QString variantToString(QVariant v);
 
 };
 #endif // SETTINGSFILE_H
