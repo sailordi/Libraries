@@ -45,6 +45,11 @@ private:
      *  \returns bool
     */
     bool isArray(QString s);
+    /*! Checks if a string is a block
+     *  \param s - The string to check
+     *  \returns bool
+    */
+    bool isBlock(QString s);
 
 };
 #endif // SETTINGSFILE_H

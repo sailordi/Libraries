@@ -59,3 +59,14 @@ bool SettingsFile::isGoup(QString s) {
 bool SettingsFile::isArray(QString s) {
     return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\¤") );
 }
+
+bool SettingsFile::isBlock(QString s) {
+    if(this->isGoup(s) ==  true) {
+        return false;
+    }
+    if(this->isArray(s) == true) {
+        return false;
+    }
+
+    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\=") );
+}
