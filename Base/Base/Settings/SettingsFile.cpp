@@ -173,5 +173,50 @@ QString SettingsFile::parseGroupName(QString str) {
 void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
     QStringList l = str.split(QRegExp("\\=") );
 
-        (l.size() == 2) ? gD->addBlockData(l.first(),this->stringToVariant(l.last() ) ) : gD->addBlockData(l.first(),"");
+    (l.size() == 2) ? gD->addBlockData(l.first(),this->stringToVariant(l.last() ) ) : gD->addBlockData(l.first(),"");
+}
+
+void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
+    qint64 pos = s->pos();
+    QString currentLine = s->readLine();
+
+    QStringList l = currentLine.split(QRegExp("\\[|\\]") );
+    QString name = l.first();
+    int size = l.last().toInt();
+
+        for(int i = 0; i < size; i++) {
+            QList<QString> keys;
+            QList<QVariant> vals;
+            bool stopLoop = false;
+
+            do{
+                currentLine = s->readLine();
+                pos = s->pos();
+                QString nextLine = s->readLine();
+
+                QStringList c = currentLine.split(QRegExp("\\¤") );
+                int columns = c.takeFirst().toInt();
+
+                if(isArray(nextLine) == false && nextLine.isEmpty() == false) {
+                    QStringList n = nextLine.split(QRegExp("\\¤") );
+
+                    if(columns != n.first().toInt() ) {
+                        stopLoop = true;
+                    }
+                }
+                else {
+                    stopLoop = true;
+                }
+                QStringList d = c.first().split(QRegExp("\\=") );
+
+                keys.push_back(d.first() );
+                (d.size() == 2) ? vals.push_back(stringToVariant(d.last() ) ) : vals.push_back("");
+
+                s->seek(pos);
+
+            }while(stopLoop == false);
+
+            gD->addArrayData(name,keys,vals);
+        }
+
 }

@@ -89,6 +89,11 @@ private:
      *  \param gD - Group to add block to
     */
     void parseBlock(QString str,SettingsGroup* gD);
+    /*! Parses settings array from a string
+     *  \param s - Textstream to parse array from
+     *  \param gD - Group to add array to
+    */
+    void parseArray(QTextStream* s,SettingsGroup* gD);
 
 };
 #endif // SETTINGSFILE_H
