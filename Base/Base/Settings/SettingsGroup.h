@@ -42,6 +42,10 @@ public:
      */
     QVariant blockData(QString key,QVariant def = QVariant() );
 
+    /*! Returns all keys for the setting blocks
+     * \returns QList<SettingsKey>
+    */
+    QList<SettingsKey> blockKeys();
 
 private:
     SettingsBlocks* v_blocks = nullptr;

@@ -41,3 +41,7 @@ QVariant SettingsGroup::blockData(QString key,QVariant def) {
 
         return this->v_blocks->value(k,def);
 }
+
+QList<SettingsKey> SettingsGroup::blockKeys() {
+    return this->v_blocks->keys();
+}
