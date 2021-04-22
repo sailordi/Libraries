@@ -47,5 +47,10 @@ private:
    */
    void save();
 
+   /*! Gets the currently active settings group
+   * \returns SettingsGroup*
+   */
+   SettingsGroup* currentGroup();
+
 };
 #endif // SETTINGS_H

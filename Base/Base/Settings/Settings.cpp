@@ -78,3 +78,9 @@ void Settings::save() {
     }
 
 }
+
+SettingsGroup* Settings::currentGroup() {
+    SettingsKey cK(this->v_groupN);
+
+        return this->v_groups->value(cK,nullptr);
+}
