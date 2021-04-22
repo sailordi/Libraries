@@ -77,5 +77,11 @@ private:
     */
     void writeKeyValue(QTextStream* s,QString key,QVariant val);
 
+    /*! Parses a group name from a string
+     *  \param str - The string to parse group name from
+     *  \returns QString
+    */
+    QString parseGroupName(QString str);
+
 };
 #endif // SETTINGSFILE_H

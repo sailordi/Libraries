@@ -161,3 +161,10 @@ QVariant SettingsFile::stringToVariant(QString s) {
 void SettingsFile::writeKeyValue(QTextStream* s,QString key,QVariant val) {
     *s<<key<<QString("=")<<this->variantToString(val)<<Helper::newRow();
 }
+
+QString SettingsFile::parseGroupName(QString str) {
+    str.replace("[","");
+    str.replace("]","");
+
+    return str;
+}
