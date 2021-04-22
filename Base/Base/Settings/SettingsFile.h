@@ -64,6 +64,11 @@ private:
      *  \returns QString
     */
     QString variantToString(QVariant v);
+    /*! Converts QVariant to QString
+     *  \param s - String to convert to QVariant
+     *  \returns QVariant
+    */
+    QVariant stringToVariant(QString s);
 
 };
 #endif // SETTINGSFILE_H

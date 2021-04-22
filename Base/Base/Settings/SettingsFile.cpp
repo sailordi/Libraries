@@ -121,3 +121,37 @@ QString SettingsFile::variantToString(QVariant v) {
     }
 
 }
+
+QVariant SettingsFile::stringToVariant(QString s) {
+    if(s.contains(QRegExp("\\@") ) == false)  { return QVariant(s); }
+    if(s.contains(QRegExp("\\@Invalid") ) == true)  { return QVariant(); }
+
+    if(s.contains("@RectF") == true) {
+        QStringList l = this->separate("@RectF",s);
+        return QVariant(QRectF(l.at(0).toDouble(),l.at(1).toDouble(),l.at(2).toDouble(),l.at(3).toDouble() ) );
+    }
+    if(s.contains("@Rect") == true) {
+        QStringList l = this->separate("@Rect",s);
+        return QVariant(QRect(l.at(0).toInt(),l.at(1).toInt(),l.at(2).toInt(),l.at(3).toInt() ) );
+    }
+
+    if(s.contains("@SizeF") == true) {
+        QStringList l = this->separate("@SizeF",s);
+        return QVariant(QSizeF(l.at(0).toDouble(),l.at(1).toDouble() ) );
+    }
+    if(s.contains("@Size") == true) {
+        QStringList l = this->separate("@Size",s);
+        return QVariant(QSize(l.at(0).toInt(),l.at(1).toInt() ) );
+    }
+
+    if(s.contains("@PointF") == true) {
+        QStringList l = this->separate("@PointF",s);
+        return QVariant(QPointF(l.at(0).toDouble(),l.at(1).toDouble() ) );
+    }
+    if(s.contains("@Point") == true) {
+        QStringList l = this->separate("@Point",s);
+        return QVariant(QPoint(l.at(0).toInt(),l.at(1).toInt() ) );
+    }
+
+    return QVariant();
+}
