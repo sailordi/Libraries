@@ -13,7 +13,8 @@ SOURCES += \
     Base/LayoutWidget/SingleLayoutWidget.cpp \
     Base/Other/Helper.cpp \
     Base/Other/QStringStream.cpp \
-    Base/Other/Translator.cpp
+    Base/Other/Translator.cpp \
+    Base/Settings/SettingsGroup.cpp
 
 HEADERS += \
     Base/LayoutWidget/MultiLayoutWidget.h \
@@ -21,7 +22,8 @@ HEADERS += \
     Base/Other/CustomIndexedKey.h \
     Base/Other/Helper.h \
     Base/Other/QStringStream.h \
-    Base/Other/Translator.h
+    Base/Other/Translator.h \
+    Base/Settings/SettingsGroup.h
 
 # Default rules for deployment.
 unix {
