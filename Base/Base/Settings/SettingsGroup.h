@@ -34,4 +34,8 @@ private:
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;
 
 };
+
+inline uint qHash(const SettingsKey& c,uint seed) {
+    return qHash(c.keyC(),seed);
+}
 #endif // SETTINGSGROUP_H
