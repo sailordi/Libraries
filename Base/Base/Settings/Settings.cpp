@@ -156,6 +156,29 @@ QList<QList<QVariant> > Settings::getArrayData(QList<QString> keys,QList<QVarian
     return ret;
 }
 
+int Settings::arraySize() {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not get array size");
+    }
+    if(this->v_arrayN.isEmpty() == true) {
+        throw QString("Array has not been started can not get array size "+this->v_groupN);
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr) {
+        throw QString("Group can not be found [get array size] ")+this->v_groupN+QString("/")+this->v_arrayN;
+    }
+
+    QList<SettingsBlocks>* bL = g->arrayData(this->v_arrayN);
+
+    if(bL == nullptr) {
+        return -1;
+    }
+
+    return bL->size();
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

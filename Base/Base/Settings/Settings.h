@@ -80,6 +80,12 @@ public:
     */
     QList<QList<QVariant> > getArrayData(QList<QString> keys,QList<QVariant> defs);
 
+    /*! Gets the size of a settings array for the current settings group
+     * \returns int
+     * \throws QString
+    */
+    int arraySize();
+
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
    bool v_write;
