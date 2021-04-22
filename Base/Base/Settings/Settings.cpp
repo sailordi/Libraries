@@ -69,6 +69,20 @@ void Settings::endArray() {
     this->v_arrayN = "";
 }
 
+void Settings::addBlockData(QString key,QVariant val) {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not add data [block]");
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr) {
+        throw QString("Group can not be found [add data block] ")+this->v_groupN;
+    }
+
+    g->addBlockData(key,val);
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

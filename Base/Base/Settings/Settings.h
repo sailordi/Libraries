@@ -52,6 +52,13 @@ public:
     */
     void endArray();
 
+    /*! Adds data to a block for the current settings group
+     * \param key - String used for the key
+     * \param val - The value
+     * \throws QString
+    */
+    void addBlockData(QString key,QVariant val);
+
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
    bool v_write;
