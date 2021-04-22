@@ -36,6 +36,17 @@ void Settings::startGroup(QString groupName) {
 
 }
 
+void Settings::endGroup() {
+    if(this->v_groupN.isEmpty() == true) {
+        throw QString("Group has not been started can not end group");
+    }
+    if(this->v_arrayN.isEmpty() == false) {
+        throw QString("Array has not been ended can not end group");
+    }
+
+    this->v_groupN = "";
+}
+
 //Private functions
 void Settings::load() {
     SettingsFile f(this->v_file,true);

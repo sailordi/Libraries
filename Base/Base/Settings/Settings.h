@@ -37,6 +37,10 @@ public:
     * \throws QString
    */
    void startGroup(QString groupName);
+   /*! Ends the group
+    * \throws QString
+   */
+   void endGroup();
 
 private:
    QString v_file = "",v_groupN = "",v_arrayN = "";
