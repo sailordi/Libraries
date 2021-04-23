@@ -14,3 +14,10 @@ MutexTryLocker::MutexTryLocker(QMutex* m,int ms,bool lock,QObject* parent) : QOb
 MutexTryLocker::~MutexTryLocker() {
 
 }
+
+void MutexTryLocker::lock(QMutex* m,int ms) {
+    this->v_ms = ms;
+    this->v_m = m;
+
+    this->v_locked = this->v_m->tryLock(this->v_ms);
+}

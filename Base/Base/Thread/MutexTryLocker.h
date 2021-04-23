@@ -35,6 +35,12 @@ public:
     /*! Deconstructor */
     ~MutexTryLocker();
 
+    /*! Sets the mutex and locks it
+     * \param m - Mutex to be locked
+     * \param ms - Milliseconds to lock [Default: -1]
+    */
+    void lock(QMutex* m,int ms = -1);
+
 public slots:
 
 private:
