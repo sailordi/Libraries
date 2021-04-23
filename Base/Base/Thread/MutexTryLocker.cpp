@@ -7,7 +7,7 @@ MutexTryLocker::MutexTryLocker(QObject* parent) : QObject(parent) {
 
 MutexTryLocker::MutexTryLocker(QMutex* m,int ms,bool lock,QObject* parent) : QObject(parent),v_m(m),v_ms(ms) {
     if(lock == true) {
-        this->v_locked = this->v_m->tryLock(this->v_ms);
+        this->relock();
     }
 }
 
@@ -19,5 +19,14 @@ void MutexTryLocker::lock(QMutex* m,int ms) {
     this->v_ms = ms;
     this->v_m = m;
 
+    this->relock();
+}
+
+void MutexTryLocker::relock() {
     this->v_locked = this->v_m->tryLock(this->v_ms);
+}
+
+void MutexTryLocker::relock(int ms) {
+    this->v_ms = ms;
+    this->relock();
 }

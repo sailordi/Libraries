@@ -41,6 +41,13 @@ public:
     */
     void lock(QMutex* m,int ms = -1);
 
+    /*! Locks the mutex for the current amount of time */
+    void relock();
+    /*! Locks the mutex for the x amount of time
+     * \param ms - Milliseconds to lock
+    */
+    void relock(int ms);
+
 public slots:
 
 private:
