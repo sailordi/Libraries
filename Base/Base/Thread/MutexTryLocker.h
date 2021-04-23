@@ -54,6 +54,8 @@ public:
     bool locked();
 
 public slots:
+    /*! Unlocks the mutex */
+    void unlock();
 
 private:
     QMutex* v_m = nullptr;

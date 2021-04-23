@@ -34,3 +34,11 @@ void MutexTryLocker::relock(int ms) {
 bool MutexTryLocker::locked() {
     return this->v_locked;
 }
+
+//Public slots:
+void MutexTryLocker::unlock() {
+    if(this->v_locked == true) {
+        this->v_m->unlock();
+        this->v_locked = false;
+    }
+}
