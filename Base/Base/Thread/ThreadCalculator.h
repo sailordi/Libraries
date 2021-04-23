@@ -21,5 +21,15 @@ namespace ThreadCalculator {
     */
     int calculateThreads(int size,int& workload,int maxThreads,int& to,int& toModifier);
 
+    /*! Updates from and to position for the data
+     * \param size - The data size
+     * \param workload - The workload per thread
+     * \param from - The position to loop from
+     * \param to - The position to loop to
+     * \param toModifier - The amount to should be modified every time
+     * \param toLimit - If threads run to max amount of threads
+    */
+    void updateToFrom(int size,int workload,int& from,int& to,int toModifier,bool toLimit);
+
 };
 #endif // THREADCALCULATOR_H

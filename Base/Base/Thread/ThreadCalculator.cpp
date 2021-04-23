@@ -30,3 +30,20 @@ int ThreadCalculator::calculateThreads(int size,int& workload,int maxThreads,int
 
         return t;
 }
+
+void ThreadCalculator::updateToFrom(int size,int workload,int& from,int& to,int toModifier,bool toLimit) {
+    from = to;
+    to = to+toModifier;
+
+    if(toLimit == true) {
+        return;
+    }
+
+    if(to > size) {
+        to = size;
+    }
+    else if(size - to < workload) {
+        to = size;
+    }
+
+}
