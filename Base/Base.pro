@@ -17,7 +17,8 @@ SOURCES += \
     Base/Settings/Settings.cpp \
     Base/Settings/SettingsFile.cpp \
     Base/Settings/SettingsGroup.cpp \
-    Base/Thread/MutexTryLocker.cpp
+    Base/Thread/MutexTryLocker.cpp \
+    Base/Thread/ThreadCalculator.cpp
 
 HEADERS += \
     Base/LayoutWidget/MultiLayoutWidget.h \
@@ -29,7 +30,8 @@ HEADERS += \
     Base/Settings/Settings.h \
     Base/Settings/SettingsFile.h \
     Base/Settings/SettingsGroup.h \
-    Base/Thread/MutexTryLocker.h
+    Base/Thread/MutexTryLocker.h \
+    Base/Thread/ThreadCalculator.h
 
 # Default rules for deployment.
 unix {
