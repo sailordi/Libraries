@@ -48,6 +48,11 @@ public:
     */
     void relock(int ms);
 
+    /*! Checks if the mutex is locked
+     * \returns bool
+    */
+    bool locked();
+
 public slots:
 
 private:

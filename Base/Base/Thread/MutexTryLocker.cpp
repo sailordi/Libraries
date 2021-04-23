@@ -30,3 +30,7 @@ void MutexTryLocker::relock(int ms) {
     this->v_ms = ms;
     this->relock();
 }
+
+bool MutexTryLocker::locked() {
+    return this->v_locked;
+}
