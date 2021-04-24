@@ -40,6 +40,10 @@ public:
      * \param data - The data
     */
     void addData(int pos,QString data);
+    /*! Adds data to the beginning of the combo box
+     * \param data - The data
+    */
+    void addDataBeginning(QString data);
 
 protected:
     bool v_del = true;

@@ -40,3 +40,7 @@ void ComboBoxAdapter::addData(int pos,QString data) {
     this->v_model->setData(this->v_model->index(pos),data);
     this->v_model->setData(this->v_model->index(pos),Qt::AlignCenter,Qt::TextAlignmentRole);
 }
+
+void ComboBoxAdapter::addDataBeginning(QString data) {
+    this->addData(0,data);
+}
