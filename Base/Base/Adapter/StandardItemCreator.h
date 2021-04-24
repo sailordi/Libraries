@@ -1,6 +1,10 @@
 #ifndef STANDARDITEMCREATOR_H
 #define STANDARDITEMCREATOR_H
 
+#include <QList>
+#include <QStandardItem>
+#include <QVariant>
+
 /*! \class StandardItemCreator
  * \brief The class is used for creating QStandardItems
  *
@@ -17,6 +21,13 @@ public:
     StandardItemCreator();
     /*! Deconstructor */
     virtual ~StandardItemCreator();
+
+    /*! Creates a editable standard item
+     * \param data - The data for the column
+     * \param aligment - The text aligment
+     * \returns QStandardItem*
+    */
+    virtual QStandardItem* editable(QVariant data,Qt::AlignmentFlag aligment);
 
 };
 #endif // STANDARDITEMCREATOR_H
