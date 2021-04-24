@@ -76,6 +76,11 @@ public:
     /*! Clear´s all data from the combo box */
     void clear();
 
+    /*! Returns the combo box
+     * \returns QComboBox*
+    */
+    QComboBox* box();
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;

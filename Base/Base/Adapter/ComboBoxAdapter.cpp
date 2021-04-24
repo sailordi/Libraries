@@ -96,3 +96,7 @@ void ComboBoxAdapter::clear() {
     }
 
 }
+
+QComboBox* ComboBoxAdapter::box() {
+    return this->v_box;
+}
