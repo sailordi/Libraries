@@ -63,6 +63,11 @@ public:
     */
     QString selectedText();
 
+    /*! Returns amount of rows in combo box
+     * \returns int
+    */
+    int rows();
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;

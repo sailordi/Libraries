@@ -77,3 +77,7 @@ QString ComboBoxAdapter::selectedText() {
 
     return this->v_box->currentText();
 }
+
+int ComboBoxAdapter::rows() {
+    return this->v_model->rowCount();
+}
