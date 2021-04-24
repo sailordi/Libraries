@@ -30,3 +30,13 @@ ComboBoxAdapter::~ComboBoxAdapter() {
     }
 
 }
+
+void ComboBoxAdapter::addData(int pos,QString data) {
+    if(this->v_first.isEmpty() == false) {
+        pos += 1;
+    }
+
+    this->v_model->insertRow(pos);
+    this->v_model->setData(this->v_model->index(pos),data);
+    this->v_model->setData(this->v_model->index(pos),Qt::AlignCenter,Qt::TextAlignmentRole);
+}

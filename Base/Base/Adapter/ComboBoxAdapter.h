@@ -35,6 +35,12 @@ public:
     /*! Deconstructor */
     ~ComboBoxAdapter();
 
+    /*! Adds data to the combo box at a certain position
+     * \param pos - The position
+     * \param data - The data
+    */
+    void addData(int pos,QString data);
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;
