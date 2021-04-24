@@ -36,5 +36,12 @@ public:
     */
     virtual QStandardItem* nonEditable(QVariant data,Qt::AlignmentFlag aligment);
 
+    /*! Creates a editable checkbox standard item
+     * \param data - The data for the column
+     * \param aligment - The text aligment
+     * \returns QStandardItem*
+    */
+    virtual QStandardItem* checkEdit(QVariant data,Qt::AlignmentFlag aligment);
+
 };
 #endif // STANDARDITEMCREATOR_H
