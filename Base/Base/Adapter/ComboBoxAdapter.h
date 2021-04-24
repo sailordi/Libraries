@@ -68,6 +68,11 @@ public:
     */
     int rows();
 
+    /*! Returns a list of all the combo box data
+     * \returns QStringList
+    */
+    QStringList data();
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;

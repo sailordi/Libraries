@@ -81,3 +81,7 @@ QString ComboBoxAdapter::selectedText() {
 int ComboBoxAdapter::rows() {
     return this->v_model->rowCount();
 }
+
+QStringList ComboBoxAdapter::data() {
+    return this->v_model->stringList();
+}
