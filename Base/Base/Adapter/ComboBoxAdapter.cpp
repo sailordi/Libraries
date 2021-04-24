@@ -50,3 +50,14 @@ void ComboBoxAdapter::addDataEnd(QString data) {
 
     this->addData(pos,data);
 }
+
+void ComboBoxAdapter::removeData(int pos) {
+    if(this->v_first.isEmpty() == false && pos <= 0) {
+        return;
+    }
+    else if(this->v_first.isEmpty() == true && pos < 0) {
+        return;
+    }
+
+    this->v_model->removeRow(pos);
+}

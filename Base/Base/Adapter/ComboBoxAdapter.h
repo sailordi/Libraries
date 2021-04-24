@@ -49,6 +49,11 @@ public:
     */
     void addDataEnd(QString data);
 
+    /*! Removes data from the combo box at a certain position
+     * \param pos - The position
+    */
+    void removeData(int pos);
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;
