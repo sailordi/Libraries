@@ -44,6 +44,10 @@ public:
      * \param data - The data
     */
     void addDataBeginning(QString data);
+    /*! Adds data to the end of the combo box
+     * \param data - The data
+    */
+    void addDataEnd(QString data);
 
 protected:
     bool v_del = true;

@@ -44,3 +44,9 @@ void ComboBoxAdapter::addData(int pos,QString data) {
 void ComboBoxAdapter::addDataBeginning(QString data) {
     this->addData(0,data);
 }
+
+void ComboBoxAdapter::addDataEnd(QString data) {
+    int pos = (this->v_first.isEmpty() == false) ? this->v_model->rowCount()-1 : this->v_model->rowCount();
+
+    this->addData(pos,data);
+}
