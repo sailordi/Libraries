@@ -16,6 +16,8 @@ ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,QString first) {
 
     this->v_box->setModel(this->v_model);
 
+    this->clear();
+
     this->v_del = del;
 
 }
@@ -84,4 +86,13 @@ int ComboBoxAdapter::rows() {
 
 QStringList ComboBoxAdapter::data() {
     return this->v_model->stringList();
+}
+
+void ComboBoxAdapter::clear() {
+    this->v_model->removeRows(0,this->v_model->rowCount() );
+
+    if(this->v_first.isEmpty() == false) {
+        this->addData(-1,this->v_first);
+    }
+
 }

@@ -73,6 +73,9 @@ public:
     */
     QStringList data();
 
+    /*! Clear´s all data from the combo box */
+    void clear();
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;
