@@ -58,6 +58,10 @@ public:
      * \returns int
     */
     int selectedRow();
+    /*! Returns selected text
+     * \returns QString
+    */
+    QString selectedText();
 
 protected:
     bool v_del = true;

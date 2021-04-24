@@ -69,3 +69,11 @@ int ComboBoxAdapter::selectedRow() {
 
     return this->v_box->currentIndex();
 }
+
+QString ComboBoxAdapter::selectedText() {
+    if(this->v_model->rowCount() <= 0) {
+        return "";
+    }
+
+    return this->v_box->currentText();
+}
