@@ -9,6 +9,7 @@ CONFIG(release,debug|release)   { TARGET = Base }
 CONFIG(debug,debug|release)     { TARGET = Base_D }
 
 SOURCES += \
+    Base/Adapter/ComboBoxAdapter.cpp \
     Base/LayoutWidget/MultiLayoutWidget.cpp \
     Base/LayoutWidget/SingleLayoutWidget.cpp \
     Base/Other/Helper.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     Base/Thread/ThreadCalculator.cpp
 
 HEADERS += \
+    Base/Adapter/ComboBoxAdapter.h \
     Base/LayoutWidget/MultiLayoutWidget.h \
     Base/LayoutWidget/SingleLayoutWidget.h \
     Base/Other/CustomIndexedKey.h \
