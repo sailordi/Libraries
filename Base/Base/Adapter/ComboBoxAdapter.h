@@ -54,6 +54,11 @@ public:
     */
     void removeData(int pos);
 
+    /*! Returns selected row position
+     * \returns int
+    */
+    int selectedRow();
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;
