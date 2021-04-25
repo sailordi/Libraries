@@ -64,6 +64,11 @@ public:
      * \returns QList<int>
     */
     QList<int> selectedRowsPosition(bool clearSelection = true);
+    /*! Returns the selected rows indexes
+     * \param clearSelection - Option to clear the views selection [Default: true]
+     * \returns QModelIndexList
+    */
+    QModelIndexList selectedIndexs(bool clearSelection = true);
 
 protected:
     bool v_del;
