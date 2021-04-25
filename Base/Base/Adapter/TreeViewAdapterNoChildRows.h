@@ -46,5 +46,11 @@ protected:
     QStandardItemModel* v_model = nullptr;
     StandardItemCreator* v_itemCreator = nullptr;
 
+    /*! General function for generating columns
+     * \param l - Column item list
+     * \param data - The data to turn into columns
+    */
+    virtual void generateColumns(QList<QStandardItem*>& l,QList<QVariant> data);
+
 };
 #endif // TREEVIEWADAPTERNOCHILDROWS_H
