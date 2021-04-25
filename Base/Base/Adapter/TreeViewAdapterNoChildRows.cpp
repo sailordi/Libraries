@@ -126,6 +126,13 @@ void TreeViewAdapterNoChildRows::setHeaders(QList<QFlags<Qt::AlignmentFlag> > al
 
 }
 
+void TreeViewAdapterNoChildRows::setItemCreator(StandardItemCreator* itemCreator,bool deleteOld) {
+    if(deleteOld == true) {
+        delete this->v_itemCreator;
+    }
+    this->v_itemCreator = itemCreator;
+}
+
 //Protected functions
 void TreeViewAdapterNoChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {
