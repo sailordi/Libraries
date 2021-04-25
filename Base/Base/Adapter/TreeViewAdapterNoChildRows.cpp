@@ -63,6 +63,25 @@ void TreeViewAdapterNoChildRows::removeData(int pos) {
     this->v_model->removeRow(pos);
 }
 
+QList<int> TreeViewAdapterNoChildRows::selectedRowsPosition(bool clearSelection) {
+    QList<int> ret;
+    QModelIndexList l = this->v_view->selectionModel()->selectedRows();
+
+        if(l.isEmpty() == true) {
+            return ret;
+        }
+
+        if(clearSelection == true) {
+            this->v_view->selectionModel()->clearSelection();
+        }
+
+        for(int i = 0; i < l.size(); i++) {
+            ret.push_back(l.at(i).row() );
+        }
+
+        return ret;
+}
+
 //Protected functions
 void TreeViewAdapterNoChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {

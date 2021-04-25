@@ -59,6 +59,12 @@ public:
     */
     virtual void removeData(int pos);
 
+    /*! Returns the selected rows position
+     * \param clearSelection - Option to clear the views selection [Default: true]
+     * \returns QList<int>
+    */
+    QList<int> selectedRowsPosition(bool clearSelection = true);
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
