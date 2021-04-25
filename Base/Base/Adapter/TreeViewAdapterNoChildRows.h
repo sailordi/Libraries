@@ -49,6 +49,10 @@ public:
      * \param data - The data
     */
     virtual void addDataBeginning(QList<QVariant> data);
+    /*! Adds data to the end of the view
+     * \param data - The data
+    */
+    virtual void addDataEnd(QList<QVariant> data);
 
 protected:
     bool v_del;

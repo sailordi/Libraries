@@ -55,6 +55,10 @@ void TreeViewAdapterNoChildRows::addDataBeginning(QList<QVariant> data) {
     this->addData(0,data);
 }
 
+void TreeViewAdapterNoChildRows::addDataEnd(QList<QVariant> data) {
+    this->addData(this->v_model->rowCount(),data);
+}
+
 //Protected functions
 void TreeViewAdapterNoChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {
