@@ -54,6 +54,11 @@ public:
     */
     virtual void addDataEnd(QList<QVariant> data);
 
+    /*! Removes a row
+     * \param pos - The position
+    */
+    virtual void removeData(int pos);
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
