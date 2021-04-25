@@ -40,6 +40,12 @@ public:
     /*! Deconstructor */
     virtual ~TreeViewAdapterNoChildRows();
 
+    /*! Adds data to the view at a certain position
+     * \param pos - The position
+     * \param data - The data
+    */
+    virtual void addData(int pos,QList<QVariant> data);
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
