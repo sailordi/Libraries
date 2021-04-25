@@ -137,6 +137,13 @@ void TreeViewAdapterNoChildRows::clear() {
     this->v_model->removeRows(0,this->rows() );
 }
 
+void TreeViewAdapterNoChildRows::resize() {
+    for(int i = 0; i < this->v_model->columnCount(); i++) {
+        this->v_view->resizeColumnToContents(i);
+    }
+
+}
+
 //Protected functions
 void TreeViewAdapterNoChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {

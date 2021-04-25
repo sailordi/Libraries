@@ -90,6 +90,9 @@ public:
     /*! Clear´s all rows from the view */
     void clear();
 
+    /*! Resizes all columns to fit the content inside them */
+    void resize();
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
