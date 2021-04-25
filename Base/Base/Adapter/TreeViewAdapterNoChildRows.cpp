@@ -133,6 +133,10 @@ void TreeViewAdapterNoChildRows::setItemCreator(StandardItemCreator* itemCreator
     this->v_itemCreator = itemCreator;
 }
 
+void TreeViewAdapterNoChildRows::clear() {
+    this->v_model->removeRows(0,this->rows() );
+}
+
 //Protected functions
 void TreeViewAdapterNoChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {

@@ -87,6 +87,9 @@ public:
     */
     void setItemCreator(StandardItemCreator* itemCreator,bool deleteOld = true);
 
+    /*! Clear´s all rows from the view */
+    void clear();
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
