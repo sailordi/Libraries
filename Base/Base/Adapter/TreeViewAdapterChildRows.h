@@ -60,6 +60,11 @@ public:
     */
     QModelIndexList selectedIndexs(bool clearSelection = true);
 
+    /*! Returns number of rows in view
+     * \returns int
+    */
+    virtual int rows();
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;

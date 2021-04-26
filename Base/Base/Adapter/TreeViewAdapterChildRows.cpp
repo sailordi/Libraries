@@ -82,6 +82,10 @@ QModelIndexList TreeViewAdapterChildRows::selectedIndexs(bool clearSelection) {
         return l;
 }
 
+int TreeViewAdapterChildRows::rows() {
+    return this->v_model->rowCount();
+}
+
 //Protected functions
 void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {
