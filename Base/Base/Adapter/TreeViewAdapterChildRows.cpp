@@ -58,6 +58,16 @@ QModelIndex TreeViewAdapterChildRows::addData(int pos,QList<QVariant> data,QMode
         return this->v_model->index(pos,0,parentIndex);
 }
 
+void TreeViewAdapterChildRows::removeRow(int pos,QModelIndex parentIndex) {
+    if(this->v_model->itemFromIndex(parentIndex) != nullptr) {
+        this->v_model->itemFromIndex(parentIndex)->removeRow(pos);
+    }
+    else {
+        this->v_model->removeRow(pos);
+    }
+
+}
+
 //Protected functions
 void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {

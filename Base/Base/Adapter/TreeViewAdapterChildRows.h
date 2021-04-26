@@ -48,6 +48,12 @@ public:
     */
     virtual QModelIndex addData(int pos,QList<QVariant> data,QModelIndex parentIndex = QModelIndex() );
 
+    /*! Removes a row
+     * \param pos - The position
+     * \param parentIndex - The parent index [Default: QModelIndex()]
+    */
+    virtual void removeRow(int pos,QModelIndex parentIndex = QModelIndex() );
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
