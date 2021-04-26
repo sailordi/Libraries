@@ -4,8 +4,8 @@
 
 //Public functions
 SettingsGroup::SettingsGroup() {
-    this->v_blocks = new Blocks();
-    this->v_arrays = new QHash<CustomKey,QList<Blocks>*>();
+    this->v_blocks = new SettingsBlocks();
+    this->v_arrays = new QHash<SettingsKey,QList<SettingsBlocks>*>();
 }
 
 SettingsGroup::~SettingsGroup() {
