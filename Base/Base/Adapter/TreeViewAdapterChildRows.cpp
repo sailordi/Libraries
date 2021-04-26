@@ -119,6 +119,10 @@ void TreeViewAdapterChildRows::setItemCreator(StandardItemCreator* itemCreator,b
     this->v_itemCreator = itemCreator;
 }
 
+void TreeViewAdapterChildRows::clear() {
+    this->v_model->removeRows(0,this->rows() );
+}
+
 //Protected functions
 void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {
