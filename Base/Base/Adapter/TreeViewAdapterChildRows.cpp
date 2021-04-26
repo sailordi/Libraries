@@ -123,6 +123,10 @@ void TreeViewAdapterChildRows::clear() {
     this->v_model->removeRows(0,this->rows() );
 }
 
+QTreeView* TreeViewAdapterChildRows::view() {
+    return this->v_view;
+}
+
 //Protected functions
 void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {

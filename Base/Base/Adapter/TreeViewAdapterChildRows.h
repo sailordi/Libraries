@@ -80,6 +80,11 @@ public:
     /*! Clear´s all rows from the view */
     void clear();
 
+    /*! Returns the view
+     * \returns QTreeView*
+    */
+    QTreeView* view();
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
