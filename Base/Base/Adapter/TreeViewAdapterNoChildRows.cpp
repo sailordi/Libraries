@@ -144,6 +144,10 @@ void TreeViewAdapterNoChildRows::resize() {
 
 }
 
+QTreeView* TreeViewAdapterNoChildRows::view() {
+    return this->v_view;
+}
+
 //Protected functions
 void TreeViewAdapterNoChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {

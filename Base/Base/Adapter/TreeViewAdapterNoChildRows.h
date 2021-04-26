@@ -21,7 +21,7 @@ class StandardItemCreator;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-25
- * \date Last update: 2021-04-25
+ * \date Last update: 2021-04-26
 */
 class TreeViewAdapterNoChildRows
 {
@@ -92,6 +92,11 @@ public:
 
     /*! Resizes all columns to fit the content inside them */
     void resize();
+
+    /*! Returns the view
+     * \returns QTreeView*
+    */
+    QTreeView* view();
 
 protected:
     bool v_del;
