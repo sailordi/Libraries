@@ -40,6 +40,14 @@ public:
     /*! Deconstructor */
     virtual ~TreeViewAdapterChildRows();
 
+    /*! Adds data to the view at a certain position
+     * \param pos - The position
+     * \param data - The data
+     * \param parentIndex - The parent index [Default: QModelIndex()]
+     * \returns QModelIndex
+    */
+    virtual QModelIndex addData(int pos,QList<QVariant> data,QModelIndex parentIndex = QModelIndex() );
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;

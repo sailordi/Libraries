@@ -43,6 +43,21 @@ TreeViewAdapterChildRows::~TreeViewAdapterChildRows() {
 
 }
 
+QModelIndex TreeViewAdapterChildRows::addData(int pos,QList<QVariant> data,QModelIndex parentIndex) {
+    QList<QStandardItem*> list;
+
+        this->generateColumns(list,data);
+
+        if(this->v_model->itemFromIndex(parentIndex) != nullptr) {
+            this->v_model->itemFromIndex(parentIndex)->insertRow(pos,list);
+        }
+        else {
+            this->v_model->insertRow(pos,list);
+        }
+
+        return this->v_model->index(pos,0,parentIndex);
+}
+
 //Protected functions
 void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {
