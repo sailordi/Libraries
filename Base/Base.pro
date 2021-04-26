@@ -11,6 +11,7 @@ CONFIG(debug,debug|release)     { TARGET = Base_D }
 SOURCES += \
     Base/Adapter/ComboBoxAdapter.cpp \
     Base/Adapter/StandardItemCreator.cpp \
+    Base/Adapter/TreeViewAdapterChildRows.cpp \
     Base/Adapter/TreeViewAdapterNoChildRows.cpp \
     Base/LayoutWidget/MultiLayoutWidget.cpp \
     Base/LayoutWidget/SingleLayoutWidget.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 HEADERS += \
     Base/Adapter/ComboBoxAdapter.h \
     Base/Adapter/StandardItemCreator.h \
+    Base/Adapter/TreeViewAdapterChildRows.h \
     Base/Adapter/TreeViewAdapterNoChildRows.h \
     Base/LayoutWidget/MultiLayoutWidget.h \
     Base/LayoutWidget/SingleLayoutWidget.h \
