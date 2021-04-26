@@ -65,6 +65,12 @@ public:
     */
     virtual int rows();
 
+    /*! Set´s the views heders
+     * \param aligments - Aligment flags
+     * \param headers - The headers
+    */
+    virtual void setHeaders(QList<QFlags<Qt::AlignmentFlag> > aligments,QStringList headers);
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;

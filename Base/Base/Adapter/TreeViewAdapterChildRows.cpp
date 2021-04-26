@@ -86,6 +86,32 @@ int TreeViewAdapterChildRows::rows() {
     return this->v_model->rowCount();
 }
 
+void TreeViewAdapterChildRows::setHeaders(QList<QFlags<Qt::AlignmentFlag> > aligments,QStringList headers) {
+    this->v_model->setColumnCount(0);
+
+    if(headers.isEmpty() == true) {
+        return;
+    }
+
+    this->v_model->setHorizontalHeaderLabels(headers);
+
+    if(aligments.isEmpty() == true) {
+        return;
+    }
+
+    for(int i = 0; i < headers.size(); i++) {
+        if(aligments.size() > 0) {
+            QFlags<Qt::AlignmentFlag> f = aligments.takeFirst();
+            this->v_model->horizontalHeaderItem(i)->setTextAlignment(f);
+        }
+        else {
+            return;
+        }
+
+    }
+
+}
+
 //Protected functions
 void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
     for(int i = 0; i < data.size(); i++) {
