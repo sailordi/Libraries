@@ -42,3 +42,11 @@ TreeViewAdapterChildRows::~TreeViewAdapterChildRows() {
     }
 
 }
+
+//Protected functions
+void TreeViewAdapterChildRows::generateColumns(QList<QStandardItem*>& l,QList<QVariant> data) {
+    for(int i = 0; i < data.size(); i++) {
+        l.push_back(this->v_itemCreator->nonEditable(data.at(i),Qt::AlignCenter) );
+    }
+
+}
