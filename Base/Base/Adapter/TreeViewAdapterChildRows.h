@@ -71,6 +71,12 @@ public:
     */
     virtual void setHeaders(QList<QFlags<Qt::AlignmentFlag> > aligments,QStringList headers);
 
+    /*! Set´s the views item creator
+     * \param itemCreator - The standard item creator
+     * \param deleteOld - Option to delete old item creator [Default: true]
+    */
+    void setItemCreator(StandardItemCreator* itemCreator,bool deleteOld = true);
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
