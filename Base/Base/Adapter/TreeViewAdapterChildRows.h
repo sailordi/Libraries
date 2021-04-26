@@ -54,6 +54,12 @@ public:
     */
     virtual void removeRow(int pos,QModelIndex parentIndex = QModelIndex() );
 
+    /*! Returns the selected rows indexes
+     * \param clearSelection - Option to clear the views selection [Default: true]
+     * \returns QModelIndexList
+    */
+    QModelIndexList selectedIndexs(bool clearSelection = true);
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
