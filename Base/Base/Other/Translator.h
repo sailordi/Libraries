@@ -89,12 +89,12 @@ protected:
      *  \param str - String to strip
      *  \returns QString
     */
-    virtual QString getLocaleLetters(const QString str);
+    QString getLocaleLetters(const QString str);
     /*! Strips a file name down to get the locale letters
      *  \param str - The file name
      *  \returns QString
     */
-    virtual QString getLocaleLettersFromFileName(const QString str);
+    QString getLocaleLettersFromFileName(const QString str);
 
     /*! Adds a language action to a menu
      *  \param lang - The language
@@ -107,7 +107,7 @@ protected:
     /*! Switches the current language to a new one and loads it to the translator
      * \param newLanguage - Language to be switched to
     */
-    virtual void switchLanguage(const QString& newLanguage);
+    void switchLanguage(const QString& newLanguage);
 
 };
 #endif // TRANSLATOR_H
