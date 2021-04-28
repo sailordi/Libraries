@@ -13,6 +13,7 @@ SOURCES += \
     Base/Adapter/StandardItemCreator.cpp \
     Base/Adapter/TreeViewAdapterChildRows.cpp \
     Base/Adapter/TreeViewAdapterNoChildRows.cpp \
+    Base/LayoutWidget/BaseLayoutWidget.cpp \
     Base/LayoutWidget/MultiLayoutWidget.cpp \
     Base/LayoutWidget/SingleLayoutWidget.cpp \
     Base/Other/Helper.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     Base/Adapter/StandardItemCreator.h \
     Base/Adapter/TreeViewAdapterChildRows.h \
     Base/Adapter/TreeViewAdapterNoChildRows.h \
+    Base/LayoutWidget/BaseLayoutWidget.h \
     Base/LayoutWidget/MultiLayoutWidget.h \
     Base/LayoutWidget/SingleLayoutWidget.h \
     Base/Other/CustomIndexedKey.h \
