@@ -36,5 +36,10 @@ public:
 protected:
     QWidget* v_p = nullptr;
 
+    /*! Clears a grid layout of all items
+     * \param l - Layout to be cleared
+    */
+    virtual void clearLayout(QGridLayout* l);
+
 };
 #endif // BASELAYOUTWIDGET_H
