@@ -40,6 +40,10 @@ protected:
      * \param l - Layout to be cleared
     */
     virtual void clearLayout(QGridLayout* l);
+    /*! Clears a hbox layout of all items
+     * \param l - Layout to be cleared
+    */
+    virtual void clearLayout(QHBoxLayout* l);
 
 };
 #endif // BASELAYOUTWIDGET_H
