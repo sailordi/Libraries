@@ -55,6 +55,10 @@ void TreeViewBaseAdapter::initHeaderView() {
     this->v_view->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
 }
 
+int TreeViewBaseAdapter::numberOfSelectedRows() {
+    return this->v_view->selectionModel()->selectedRows().size();
+}
+
 QModelIndexList TreeViewBaseAdapter::selectedIndexs(bool clearSelection) {
     QModelIndexList l = this->v_view->selectionModel()->selectedRows();
 

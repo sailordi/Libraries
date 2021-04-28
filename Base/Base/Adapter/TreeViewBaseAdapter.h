@@ -44,6 +44,11 @@ public:
     /*! Initializes the header view */
     virtual void initHeaderView();
 
+    /*! Returns the number of selected rows
+     * \returns int
+    */
+    virtual int numberOfSelectedRows();
+
     /*! Returns the selected rows indexes
      * \param clearSelection - Option to clear the views selection [Default: true]
      * \returns QModelIndexList
