@@ -1,29 +1,24 @@
 #ifndef MULTILAYOUTWIDGET_H
 #define MULTILAYOUTWIDGET_H
 
-#include <QWidget>
 #include <QList>
 
-class QHBoxLayout;
-class QGridLayout;
-class QVBoxLayout;
+#include "Base/LayoutWidget/BaseLayoutWidget.h"
 
 /*! \class MultiLayoutWidget
  * \brief The class represents a widget with multiple layouts of the same type
  *
- * Incudes: QWidget & QList
+ * Incudes: BaseLayoutWidget & QList
  *
- * Forward declarations: QGridLayout, QHBoxLayout & QVBoxLayout
- *
- * Inherits: QWidget
+ * Inherits: BaseLayoutWidget
  *
  * \author Created by: Sailordi
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-20
- * \date Last update: 2021-04-20
+ * \date Last update: 2021-04-28
 */
-class MultiLayoutWidget : public QWidget
+class MultiLayoutWidget : public BaseLayoutWidget
 {
     Q_OBJECT
 public:
@@ -32,11 +27,9 @@ public:
     */
     explicit MultiLayoutWidget(QWidget *parent = nullptr);
     /*! Deconstructor */
-   ~MultiLayoutWidget();
+   virtual ~MultiLayoutWidget();
 
 protected:
-    QWidget* v_p = nullptr;
-
     QList<QHBoxLayout*> v_hLayouts;
     QList<QGridLayout*> v_gLayouts;
     QList<QVBoxLayout*> v_vLayouts;
