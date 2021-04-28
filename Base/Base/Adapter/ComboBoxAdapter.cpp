@@ -100,3 +100,14 @@ void ComboBoxAdapter::clear() {
 QComboBox* ComboBoxAdapter::box() {
     return this->v_box;
 }
+
+//Protected slots
+void ComboBoxAdapter::indexChanged(int index) {
+    if(this->v_first.isEmpty() == false) {
+        emit this->indexHasChanged(index-1);
+    }
+    else {
+        emit this->indexHasChanged(index);
+    }
+
+}

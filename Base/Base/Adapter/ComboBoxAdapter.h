@@ -83,6 +83,14 @@ public:
     */
     QComboBox* box();
 
+signals:
+    /*! Signal for when the combobox index has changed */
+    void indexHasChanged(int index);
+
+protected slots:
+    /*! Slot that connects to the combobox signal for when the index has changed */
+    void indexChanged(int index);
+
 protected:
     bool v_del = true;
     QStringListModel* v_model = nullptr;
