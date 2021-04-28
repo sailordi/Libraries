@@ -44,6 +44,10 @@ protected:
      * \param l - Layout to be cleared
     */
     virtual void clearLayout(QHBoxLayout* l);
+    /*! Clears a vbox layout of all items
+     * \param l - Layout to be cleared
+    */
+    virtual void clearLayout(QVBoxLayout* l);
 
 };
 #endif // BASELAYOUTWIDGET_H
