@@ -1,29 +1,22 @@
 #ifndef TREEVIEWADAPTERCHILDROWS_H
 #define TREEVIEWADAPTERCHILDROWS_H
 
-#include <QList>
-#include <QStringList>
-#include <QTreeView>
-
-class QStandardItem;
-class QStandardItemModel;
-
-class StandardItemCreator;
+#include "Base/Adapter/TreeViewBaseAdapter.h"
 
 /*! \class TreeViewAdapterChildRows
  * \brief The class is an adapter against a QTreeView with child rows
  *
- * Incudes: QList, QStringList & QTreeView
+ * Incudes: TreeViewBaseAdapter
  *
- * Forward declarations: QStandardItem, QStandardItemModel & StandardItemCreator
+ * Inherits: TreeViewBaseAdapter
  *
  * \author Created by: Sailordi
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-26
- * \date Last update: 2021-04-26
+ * \date Last update: 2021-04-28
 */
-class TreeViewAdapterChildRows
+class TreeViewAdapterChildRows : public TreeViewBaseAdapter
 {
 public:
     /*! Constructor
@@ -37,8 +30,6 @@ public:
      * \param del - If the view should be deleted [Default: true]
     */
     TreeViewAdapterChildRows(QTreeView* view,StandardItemCreator* itemCreator,bool del = true);
-    /*! Deconstructor */
-    virtual ~TreeViewAdapterChildRows();
 
     /*! Adds data to the view at a certain position
      * \param pos - The position
@@ -54,48 +45,11 @@ public:
     */
     virtual void removeRow(int pos,QModelIndex parentIndex = QModelIndex() );
 
-    /*! Returns the selected rows indexes
-     * \param clearSelection - Option to clear the views selection [Default: true]
-     * \returns QModelIndexList
-    */
-    QModelIndexList selectedIndexs(bool clearSelection = true);
-
-    /*! Returns number of rows in view
-     * \returns int
-    */
-    virtual int rows();
-
-    /*! Set´s the views heders
-     * \param aligments - Aligment flags
-     * \param headers - The headers
-    */
-    virtual void setHeaders(QList<QFlags<Qt::AlignmentFlag> > aligments,QStringList headers);
-
-    /*! Set´s the views item creator
-     * \param itemCreator - The standard item creator
-     * \param deleteOld - Option to delete old item creator [Default: true]
-    */
-    void setItemCreator(StandardItemCreator* itemCreator,bool deleteOld = true);
-
-    /*! Clear´s all rows from the view */
-    void clear();
-
-    /*! Returns the view
-     * \returns QTreeView*
-    */
-    QTreeView* view();
-
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;
     QStandardItemModel* v_model = nullptr;
     StandardItemCreator* v_itemCreator = nullptr;
-
-    /*! General function for generating columns
-     * \param l - Column item list
-     * \param data - The data to turn into columns
-    */
-    virtual void generateColumns(QList<QStandardItem*>& l,QList<QVariant> data);
 
 };
 #endif // TREEVIEWADAPTERCHILDROWS_H

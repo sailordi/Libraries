@@ -1,29 +1,22 @@
 #ifndef TREEVIEWADAPTERNOCHILDROWS_H
 #define TREEVIEWADAPTERNOCHILDROWS_H
 
-#include <QList>
-#include <QStringList>
-#include <QTreeView>
-
-class QStandardItem;
-class QStandardItemModel;
-
-class StandardItemCreator;
+#include "Base/Adapter/TreeViewBaseAdapter.h"
 
 /*! \class TreeViewAdapterNoChildRows
  * \brief The class is an adapter against a QTreeView without child rows
  *
- * Incudes: QList, QStringList & QTreeView
+ * Incudes: TreeViewBaseAdapter
  *
- * Forward declarations: QStandardItem, QStandardItemModel & StandardItemCreator
+ * Inherits: TreeViewBaseAdapter
  *
  * \author Created by: Sailordi
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-25
- * \date Last update: 2021-04-26
+ * \date Last update: 2021-04-28
 */
-class TreeViewAdapterNoChildRows
+class TreeViewAdapterNoChildRows : public TreeViewBaseAdapter
 {
 public:
     /*! Constructor
@@ -37,8 +30,6 @@ public:
      * \param del - If the view should be deleted [Default: true]
     */
     TreeViewAdapterNoChildRows(QTreeView* view,StandardItemCreator* itemCreator,bool del = true);
-    /*! Deconstructor */
-    virtual ~TreeViewAdapterNoChildRows();
 
     /*! Adds data to the view at a certain position
      * \param pos - The position
@@ -103,12 +94,6 @@ protected:
     QTreeView* v_view = nullptr;
     QStandardItemModel* v_model = nullptr;
     StandardItemCreator* v_itemCreator = nullptr;
-
-    /*! General function for generating columns
-     * \param l - Column item list
-     * \param data - The data to turn into columns
-    */
-    virtual void generateColumns(QList<QStandardItem*>& l,QList<QVariant> data);
 
 };
 #endif // TREEVIEWADAPTERNOCHILDROWS_H
