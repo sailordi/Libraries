@@ -41,6 +41,9 @@ public:
     /*! Deconstructor */
     virtual ~TreeViewBaseAdapter();
 
+    /*! Initializes the header view */
+    virtual void initHeaderView();
+
 protected:
     bool v_del;
     QTreeView* v_view = nullptr;

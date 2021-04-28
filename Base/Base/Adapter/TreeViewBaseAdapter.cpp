@@ -49,3 +49,8 @@ TreeViewBaseAdapter::~TreeViewBaseAdapter() {
         delete this->v_view;
     }
 }
+
+void TreeViewBaseAdapter::initHeaderView() {
+    this->v_view->header()->setStretchLastSection(false);
+    this->v_view->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+}
