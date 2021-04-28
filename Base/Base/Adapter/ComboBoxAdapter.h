@@ -21,17 +21,19 @@ class QStringListModel;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-24
- * \date Last update: 2021-04-24
+ * \date Last update: 2021-04-28
 */
-class ComboBoxAdapter
+class ComboBoxAdapter : public QObject
 {
+    Q_OBJECT
 public:
     /*! Constructor
      * \param box - The combo box
      * \param del - If the combo box should be deleted
      * \param first - The first item [Default: QString()]
+     * \param parent - The parent [Default: nullptr]
     */
-    ComboBoxAdapter(QComboBox* box,bool del,QString first = QString() );
+    ComboBoxAdapter(QComboBox* box,bool del,QString first = QString(),QObject* parent = nullptr);
     /*! Deconstructor */
     ~ComboBoxAdapter();
 

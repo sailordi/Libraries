@@ -4,7 +4,7 @@
 #include <QLineEdit>
 
 //Public functions
-ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,QString first) {
+ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,QString first,QObject* parent) : QObject(parent) {
     this->v_box = box;
     this->v_first = first;
 
