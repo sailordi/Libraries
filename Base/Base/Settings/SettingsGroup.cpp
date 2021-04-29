@@ -139,3 +139,7 @@ QList<SettingsKey> SettingsGroup::arrayNames() {
 SettingsBlocks* SettingsGroup::blocks() {
     return this->v_blocks;
 }
+
+QHash<SettingsKey, QList<SettingsBlocks>*>* SettingsGroup::arrays() {
+    return this->v_arrays;
+}
