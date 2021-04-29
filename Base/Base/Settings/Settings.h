@@ -16,7 +16,7 @@
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-22
- * \date Last update: 2021-04-22
+ * \date Last update: 2021-04-29
 */
 class Settings
 {
@@ -58,6 +58,13 @@ public:
      * \throws QString
     */
     void addBlockData(QString key,QVariant val);
+    /*! Adds data to a settings array at a specific position for the current settings group
+     * \param pos - The position
+     * \param keys - Strings used for the keys
+     * \param vals - The values
+     * \throws QString
+    */
+    void addArrayData(int pos,QList<QString> keys,QList<QVariant> vals);
     /*! Adds data to a settings array for the current settings group
      * \param keys - Strings used for the keys
      * \param vals - The values
