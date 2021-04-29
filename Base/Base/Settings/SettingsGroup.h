@@ -19,7 +19,7 @@ typedef QHash<SettingsKey,QVariant> SettingsBlocks;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-22
- * \date Last update: 2021-04-22
+ * \date Last update: 2021-04-29
 */
 class SettingsGroup
 {
@@ -47,6 +47,16 @@ public:
     */
     QList<SettingsKey> blockKeys();
 
+    /*! Adds data to a settings array at a specific position
+     * If position less than 0 adds data to front of array list
+     * If position is more than/equal to the size adds data to end of array
+     * If position is in the array list replace the alredy existing data
+     * \param name - Array name
+     * \param pos - The position
+     * \param keys - The keys
+     * \param vals - The values
+    */
+    void addArrayData(QString name,int pos,QList<QString> keys,QList<QVariant> vals);
     /*! Adds data to a settings array
      * \param name - Array name
      * \param keys - The keys
