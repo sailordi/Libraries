@@ -72,6 +72,17 @@ void ComboBoxAdapter::setSelectedRow(int row) {
     this->v_box->setCurrentIndex(row);
 }
 
+void ComboBoxAdapter::setFirstStr(QString str) {
+    if(this->v_first.isEmpty() == false) {
+        this->v_model->removeRow(0);
+    }
+
+    this->v_first = str;
+
+    this->addData(-1,this->v_first);
+
+}
+
 int ComboBoxAdapter::selectedRow() {
     if(this->v_first.isEmpty() == false) {
         return this->v_box->currentIndex()-1;

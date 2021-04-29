@@ -61,6 +61,10 @@ public:
      * \param row - Selected row
     */
     void setSelectedRow(int row);
+    /*! Sets the first string
+     * \param str - The first item
+    */
+    void setFirstStr(QString str);
 
     /*! Returns selected row position
      * \returns int
