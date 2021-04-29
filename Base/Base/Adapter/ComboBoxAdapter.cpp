@@ -4,7 +4,7 @@
 #include <QLineEdit>
 
 //Public functions
-ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,QString first,QObject* parent) : QObject(parent) {
+ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,bool connectBoxToSlot,QString first,QObject* parent) : QObject(parent) {
     this->v_box = box;
     this->v_first = first;
 
@@ -17,6 +17,10 @@ ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,QString first,QObject* 
     this->v_box->setModel(this->v_model);
 
     this->clear();
+
+    if(connectBoxToSlot == true) {
+        connect(this->v_box,SIGNAL(currentIndexChanged(int) ),this,SLOT(indexChanged(int) ) );
+    }
 
     this->v_del = del;
 
