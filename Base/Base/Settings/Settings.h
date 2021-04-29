@@ -95,6 +95,13 @@ public:
     */
     QList<QList<QVariant> > getArrayData(QList<QString> keys,QList<QVariant> defs);
 
+    /*! Removes a settings block the current settings group
+     * \param key - Key to find block
+     * \param throwError - If error should be thrown [Default: true]
+     * \throws QString
+    */
+    void removeBlock(QString key,bool throwError = true);
+
     /*! Gets the size of a settings array for the current settings group
      * \returns int
      * \throws QString

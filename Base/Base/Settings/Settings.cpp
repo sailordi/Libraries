@@ -211,6 +211,42 @@ QList<QList<QVariant> > Settings::getArrayData(QList<QString> keys,QList<QVarian
     return ret;
 }
 
+void Settings::removeBlock(QString key, bool throwError) {
+    if(this->v_groupN.isEmpty() == true && throwError == true) {
+        throw QString("Group has not been started can not remove block");
+    }
+    else if(this->v_groupN.isEmpty() == true && throwError == false) {
+        return;
+    }
+
+    if(key.isEmpty() == true && throwError == true) {
+        throw QString("key was empty");
+    }
+    if(key.isEmpty() == true && throwError == false) {
+        return;
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr && throwError == true) {
+        throw QString("Group can not be found [remove block] ")+this->v_groupN+QString("/")+key;
+    }
+    if(g == nullptr && throwError == false) {
+        return;
+    }
+
+    SettingsKey k(key);
+
+    if(g->blocks()->contains(k) == false && throwError == true) {
+        throw QString("Block can not be found [remove block] ")+key;
+    }
+    else if(g->blocks()->contains(k) == false && throwError == false) {
+        return;
+    }
+
+    g->blocks()->take(k);
+}
+
 int Settings::arraySize() {
     if(this->v_groupN.isEmpty() == true) {
         throw QString("Group has not been started can not get array size");
