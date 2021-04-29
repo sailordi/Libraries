@@ -68,6 +68,10 @@ void ComboBoxAdapter::removeData(int pos) {
     this->v_model->removeRow(pos);
 }
 
+void ComboBoxAdapter::setSelectedRow(int row) {
+    this->v_box->setCurrentIndex(row);
+}
+
 int ComboBoxAdapter::selectedRow() {
     if(this->v_first.isEmpty() == false) {
         return this->v_box->currentIndex()-1;

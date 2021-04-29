@@ -57,6 +57,11 @@ public:
     */
     void removeData(int pos);
 
+    /*! Sets the combo boxes selected row
+     * \param row - Selected row
+    */
+    void setSelectedRow(int row);
+
     /*! Returns selected row position
      * \returns int
     */
