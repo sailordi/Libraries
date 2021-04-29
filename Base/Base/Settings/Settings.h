@@ -79,6 +79,14 @@ public:
      * \throws QString
     */
     QVariant getBlockData(QString key,QVariant def = QVariant()  );
+    /*! Gets the data from a settings array at a specific position for the current settings group
+     * \param pos - The position
+     * \param keys - Strings used for the keys
+     * \param defs - Default values
+     * \returns QList<QVariant>
+     * \throws QString
+    */
+    QList<QVariant> getArrayData(int pos,QList<QString> keys,QList<QVariant> defs);
     /*! Gets the data from a settings array for the current settings group
      * \param keys - Strings used for the keys
      * \param defs - Default values
