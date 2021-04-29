@@ -64,6 +64,12 @@ public:
     */
     void addArrayData(QString name,QList<QString> keys,QList<QVariant> vals);
 
+    /*! Returns the data from a settings array at a specific position
+     * \param name - The array name
+     * \param pos - The position
+     * \returns SettingsBlocks
+    */
+    SettingsBlocks arrayData(QString name,int pos);
     /*! Returns the data from a settings array
      * \param name - The array name
      * \returns QList<SettingsBlocks>*

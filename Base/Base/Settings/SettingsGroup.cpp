@@ -109,6 +109,23 @@ void SettingsGroup::addArrayData(QString name,QList<QString> keys,QList<QVariant
         l->push_back(b);
 }
 
+SettingsBlocks SettingsGroup::arrayData(QString name,int pos) {
+    QList<SettingsBlocks>* tmp = this->arrayData(name);
+
+        if(tmp == nullptr) {
+            Helper::quitProgram("Error could not get list of blocks for "+name,1);
+        }
+
+        if(pos < 0) {
+            Helper::quitProgram("Error position is less than 0 "+name,1);
+        }
+        else if(pos >= tmp->size() ) {
+            Helper::quitProgram("Error position larger than list size "+name,1);
+        }
+
+        return tmp->at(pos);
+}
+
 QList<SettingsBlocks>* SettingsGroup::arrayData(QString name) {
     SettingsKey n(name);
 
