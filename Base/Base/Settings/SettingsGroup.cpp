@@ -135,3 +135,7 @@ QList<SettingsBlocks>* SettingsGroup::arrayData(QString name) {
 QList<SettingsKey> SettingsGroup::arrayNames() {
     return this->v_arrays->keys();
 }
+
+SettingsBlocks* SettingsGroup::blocks() {
+    return this->v_blocks;
+}

@@ -81,6 +81,11 @@ public:
     */
     QList<SettingsKey> arrayNames();
 
+    /*! Returns a pointer to the settings blocks
+     * \returns SettingsBlocks*
+    */
+    SettingsBlocks* blocks();
+
 private:
     SettingsBlocks* v_blocks = nullptr;
     QHash<SettingsKey,QList<SettingsBlocks>*>* v_arrays = nullptr;
