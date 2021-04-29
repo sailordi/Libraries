@@ -247,6 +247,47 @@ void Settings::removeBlock(QString key, bool throwError) {
     g->blocks()->take(k);
 }
 
+void Settings::removeArray(QString arrayName,bool throwError) {
+    if(this->v_groupN.isEmpty() == true && throwError == true) {
+        throw QString("Group has not been started can not remove array");
+    }
+    else if(this->v_groupN.isEmpty() == true && throwError == false) {
+        return;
+    }
+
+    if(arrayName.isEmpty() == true && throwError == true) {
+        throw QString("Array name was empty");
+    }
+    if(arrayName.isEmpty() == true && throwError == false) {
+        return;
+    }
+
+    SettingsGroup* g = this->currentGroup();
+
+    if(g == nullptr && throwError == true) {
+        throw QString("Group can not be found [remove array] ")+this->v_groupN+QString("/")+arrayName;
+    }
+    if(g == nullptr && throwError == false) {
+        return;
+    }
+
+    SettingsKey k(arrayName);
+
+    if(g->arrays()->contains(k) == false && throwError == true) {
+        throw QString("Array can not be found [remove array] ")+arrayName;
+    }
+    if(g->arrays()->contains(k) == false && throwError == false) {
+        return;
+    }
+
+    delete g->arrays()->take(k);
+
+    if(arrayName.compare(this->v_arrayN) == 0) {
+        this->endArray();
+    }
+
+}
+
 int Settings::arraySize() {
     if(this->v_groupN.isEmpty() == true) {
         throw QString("Group has not been started can not get array size");

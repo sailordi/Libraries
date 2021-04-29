@@ -101,6 +101,12 @@ public:
      * \throws QString
     */
     void removeBlock(QString key,bool throwError = true);
+    /*! Removes a settings array the current settings group
+     * \param arrayName - The array name
+     * \param throwError - If error should be thrown [Default: true]
+     * \throws QString
+    */
+    void removeArray(QString arrayName,bool throwError = true);
 
     /*! Gets the size of a settings array for the current settings group
      * \returns int
