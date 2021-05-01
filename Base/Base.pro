@@ -1,8 +1,10 @@
 QT  += core widgets
 QT -= gui
 
-CONFIG += c++14
-TEMPLATE = lib
+! include( ../Common.pri ) {
+    error( "Couldn't find the Common.pri file!" )
+}
+
 CONFIG += staticlib
 
 CONFIG(release,debug|release)   { TARGET = Base }
