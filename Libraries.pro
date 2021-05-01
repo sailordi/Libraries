@@ -1,4 +1,9 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    Base
+    Base \
+    Message
+
+Message.depends = Base
+
+CONFIG += ordered
