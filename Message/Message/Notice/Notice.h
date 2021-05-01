@@ -57,6 +57,11 @@ public:
     /*! Deconstructor */
     virtual ~Notice();
 
+    /*! Adds a argument/replacer to the argument/replacer list
+     * \param a - Argument/replacer
+    */
+    void addArg(ArgReplacer a);
+
 protected:
     QString v_orig = "",v_msg = "",v_tr = "";
     QList<ArgReplacer> v_data;

@@ -28,3 +28,10 @@ Notice::~Notice() {
     this->v_orig = "";
 }
 
+void Notice::addArg(ArgReplacer a) {
+    this->v_data.push_back(a);
+    if(this->v_msg.isEmpty() == false) {
+        this->v_msg = "";
+    }
+}
+
