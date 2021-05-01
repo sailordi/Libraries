@@ -70,3 +70,11 @@ QString Notice::msg() {
 
     return this->v_msg;
 }
+
+void Notice::reTranslate() {
+    if(this->v_tr.isEmpty() == true) {
+        return;
+    }
+    this->v_msg = "";
+    this->v_orig = Notice::tr(this->v_tr.toStdString().c_str() );
+}

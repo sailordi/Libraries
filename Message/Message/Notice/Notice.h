@@ -75,6 +75,9 @@ public:
     */
     virtual QString msg();
 
+    /*! Retranslates the Notice */
+    virtual void reTranslate();
+
 protected:
     QString v_orig = "",v_msg = "",v_tr = "";
     QList<ArgReplacer> v_data;
