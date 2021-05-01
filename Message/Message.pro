@@ -31,9 +31,11 @@ else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/
 else:unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
 
 
-SOURCES +=
+SOURCES += \
+    Message/Notice/Notice.cpp
 
-HEADERS += Message_global.h
+HEADERS += Message_global.h \
+    Message/Notice/Notice.h
 
 # Default rules for deployment.
 unix {
