@@ -61,6 +61,10 @@ public:
      * \param a - Argument/replacer
     */
     void addArg(ArgReplacer a);
+    /*! Adds a list of argument/replacer to the argument/replacer list
+     * \param l - Argument/replacer list
+    */
+    void addArgs(QList<ArgReplacer> l);
 
 protected:
     QString v_orig = "",v_msg = "",v_tr = "";

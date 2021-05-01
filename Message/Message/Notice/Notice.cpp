@@ -35,3 +35,12 @@ void Notice::addArg(ArgReplacer a) {
     }
 }
 
+void Notice::addArgs(QList<ArgReplacer> l) {
+    for(int i = 0; i < l.size(); i++) {
+        this->v_data.push_back(l.at(i) );
+    }
+    if(this->v_msg.isEmpty() == false) {
+        this->v_msg = "";
+    }
+}
+
