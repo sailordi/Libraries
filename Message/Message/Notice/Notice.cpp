@@ -51,3 +51,22 @@ void Notice::setArgs(QList<ArgReplacer> l) {
     }
 }
 
+QString Notice::msg() {
+    if(this->v_msg.isEmpty() == false) {
+        return this->v_msg;
+    }
+
+    this->v_msg = this->v_orig;
+
+    if(this->v_data.isEmpty() == true) {
+        return this->v_msg;
+    }
+
+    for(int i = 0; i < this->v_data.size(); i++) {
+        ArgReplacer p = this->v_data.at(i);
+
+        this->v_msg.replace(p.first,p.second);
+    }
+
+    return this->v_msg;
+}

@@ -70,6 +70,11 @@ public:
     */
     void setArgs(QList<ArgReplacer> l);
 
+    /*! Returns the message string
+     * \returns QString
+    */
+    virtual QString msg();
+
 protected:
     QString v_orig = "",v_msg = "",v_tr = "";
     QList<ArgReplacer> v_data;
