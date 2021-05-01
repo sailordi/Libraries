@@ -44,3 +44,10 @@ void Notice::addArgs(QList<ArgReplacer> l) {
     }
 }
 
+void Notice::setArgs(QList<ArgReplacer> l) {
+    this->v_data = l;
+    if(this->v_msg.isEmpty() == false) {
+        this->v_msg = "";
+    }
+}
+
