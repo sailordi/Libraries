@@ -55,3 +55,16 @@ bool NoticeList::hasMessage() {
 
     return false;
 }
+
+int NoticeList::size(NoticeFlag flag) {
+    switch(flag) {
+        case NoticeFlag::ERROR:
+            return this->v_errors.size();
+        case NoticeFlag::WARNING:
+            return this->v_warnings.size();
+        case NoticeFlag::MESSAGE:
+            return this->v_messages.size();
+    }
+
+    return -1;
+}

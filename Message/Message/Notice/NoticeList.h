@@ -57,6 +57,12 @@ public:
     */
     bool hasMessage();
 
+    /*! Returns the number of Notices for a specific NoticeFlag
+     * \param flag - The NoticeFlag [ERROR, WARNING, MESSAGE]
+     * \returns int
+    */
+    int size(NoticeFlag flag);
+
 protected:
     QList<NoticeP> v_errors,v_messages,v_warnings;
 
