@@ -28,3 +28,30 @@ void NoticeList::add(NoticeP n,NoticeFlag flag) {
             break;
     }
 }
+
+bool NoticeList::hasMessage(NoticeFlag flag) {
+    switch(flag) {
+        case NoticeFlag::ERROR :
+            return (this->v_errors.size() > 0) ? true : false;
+        case NoticeFlag::WARNING:
+            return (this->v_warnings.size() > 0) ? true : false;
+        case NoticeFlag::MESSAGE:
+            return (this->v_messages.size() > 0) ? true : false;
+    }
+
+    return false;
+}
+
+bool NoticeList::hasMessage() {
+    if(this->hasMessage(NoticeFlag::ERROR) == true) {
+        return true;
+    }
+    if(this->hasMessage(NoticeFlag::WARNING) == true) {
+        return true;
+    }
+    if(this->hasMessage(NoticeFlag::MESSAGE) == true) {
+        return true;
+    }
+
+    return false;
+}

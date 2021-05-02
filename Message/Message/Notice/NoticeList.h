@@ -47,6 +47,16 @@ public:
     */
     void add(NoticeP n,NoticeFlag flag);
 
+    /*! Checks if a specific NoticeFlag has any Notices
+     * \param flag - The NoticeFlag [ERROR, WARNING, MESSAGE]
+     * \returns bool
+    */
+    bool hasMessage(NoticeFlag flag);
+    /*! Checks if any of the NoticeFlags has any Notices
+     * \returns bool
+    */
+    bool hasMessage();
+
 protected:
     QList<NoticeP> v_errors,v_messages,v_warnings;
 
