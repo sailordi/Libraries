@@ -35,7 +35,8 @@ SOURCES += \
     Message/Notice/Notice.cpp
 
 HEADERS += Message_global.h \
-    Message/Notice/Notice.h
+    Message/Notice/Notice.h \
+    Message/Notice/NoticeFlag.h
 
 # Default rules for deployment.
 unix {
