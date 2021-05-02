@@ -85,3 +85,15 @@ QString NoticeList::msg(int pos,NoticeFlag flag) {
 
     return "";
 }
+
+void NoticeList::reTranslate() {
+    for(int i = 0; i < this->v_errors.size(); i++) {
+        this->v_errors.at(i)->reTranslate();
+    }
+    for(int i = 0; i < this->v_warnings.size(); i++) {
+        this->v_warnings.at(i)->reTranslate();
+    }
+    for(int i = 0; i < this->v_messages.size(); i++) {
+        this->v_messages.at(i)->reTranslate();
+    }
+}

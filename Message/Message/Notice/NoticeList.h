@@ -70,6 +70,9 @@ public:
     */
     QString msg(int pos,NoticeFlag flag);
 
+    /*! Retranslates all the Notices */
+    virtual void reTranslate();
+
 protected:
     QList<NoticeP> v_errors,v_messages,v_warnings;
 
