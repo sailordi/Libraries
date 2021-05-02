@@ -32,11 +32,13 @@ else:unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
 
 
 SOURCES += \
-    Message/Notice/Notice.cpp
+    Message/Notice/Notice.cpp \
+    Message/Notice/NoticeList.cpp
 
 HEADERS += Message_global.h \
     Message/Notice/Notice.h \
-    Message/Notice/NoticeFlag.h
+    Message/Notice/NoticeFlag.h \
+    Message/Notice/NoticeList.h
 
 # Default rules for deployment.
 unix {
