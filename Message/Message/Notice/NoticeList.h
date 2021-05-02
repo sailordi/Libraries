@@ -8,13 +8,14 @@
 
 #include "Message_global.h"
 #include "Message/Notice/Notice.h"
+#include "Message/Notice/NoticeFlag.h"
 
 typedef QSharedPointer<Notice> NoticeP;
 
 /*! \class NoticeList
  * \brief The class contains lists for errors, warnings and messages
  *
- * Incudes: QObject, QList, QSharedPointer, QString, Message_global.h & Notice
+ * Incudes: QObject, QList, QSharedPointer, QString, Message_global.h, Notice & NoticeFlag
  *
  * Inherits: QObject
  *
@@ -35,6 +36,16 @@ public:
     /*! Deconstructor */
     virtual ~NoticeList();
 
+    /*! Adds a Notice to the list
+     * \param n - The Notice to add
+     * \param flag - The NoticeFlag [ERROR, WARNING, MESSAGE]
+    */
+    void add(Notice* n,NoticeFlag flag);
+    /*! Adds a Notice to the list
+     * \param n - The Notice to add
+     * \param flag - The NoticeFlag [ERROR, WARNING, MESSAGE]
+    */
+    void add(NoticeP n,NoticeFlag flag);
 
 protected:
     QList<NoticeP> v_errors,v_messages,v_warnings;
