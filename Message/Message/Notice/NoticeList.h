@@ -73,6 +73,9 @@ public:
     /*! Retranslates all the Notices */
     virtual void reTranslate();
 
+    /*! Clears all the Notices from lists */
+    void clear();
+
 protected:
     QList<NoticeP> v_errors,v_messages,v_warnings;
 

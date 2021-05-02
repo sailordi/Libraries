@@ -97,3 +97,9 @@ void NoticeList::reTranslate() {
         this->v_messages.at(i)->reTranslate();
     }
 }
+
+void NoticeList::clear() {
+    this->v_errors.clear();
+    this->v_warnings.clear();
+    this->v_messages.clear();
+}
