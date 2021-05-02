@@ -63,6 +63,13 @@ public:
     */
     int size(NoticeFlag flag);
 
+    /*! Returns a message for a specific NoticeFlag
+     * \param pos - Position of message
+     * \param flag - The NoticeFlag [ERROR, WARNING, MESSAGE]
+     * \returns QString
+    */
+    QString msg(int pos,NoticeFlag flag);
+
 protected:
     QList<NoticeP> v_errors,v_messages,v_warnings;
 

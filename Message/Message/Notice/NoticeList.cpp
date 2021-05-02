@@ -1,5 +1,7 @@
 #include "NoticeList.h"
 
+#include <cassert>
+
 //Public functions
 NoticeList::NoticeList(QObject *parent) : QObject(parent) {
 
@@ -67,4 +69,19 @@ int NoticeList::size(NoticeFlag flag) {
     }
 
     return -1;
+}
+
+QString NoticeList::msg(int pos,NoticeFlag flag) {
+    assert(pos > -1 && pos < this->size(flag) );
+
+    switch(flag) {
+        case NoticeFlag::ERROR:
+            return this->v_errors.at(pos)->msg();
+        case NoticeFlag::WARNING:
+            return this->v_warnings.at(pos)->msg();
+        case NoticeFlag::MESSAGE:
+            return this->v_messages.at(pos)->msg();
+    }
+
+    return "";
 }
