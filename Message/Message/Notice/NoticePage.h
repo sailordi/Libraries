@@ -84,6 +84,11 @@ public:
     */
     bool isEmpty();
 
+    /*! Returns the number of NoticeLists there are
+     * \returns int
+    */
+    int size();
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;

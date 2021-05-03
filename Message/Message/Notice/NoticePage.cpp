@@ -55,3 +55,7 @@ QString NoticePage::title() {
 bool NoticePage::isEmpty() {
     return (this->v_list.size() <= 0) ? true : false;
 }
+
+int NoticePage::size() {
+    return this->v_list.size();
+}
