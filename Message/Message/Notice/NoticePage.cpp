@@ -1,5 +1,7 @@
 #include "NoticePage.h"
 
+#include <cassert>
+
 #include "Message/Notice/NoticeList.h"
 
 //Public functions
@@ -28,4 +30,10 @@ void NoticePage::add(NoticeList* n) {
 
 void NoticePage::add(NoticeListP n) {
     this->v_list.push_back(n);
+}
+
+NoticeListP NoticePage::list(int pos) {
+    assert(pos > -1 && pos < this->v_list.size() );
+
+    return this->v_list.at(pos);
 }

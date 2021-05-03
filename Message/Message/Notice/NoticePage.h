@@ -58,6 +58,12 @@ public:
     */
     void add(NoticeListP n);
 
+    /*! Returns a specific NoticeList
+     * \param pos - The position
+     * \returns NoticeListP
+    */
+    NoticeListP list(int pos);
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;
