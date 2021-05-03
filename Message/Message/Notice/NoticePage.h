@@ -92,6 +92,9 @@ public:
     /*! Retranslates the all NoticeLists */
     virtual void reTranslate();
 
+    /*! Clears all the NoticeLilsts from page */
+    void clear();
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;

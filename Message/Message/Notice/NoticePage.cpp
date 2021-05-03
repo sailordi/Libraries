@@ -69,3 +69,7 @@ void NoticePage::reTranslate() {
         this->v_list.at(i)->reTranslate();
     }
 }
+
+void NoticePage::clear() {
+    this->v_list.clear();
+}
