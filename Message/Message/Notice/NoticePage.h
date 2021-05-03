@@ -79,6 +79,11 @@ public:
     */
     QString title();
 
+    /*! Checks if the page does not have any NoticeLists
+     * \returns bool
+    */
+    bool isEmpty();
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;

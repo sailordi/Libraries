@@ -51,3 +51,7 @@ void NoticePage::setTitle(QString title,QString tr) {
 QString NoticePage::title() {
     return this->v_title;
 }
+
+bool NoticePage::isEmpty() {
+    return (this->v_list.size() <= 0) ? true : false;
+}
