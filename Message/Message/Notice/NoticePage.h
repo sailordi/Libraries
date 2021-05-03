@@ -49,6 +49,15 @@ public:
     /*! Deconstructor */
     virtual ~NoticePage();
 
+    /*! Adds a NoticeList to the page
+     * \param n - The NoticeList to add
+    */
+    void add(NoticeList* n);
+    /*! Adds a NoticeList to the page
+     * \param n - The NoticeList to add
+    */
+    void add(NoticeListP n);
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;

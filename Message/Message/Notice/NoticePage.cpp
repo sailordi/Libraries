@@ -1,5 +1,7 @@
 #include "NoticePage.h"
 
+#include "Message/Notice/NoticeList.h"
+
 //Public functions
 NoticePage::NoticePage(QObject* parent) : QObject(parent) {
 
@@ -18,4 +20,12 @@ NoticePage::~NoticePage() {
     this->v_list.clear();
     this->v_title = "";
     this->v_tr = "";
+}
+
+void NoticePage::add(NoticeList* n) {
+    this->add(NoticeListP(n) );
+}
+
+void NoticePage::add(NoticeListP n) {
+    this->v_list.push_back(n);
 }
