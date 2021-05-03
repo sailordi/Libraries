@@ -37,3 +37,13 @@ NoticeListP NoticePage::list(int pos) {
 
     return this->v_list.at(pos);
 }
+
+void NoticePage::setTitle(QString title) {
+    this->v_title = title;
+    this->v_tr = "";
+}
+
+void NoticePage::setTitle(QString title,QString tr) {
+    this->v_title = title;
+    this->v_tr = tr;
+}

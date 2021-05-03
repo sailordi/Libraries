@@ -64,6 +64,16 @@ public:
     */
     NoticeListP list(int pos);
 
+    /*! Sets the pages title
+     * \param title - Page title
+    */
+    void setTitle(QString title);
+    /*! Sets the pages title
+     * \param title - Page title
+     * \param tr - String to fetch translation
+    */
+    void setTitle(QString title,QString tr);
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;
