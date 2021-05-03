@@ -47,3 +47,7 @@ void NoticePage::setTitle(QString title,QString tr) {
     this->v_title = title;
     this->v_tr = tr;
 }
+
+QString NoticePage::title() {
+    return this->v_title;
+}

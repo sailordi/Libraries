@@ -74,6 +74,11 @@ public:
     */
     void setTitle(QString title,QString tr);
 
+    /*! Returns the page title
+     * \returns QString
+    */
+    QString title();
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;
