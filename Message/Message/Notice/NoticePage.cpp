@@ -59,3 +59,13 @@ bool NoticePage::isEmpty() {
 int NoticePage::size() {
     return this->v_list.size();
 }
+
+void NoticePage::reTranslate() {
+    if(this->v_tr.isEmpty() == false) {
+        this->v_title = NoticePage::tr(this->v_tr.toStdString().c_str() );
+    }
+
+    for(int i = 0; i < this->v_list.size(); i++) {
+        this->v_list.at(i)->reTranslate();
+    }
+}

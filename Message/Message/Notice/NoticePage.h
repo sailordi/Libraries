@@ -89,6 +89,9 @@ public:
     */
     int size();
 
+    /*! Retranslates the all NoticeLists */
+    virtual void reTranslate();
+
 protected:
     QString v_title = "",v_tr = "";
     QList<NoticeListP> v_list;
