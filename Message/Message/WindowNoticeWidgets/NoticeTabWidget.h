@@ -94,5 +94,7 @@ protected:
     */
     void alignTextEdit(QFlags<Qt::AlignmentFlag> f);
 
+    /*! Change the child index */
+    void childIndexChange();
 };
 #endif // NOTICETABWIDGET_H

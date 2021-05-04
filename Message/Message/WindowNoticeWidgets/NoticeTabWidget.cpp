@@ -124,3 +124,12 @@ void NoticeTabWidget::alignTextEdit(QFlags<Qt::AlignmentFlag> f) {
 
         this->v_edit->setTextCursor(cu);
 }
+
+void NoticeTabWidget::childIndexChange() {
+    this->v_index--;
+
+    if(this->v_child != nullptr) {
+        this->v_child->childIndexChange();
+    }
+
+}
