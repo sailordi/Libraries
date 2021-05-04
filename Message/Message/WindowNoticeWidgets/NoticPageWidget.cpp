@@ -83,6 +83,14 @@ void NoticPageWidget::add(NoticePageP p) {
     this->v_pages.push_back(p);
 }
 
+NoticePageP NoticPageWidget::currentPage() {
+    if(this->v_pages.size() <= 0) {
+        return nullptr;
+    }
+
+    return this->v_pages.at(this->v_pageIndex);
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);

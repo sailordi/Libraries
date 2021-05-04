@@ -64,6 +64,11 @@ public:
     */
     void add(NoticePageP p);
 
+    /*! Retuns the current page
+     * \returns NoticePageP
+    */
+    NoticePageP currentPage();
+
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
     bool v_pageH = false,v_labelH = false;
