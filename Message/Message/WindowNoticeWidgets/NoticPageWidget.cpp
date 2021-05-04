@@ -152,6 +152,23 @@ void NoticPageWidget::reTranslate() {
     this->setPageLabel();
 }
 
+//Protected slots
+void NoticPageWidget::nextPagePressed() {
+    bool up = this->canUpdatePage(1);
+
+        if(up == true) {
+            this->v_pageIndex++;
+            this->resetIndex(ResetFlag::LIST);
+            this->setPageLabel();
+            emit this->listChanged();
+        }
+
+        if(this->v_pageH == false) {
+            this->v_nextPageB->setEnabled(this->canUpdatePage(1) );
+            this->v_prevPageB->setEnabled(this->canUpdatePage(-1) );
+        }
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);
@@ -160,6 +177,8 @@ void NoticPageWidget::init() {
     this->v_prevPageB = new QPushButton(this->v_prevPageText,this->v_p);
     this->v_nextListB = new QPushButton(this->v_nextListText,this->v_p);
     this->v_prevListB = new QPushButton(this->v_prevListText,this->v_p);
+
+    connect(this->v_nextPageB,SIGNAL(clicked(bool) ),this,SLOT(nextPagePressed() ) );
 
     this->v_gLayout->addWidget(this->v_pageLabel,0,1);
 
