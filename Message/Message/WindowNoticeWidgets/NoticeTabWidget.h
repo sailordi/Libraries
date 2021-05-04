@@ -49,6 +49,11 @@ public:
     /*! Sets the font for the NoticeTabWidget */
     void setFont(QFont f);
 
+    /*! Sets the child tab widget
+     * \param ch - Child tab widget
+    */
+    void setChild(NoticeTabWidget* ch);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;

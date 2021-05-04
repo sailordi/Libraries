@@ -49,6 +49,10 @@ void NoticeTabWidget::setFont(QFont f) {
 
 }
 
+void NoticeTabWidget::setChild(NoticeTabWidget* ch) {
+    this->v_child = ch;
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;
