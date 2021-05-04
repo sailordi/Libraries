@@ -100,5 +100,7 @@ protected:
     */
     bool canUpdateList(int num);
 
+    /*! Hides / shows page widgets */
+    void hidePageWidgets();
 };
 #endif // NOTICPAGEWIDGET_H

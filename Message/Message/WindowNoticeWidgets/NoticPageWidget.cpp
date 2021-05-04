@@ -149,3 +149,17 @@ bool NoticPageWidget::canUpdateList(int num) {
 
     return true;
 }
+
+void NoticPageWidget::hidePageWidgets() {
+    if(this->v_pages.size() <= 1) {
+        this->v_pageH = true;
+    }
+    else {
+        this->v_pageH = false;
+    }
+
+    this->v_nextPageB->setHidden(this->v_pageH);
+    this->v_prevPageB->setHidden(this->v_pageH);
+
+    this->v_pageLabel->setHidden(this->v_pageH);
+}
