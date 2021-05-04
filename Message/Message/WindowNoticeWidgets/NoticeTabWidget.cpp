@@ -55,6 +55,12 @@ void NoticeTabWidget::setChild(NoticeTabWidget* ch) {
     this->v_child = ch;
 }
 
+void NoticeTabWidget::setText(QString t,QFlags<Qt::AlignmentFlag> f) {
+    this->v_edit->setText(t);
+
+    this->alignTextEdit(f);
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;

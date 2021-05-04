@@ -54,6 +54,12 @@ public:
     */
     void setChild(NoticeTabWidget* ch);
 
+    /*! Sets textedit text
+     * \param t - The text
+     * \param a - The aligment to be used
+    */
+    void setText(QString t,QFlags<Qt::AlignmentFlag> f);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;
