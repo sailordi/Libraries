@@ -102,5 +102,8 @@ protected:
 
     /*! Hides / shows page widgets */
     void hidePageWidgets();
+    /*! Hides / shows list widgets */
+    void hideListWidgets();
+
 };
 #endif // NOTICPAGEWIDGET_H

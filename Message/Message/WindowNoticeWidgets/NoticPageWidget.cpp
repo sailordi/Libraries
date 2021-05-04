@@ -163,3 +163,18 @@ void NoticPageWidget::hidePageWidgets() {
 
     this->v_pageLabel->setHidden(this->v_pageH);
 }
+
+void NoticPageWidget::hideListWidgets() {
+    NoticePageP c = this->currentPage();
+    int size = (c.isNull() == true) ? 0 : c->size();
+
+        if(size <= 1) {
+            this->v_labelH = true;
+        }
+        else {
+            this->v_labelH = false;
+        }
+
+        this->v_nextListB->setHidden(this->v_labelH);
+        this->v_prevListB->setHidden(this->v_labelH);
+}
