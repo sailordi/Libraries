@@ -72,6 +72,11 @@ public:
     */
     virtual void setData(int size,int pos);
 
+    /*! Resets the tab
+     * \param resetChild - If child chould be reset [Default: true]
+    */
+    virtual void resetTab(bool resetChild = true);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;

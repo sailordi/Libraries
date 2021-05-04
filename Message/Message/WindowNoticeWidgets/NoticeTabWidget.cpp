@@ -81,6 +81,19 @@ void NoticeTabWidget::setData(int size,int pos) {
     this->v_spin->setMinimum(1);
 }
 
+void NoticeTabWidget::resetTab(bool resetChild) {
+    if(this->v_originalIndex != this->v_index) {
+        this->v_index = this->v_originalIndex;
+
+        this->v_tabW->insertTab(this->v_index,this->v_tab,this->v_tabText);
+    }
+
+    if(this->v_child != nullptr && resetChild == true) {
+        this->v_child->resetTab();
+    }
+
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;
