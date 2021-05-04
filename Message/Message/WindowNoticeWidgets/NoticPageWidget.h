@@ -81,6 +81,9 @@ public:
     /*! Clears the list of pages */
     void clear();
 
+    /*! Retranslates all NoticePages and buttons & NoticePage label */
+    void reTranslate();
+
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
     bool v_pageH = false,v_labelH = false;

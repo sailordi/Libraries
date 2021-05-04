@@ -126,6 +126,32 @@ void NoticPageWidget::clear() {
     this->v_pages.clear();
 }
 
+void NoticPageWidget::reTranslate() {
+    if(this->v_nextPageTr.isEmpty() == false) {
+        this->v_nextPageText = NoticPageWidget::tr(this->v_nextPageTr.toStdString().c_str() );
+        this->v_nextPageB->setText(this->v_nextPageText);
+    }
+    if(this->v_prevPageTr.isEmpty() == false) {
+        this->v_prevPageText = NoticPageWidget::tr(this->v_prevPageTr.toStdString().c_str() );
+        this->v_prevPageB->setText(this->v_prevPageText);
+    }
+
+    if(this->v_nextListTr.isEmpty() == false) {
+        this->v_nextListText = NoticPageWidget::tr(this->v_nextListTr.toStdString().c_str() );
+        this->v_nextListB->setText(this->v_nextListText);
+    }
+        if(this->v_prevListTr.isEmpty() == false) {
+        this->v_prevListText = NoticPageWidget::tr(this->v_prevListTr.toStdString().c_str() );
+        this->v_prevListB->setText(this->v_prevListText);
+    }
+
+    for(int i = 0; i < this->v_pages.size(); i++) {
+        this->v_pages.at(i)->reTranslate();
+    }
+
+    this->setPageLabel();
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);
