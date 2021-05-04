@@ -77,6 +77,14 @@ public:
     */
     virtual void resetTab(bool resetChild = true);
 
+    /*! Checks if tab is in used
+     * \returns bool
+    */
+    bool inUse();
+
+    /*! Retranslates the tab & label text */
+    void reTranslate();
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;

@@ -94,6 +94,20 @@ void NoticeTabWidget::resetTab(bool resetChild) {
 
 }
 
+bool NoticeTabWidget::inUse() {
+    return (this->v_index == -1) ? false : true;
+}
+
+void NoticeTabWidget::reTranslate() {
+    if(this->v_trLabel.isEmpty() == false) {
+        this->v_labelText = NoticeTabWidget::tr(this->v_trLabel.toStdString().c_str() );
+    }
+    if(this->v_trTab.isEmpty() == false) {
+        this->v_tabText = NoticeTabWidget::tr(this->v_trTab.toStdString().c_str() );
+    }
+
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;
