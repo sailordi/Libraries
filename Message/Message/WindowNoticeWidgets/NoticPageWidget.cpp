@@ -185,6 +185,20 @@ void NoticPageWidget::prevPagePressed() {
         }
 }
 
+void NoticPageWidget::nextListPressed() {
+    bool up = this->canUpdateList(1);
+
+        if(up == true) {
+            this->v_listIndex++;
+            emit this->listChanged();
+        }
+
+        if(this->v_labelH == false) {
+            this->v_nextListB->setEnabled(this->canUpdateList(1) );
+            this->v_prevListB->setEnabled(this->canUpdateList(-1) );
+        }
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);
@@ -196,6 +210,7 @@ void NoticPageWidget::init() {
 
     connect(this->v_nextPageB,SIGNAL(clicked(bool) ),this,SLOT(nextPagePressed() ) );
     connect(this->v_prevPageB,SIGNAL(clicked(bool) ),this,SLOT(prevPagePressed() ) );
+    connect(this->v_nextListB,SIGNAL(clicked(bool) ),this,SLOT(nextListPressed() ) );
 
     this->v_gLayout->addWidget(this->v_pageLabel,0,1);
 
