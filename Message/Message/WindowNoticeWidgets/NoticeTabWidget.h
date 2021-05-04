@@ -69,5 +69,8 @@ protected:
     */
     QPalette textEditPalette();
 
+    /*! Function for initializing variables that are needed in NoticeTabWidget */
+    void init();
+
 };
 #endif // NOTICETABWIDGET_H

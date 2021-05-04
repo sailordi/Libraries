@@ -33,6 +33,7 @@ NoticeTabWidget::NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget*
         Helper::quitProgram("Error text to few / many arguments ["+QString::number(text.size() )+"]",1);
     }
 
+    this->init();
 }
 
 void NoticeTabWidget::setFont(QFont f) {
@@ -67,4 +68,19 @@ QPalette NoticeTabWidget::textEditPalette() {
         }
 
         return p;
+}
+
+void NoticeTabWidget::init() {
+    this->v_label = new QLabel(this->v_p);
+    this->v_spin = new QSpinBox(this->v_p);
+    this->v_edit = new QTextEdit(this->v_p);
+
+    this->v_label->setAlignment(Qt::AlignCenter);
+
+    this->v_edit->setReadOnly(true);
+    this->v_edit->setPalette(this->textEditPalette() );
+
+    this->v_gLayout->addWidget(this->v_label,0,0);
+    this->v_gLayout->addWidget(this->v_spin,0,1);
+    this->v_gLayout->addWidget(this->v_edit,1,0,1,2);
 }
