@@ -108,6 +108,11 @@ void NoticeTabWidget::reTranslate() {
 
 }
 
+//Protected slots
+void NoticeTabWidget::numberChanged() {
+    emit this->messageChanged(this->v_spin->value(),this->v_flag);
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;
@@ -135,6 +140,8 @@ void NoticeTabWidget::init() {
     this->v_edit = new QTextEdit(this->v_p);
 
     this->v_label->setAlignment(Qt::AlignCenter);
+
+    connect(this->v_spin,SIGNAL(valueChanged(int) ),this,SLOT(numberChanged() ) );
 
     this->v_edit->setReadOnly(true);
     this->v_edit->setPalette(this->textEditPalette() );

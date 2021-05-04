@@ -92,6 +92,10 @@ signals:
     */
     void messageChanged(int pos,NoticeFlag flag);
 
+protected slots:
+    /*! Slot for the spinbox number changed */
+    void numberChanged();
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;
