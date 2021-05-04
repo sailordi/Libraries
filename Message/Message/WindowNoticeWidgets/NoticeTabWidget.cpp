@@ -47,3 +47,24 @@ void NoticeTabWidget::setFont(QFont f) {
     }
 
 }
+
+//Protected functions
+QPalette NoticeTabWidget::textEditPalette() {
+    QPalette p;
+
+        p.setColor(QPalette::Base,Qt::black);
+
+        switch(this->v_flag) {
+            case NoticeFlag::ERROR:
+                p.setColor(QPalette::Text,Qt::red);
+                break;
+            case NoticeFlag::WARNING:
+                p.setColor(QPalette::Text,Qt::yellow);
+                break;
+            case NoticeFlag::MESSAGE:
+                p.setColor(QPalette::Text,Qt::white);
+                break;
+        }
+
+        return p;
+}

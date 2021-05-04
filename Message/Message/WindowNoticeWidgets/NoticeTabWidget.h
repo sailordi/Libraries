@@ -64,5 +64,10 @@ protected:
 
     QString v_tabText = "",v_trTab = "",v_labelText = "",v_trLabel = "";
 
+    /*! Returns the palette for the TextEdit depending on the NoticeFlag
+     * \returns QPalette
+    */
+    QPalette textEditPalette();
+
 };
 #endif // NOTICETABWIDGET_H
