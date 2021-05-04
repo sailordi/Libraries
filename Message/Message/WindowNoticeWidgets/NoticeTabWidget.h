@@ -66,6 +66,12 @@ public:
     */
     void setLabel(int pos,int size);
 
+    /*! Sets data for the tab if it is in use
+     * \param size - The amount of messages
+     * \param pos - The text position
+    */
+    virtual void setData(int size,int pos);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;

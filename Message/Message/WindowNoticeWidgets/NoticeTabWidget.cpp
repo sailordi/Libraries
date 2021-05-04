@@ -68,6 +68,19 @@ void NoticeTabWidget::setLabel(int pos,int size) {
     this->v_label->setText(this->v_labelText+"[ "+pS+" / "+sS+" ]");
 }
 
+void NoticeTabWidget::setData(int size,int pos) {
+    if(this->tabUsed(size) == false) {
+        return;
+    }
+
+    this->v_spin->setMinimum(0);
+    emit this->v_spin->valueChanged(0);
+    this->v_spin->setMaximum(size);
+
+    emit this->v_spin->valueChanged(pos);
+    this->v_spin->setMinimum(1);
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;
