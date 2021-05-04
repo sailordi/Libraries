@@ -91,6 +91,8 @@ signals:
 protected slots:
     /*! Goes to the next page */
     void nextPagePressed();
+    /*! Goes to the previous page */
+    void prevPagePressed();
 
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
