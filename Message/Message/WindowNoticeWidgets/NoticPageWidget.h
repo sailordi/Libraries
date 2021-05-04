@@ -96,6 +96,8 @@ protected slots:
 
     /*! Goes to the next list */
     void nextListPressed();
+    /*! Goes to the previous list */
+    void prevListPressed();
 
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
