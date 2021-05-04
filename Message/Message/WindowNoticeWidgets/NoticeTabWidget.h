@@ -94,6 +94,12 @@ protected:
     */
     void alignTextEdit(QFlags<Qt::AlignmentFlag> f);
 
+    /*! Checks if tab should be used
+     * \param size - The amount of messages
+     * \returns bool
+    */
+    bool tabUsed(int size);
+
     /*! Change the child index */
     void childIndexChange();
 };

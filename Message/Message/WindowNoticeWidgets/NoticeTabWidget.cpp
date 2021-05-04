@@ -125,6 +125,25 @@ void NoticeTabWidget::alignTextEdit(QFlags<Qt::AlignmentFlag> f) {
         this->v_edit->setTextCursor(cu);
 }
 
+bool NoticeTabWidget::tabUsed(int size) {
+    if(size > 0) {
+        return true;
+    }
+
+    this->v_spin->setMinimum(0);
+    this->v_spin->setValue(0);
+
+    this->v_tabW->removeTab(this->v_index);
+
+    this->v_index = -1;
+
+    if(this->v_child != nullptr) {
+        this->childIndexChange();
+    }
+
+    return false;
+}
+
 void NoticeTabWidget::childIndexChange() {
     this->v_index--;
 
