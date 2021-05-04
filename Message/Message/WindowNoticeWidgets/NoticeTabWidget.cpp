@@ -1,8 +1,12 @@
 #include "NoticeTabWidget.h"
 
+#include <QFont>
 #include <QGridLayout>
+#include <QLabel>
 #include <QList>
 #include <QTabWidget>
+#include <QTextEdit>
+#include <QSpinBox>
 
 #include "Base/Other/Helper.h"
 #include "Message/Notice/NoticeFlag.h"
@@ -27,6 +31,19 @@ NoticeTabWidget::NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget*
         this->v_labelText = text.takeFirst();
     }else {
         Helper::quitProgram("Error text to few / many arguments ["+QString::number(text.size() )+"]",1);
+    }
+
+}
+
+void NoticeTabWidget::setFont(QFont f) {
+    if(this->v_label != nullptr) {
+        this->v_label->setFont(f);
+    }
+    if(this->v_edit != nullptr) {
+        this->v_edit->setFont(f);
+    }
+    if(this->v_spin != nullptr) {
+        this->v_spin->setFont(f);
     }
 
 }

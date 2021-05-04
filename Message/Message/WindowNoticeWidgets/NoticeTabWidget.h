@@ -46,6 +46,9 @@ public:
     */
     NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget* tabW,QStringList& text,bool tr,NoticeFlag f,QWidget* parent = nullptr);
 
+    /*! Sets the font for the NoticeTabWidget */
+    void setFont(QFont f);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;
