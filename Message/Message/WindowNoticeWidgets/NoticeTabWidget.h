@@ -85,6 +85,13 @@ public:
     /*! Retranslates the tab & label text */
     void reTranslate();
 
+signals:
+    /*! Signal for message changed
+     * \param pos - The message position
+     * \param f - The notice type [ERROR,WARNING,MESSAGE]
+    */
+    void messageChanged(int pos,NoticeFlag flag);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;
