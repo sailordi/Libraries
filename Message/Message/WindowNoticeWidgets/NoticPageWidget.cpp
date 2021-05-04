@@ -178,3 +178,18 @@ void NoticPageWidget::hideListWidgets() {
         this->v_nextListB->setHidden(this->v_labelH);
         this->v_prevListB->setHidden(this->v_labelH);
 }
+
+void NoticPageWidget::setPageLabel() {
+    NoticePageP p = this->currentPage();
+
+    if(p.isNull() == true) {
+        return;
+    }
+    if(this->v_pageH == true) {
+        return;
+    }
+
+    this->v_pageLabel->setText(p->title() );
+
+    this->v_pageLabel->setAlignment(Qt::AlignCenter);
+}

@@ -105,5 +105,8 @@ protected:
     /*! Hides / shows list widgets */
     void hideListWidgets();
 
+    /*! Sets the page label */
+    void setPageLabel();
+
 };
 #endif // NOTICPAGEWIDGET_H
