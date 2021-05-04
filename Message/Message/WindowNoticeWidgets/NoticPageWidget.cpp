@@ -135,3 +135,17 @@ bool NoticPageWidget::canUpdatePage(int num) {
 
     return true;
 }
+
+bool NoticPageWidget::canUpdateList(int num) {
+    if(this->currentPage().isNull() == true) {
+        return false;
+    }
+    if(this->v_listIndex + num < 0) {
+        return false;
+    }
+    if(this->v_listIndex + num >= this->currentPage()->size() ) {
+        return false;
+    }
+
+    return true;
+}

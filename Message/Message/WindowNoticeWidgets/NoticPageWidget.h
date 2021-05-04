@@ -94,5 +94,11 @@ protected:
      * \returns bool
     */
     bool canUpdatePage(int num);
+    /*! Checks if list can be updated
+     * \param num - The number to check if can be updated
+     * \returns bool
+    */
+    bool canUpdateList(int num);
+
 };
 #endif // NOTICPAGEWIDGET_H
