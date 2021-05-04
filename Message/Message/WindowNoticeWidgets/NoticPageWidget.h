@@ -52,6 +52,9 @@ public:
     /*! Deconstructor */
     virtual ~NoticPageWidget();
 
+    /*! Sets the font for the NoticPageWidget */
+    void setFont(QFont f);
+
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
     bool v_pageH = false,v_labelH = false;

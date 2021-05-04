@@ -1,7 +1,10 @@
 #include "NoticPageWidget.h"
 
+#include <QFont>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 
 #include "Base/Other/Helper.h"
 
@@ -39,4 +42,25 @@ NoticPageWidget::NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout
 }
 NoticPageWidget::~NoticPageWidget() {
     this->v_pages.clear();
+}
+
+void NoticPageWidget::setFont(QFont f) {
+    if(this->v_pageLabel != nullptr) {
+        this->v_pageLabel->setFont(f);
+    }
+
+    if(this->v_prevPageB != nullptr) {
+        this->v_prevPageB->setFont(f);
+    }
+    if(this->v_nextPageB != nullptr) {
+        this->v_nextPageB->setFont(f);
+    }
+
+    if(this->v_prevListB != nullptr) {
+        this->v_prevListB->setFont(f);
+    }
+    if(this->v_nextListB != nullptr) {
+        this->v_nextListB->setFont(f);
+    }
+
 }
