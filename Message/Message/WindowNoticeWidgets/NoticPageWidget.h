@@ -68,5 +68,8 @@ protected:
 
     QList<NoticePageP> v_pages;
 
+    /*! Function for initializing variables that are needed in NoticPageWidget */
+    virtual void init();
+
 };
 #endif // NOTICPAGEWIDGET_H

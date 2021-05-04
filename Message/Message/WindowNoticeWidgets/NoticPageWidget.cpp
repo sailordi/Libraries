@@ -39,7 +39,9 @@ NoticPageWidget::NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout
         Helper::quitProgram("Error button text to few / many arguments ["+QString::number(btnText.size() )+"]",1);
     }
 
+    this->init();
 }
+
 NoticPageWidget::~NoticPageWidget() {
     this->v_pages.clear();
 }
@@ -63,4 +65,25 @@ void NoticPageWidget::setFont(QFont f) {
         this->v_nextListB->setFont(f);
     }
 
+}
+
+//Protected functions
+void NoticPageWidget::init() {
+    this->v_pageLabel = new QLabel(this->v_p);
+
+    this->v_nextPageB = new QPushButton(this->v_nextPageText,this->v_p);
+    this->v_prevPageB = new QPushButton(this->v_prevPageText,this->v_p);
+    this->v_nextListB = new QPushButton(this->v_nextListText,this->v_p);
+    this->v_prevListB = new QPushButton(this->v_prevListText,this->v_p);
+
+    this->v_gLayout->addWidget(this->v_pageLabel,0,1);
+
+    this->v_gLayout->addWidget(this->v_prevPageB,0,0);
+    this->v_gLayout->addWidget(this->v_nextPageB,0,2);
+
+    this->v_hLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred) );
+    this->v_hLayout->addWidget(this->v_prevListB);
+    this->v_hLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred) );
+    this->v_hLayout->addWidget(this->v_nextListB);
+    this->v_hLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred) );
 }
