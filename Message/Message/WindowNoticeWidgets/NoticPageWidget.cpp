@@ -124,3 +124,14 @@ void NoticPageWidget::init() {
     this->v_hLayout->addWidget(this->v_nextListB);
     this->v_hLayout->addItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred) );
 }
+
+bool NoticPageWidget::canUpdatePage(int num) {
+    if(this->v_pageIndex + num < 0) {
+        return false;
+    }
+    if(this->v_pageIndex + num >= this->v_pages.size() ) {
+        return false;
+    }
+
+    return true;
+}

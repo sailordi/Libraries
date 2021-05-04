@@ -89,5 +89,10 @@ protected:
     /*! Function for initializing variables that are needed in NoticPageWidget */
     virtual void init();
 
+    /*! Checks if page can be updated
+     * \param num - The number to check if can be updated
+     * \returns bool
+    */
+    bool canUpdatePage(int num);
 };
 #endif // NOTICPAGEWIDGET_H
