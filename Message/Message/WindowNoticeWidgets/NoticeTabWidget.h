@@ -77,5 +77,10 @@ protected:
     /*! Function for initializing variables that are needed in NoticeTabWidget */
     void init();
 
+    /*! Aligns the text in the TextEdit
+     *  \param f - The alignmemnt
+    */
+    void alignTextEdit(QFlags<Qt::AlignmentFlag> f);
+
 };
 #endif // NOTICETABWIDGET_H

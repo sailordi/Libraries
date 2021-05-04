@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QList>
 #include <QTabWidget>
+#include <QTextBlockFormat>
+#include <QTextCursor>
 #include <QTextEdit>
 #include <QSpinBox>
 
@@ -87,4 +89,23 @@ void NoticeTabWidget::init() {
     this->v_gLayout->addWidget(this->v_label,0,0);
     this->v_gLayout->addWidget(this->v_spin,0,1);
     this->v_gLayout->addWidget(this->v_edit,1,0,1,2);
+}
+
+void NoticeTabWidget::alignTextEdit(QFlags<Qt::AlignmentFlag> f) {
+    QTextCursor cu = this->v_edit->textCursor();
+
+        cu.movePosition(QTextCursor::Start);
+
+        while(cu.atEnd() == false) {
+            QTextBlockFormat text = cu.blockFormat();
+
+            text.setAlignment(f);
+            cu.mergeBlockFormat(text);
+
+            if(cu.movePosition(QTextCursor::NextBlock) == false) {
+                break;
+            }
+        }
+
+        this->v_edit->setTextCursor(cu);
 }
