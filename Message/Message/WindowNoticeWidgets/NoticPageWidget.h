@@ -78,6 +78,9 @@ public:
     */
     void resetIndex(ResetFlag f);
 
+    /*! Clears the list of pages */
+    void clear();
+
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
     bool v_pageH = false,v_labelH = false;

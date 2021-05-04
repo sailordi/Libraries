@@ -122,6 +122,10 @@ void NoticPageWidget::resetIndex(ResetFlag f) {
 
 }
 
+void NoticPageWidget::clear() {
+    this->v_pages.clear();
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);
