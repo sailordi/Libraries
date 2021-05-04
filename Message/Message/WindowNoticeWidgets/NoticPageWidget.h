@@ -68,6 +68,10 @@ public:
      * \returns NoticePageP
     */
     NoticePageP currentPage();
+    /*! Retuns the current list
+     * \returns NoticeListP
+    */
+    NoticeListP curretList();
 
 protected:
     int v_pageIndex = 0,v_listIndex = 0;

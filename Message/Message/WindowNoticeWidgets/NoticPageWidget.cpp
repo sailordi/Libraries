@@ -91,6 +91,19 @@ NoticePageP NoticPageWidget::currentPage() {
     return this->v_pages.at(this->v_pageIndex);
 }
 
+NoticeListP NoticPageWidget::curretList() {
+    NoticePageP p = this->currentPage();
+
+        if(p.isNull() == true) {
+            return nullptr;
+        }
+        if(p->size() <= this->v_listIndex) {
+            return nullptr;
+        }
+
+        return p->list(this->v_listIndex);
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);
