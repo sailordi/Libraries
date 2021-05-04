@@ -67,6 +67,22 @@ void NoticPageWidget::setFont(QFont f) {
 
 }
 
+void NoticPageWidget::add(NoticePage* p) {
+    if(p == nullptr) {
+        return;
+    }
+
+    this->v_pages.push_back(NoticePageP(p) );
+}
+
+void NoticPageWidget::add(NoticePageP p) {
+    if(p.isNull() == true) {
+        return;
+    }
+
+    this->v_pages.push_back(p);
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);

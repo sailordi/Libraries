@@ -55,6 +55,15 @@ public:
     /*! Sets the font for the NoticPageWidget */
     void setFont(QFont f);
 
+    /*! Adds a NoticePage to list
+     * \param p - The page to add
+    */
+    void add(NoticePage* p);
+    /*! Adds a NoticePage to list
+     * \param p - The page to add
+    */
+    void add(NoticePageP p);
+
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
     bool v_pageH = false,v_labelH = false;
