@@ -73,6 +73,11 @@ public:
     */
     NoticeListP curretList();
 
+    /*! Reset index
+     * \param f - Reset type [PAGE, LIST, BOTH]
+    */
+    void resetIndex(ResetFlag f);
+
 protected:
     int v_pageIndex = 0,v_listIndex = 0;
     bool v_pageH = false,v_labelH = false;

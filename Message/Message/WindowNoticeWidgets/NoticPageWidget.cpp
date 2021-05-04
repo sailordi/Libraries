@@ -104,6 +104,24 @@ NoticeListP NoticPageWidget::curretList() {
         return p->list(this->v_listIndex);
 }
 
+void NoticPageWidget::resetIndex(ResetFlag f) {
+    switch(f) {
+        case ResetFlag::LIST:
+            this->v_listIndex = 0;
+            this->hideListWidgets();
+            return;
+        case ResetFlag::PAGE:
+            this->v_pageIndex = 0;
+            this->hidePageWidgets();
+            return;
+        default:
+            this->resetIndex(ResetFlag::LIST);
+            this->resetIndex(ResetFlag::PAGE);
+            return;
+    }
+
+}
+
 //Protected functions
 void NoticPageWidget::init() {
     this->v_pageLabel = new QLabel(this->v_p);
