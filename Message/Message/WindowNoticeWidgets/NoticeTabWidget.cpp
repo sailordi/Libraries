@@ -61,6 +61,13 @@ void NoticeTabWidget::setText(QString t,QFlags<Qt::AlignmentFlag> f) {
     this->alignTextEdit(f);
 }
 
+void NoticeTabWidget::setLabel(int pos,int size) {
+    QString pS = QString::number(pos);
+    QString sS = QString::number(size);
+
+    this->v_label->setText(this->v_labelText+"[ "+pS+" / "+sS+" ]");
+}
+
 //Protected functions
 QPalette NoticeTabWidget::textEditPalette() {
     QPalette p;
@@ -95,6 +102,8 @@ void NoticeTabWidget::init() {
     this->v_gLayout->addWidget(this->v_label,0,0);
     this->v_gLayout->addWidget(this->v_spin,0,1);
     this->v_gLayout->addWidget(this->v_edit,1,0,1,2);
+
+    this->setLabel(0,0);
 }
 
 void NoticeTabWidget::alignTextEdit(QFlags<Qt::AlignmentFlag> f) {

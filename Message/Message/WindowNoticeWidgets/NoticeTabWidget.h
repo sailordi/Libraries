@@ -60,6 +60,12 @@ public:
     */
     void setText(QString t,QFlags<Qt::AlignmentFlag> f);
 
+    /*! Sets label text
+     * \param pos - The text position
+     * \param size - Amount of messages
+    */
+    void setLabel(int pos,int size);
+
 protected:
     int v_originalIndex = 0,v_index = 0;
     NoticeFlag v_flag;
