@@ -59,5 +59,12 @@ private:
     QString v_languageTitle = "",v_languageTitleTr = "";
     Translator* v_translator = nullptr;
 
+    /*! Function for initializing variables that need to be initialized
+     * \param tabText - The text for all TabWidgets
+     * \param pageText - The text for the NoticePageWidget buttons
+     * \param tr - If the text is translation text
+    */
+    void init(QStringList tabText,QStringList pageText,bool tr);
+
 };
 #endif // WINDOWNOTICE_H
