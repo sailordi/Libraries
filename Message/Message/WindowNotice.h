@@ -11,6 +11,7 @@ namespace Ui { class WindowNotice; }
 
 class QMenu;
 
+class NoticePage;
 class NoticeTabWidget;
 class NoticPageWidget;
 class Settings;
@@ -59,6 +60,14 @@ public:
     */
     void saveSettings(Settings* s);
 
+    /*! Adds a NoticePage to be shown
+     * \param p - NoticePage to add
+    */
+    void add(NoticePage* p);
+    /*! Adds a NoticePage to be shown
+     * \param p - NoticePage to add
+    */
+    void add(QSharedPointer<NoticePage> p);
 
 private:
     Ui::WindowNotice* v_ui = nullptr;

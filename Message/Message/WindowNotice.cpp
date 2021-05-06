@@ -9,6 +9,7 @@
 
 #include "Message/Notice/NoticeFlag.h"
 #include "Message/Notice/NoticeList.h"
+#include "Message/Notice/NoticePage.h"
 #include "Message/WindowNoticeWidgets/NoticeTabWidget.h"
 #include "Message/WindowNoticeWidgets/NoticPageWidget.h"
 
@@ -78,6 +79,14 @@ void WindowNotice::saveSettings(Settings* s) {
     s->addBlockData("Pos",this->pos() );
 
     s->endGroup();
+}
+
+void WindowNotice::add(NoticePage* p) {
+    this->v_pageW->add(p);
+}
+
+void WindowNotice::add(QSharedPointer<NoticePage> p) {
+    this->v_pageW->add(p);
 }
 
 //Private functions
