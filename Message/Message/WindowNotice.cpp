@@ -89,6 +89,10 @@ void WindowNotice::add(QSharedPointer<NoticePage> p) {
     this->v_pageW->add(p);
 }
 
+void WindowNotice::clear() {
+    this->v_pageW->clear();
+}
+
 //Private functions
 void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
     this->v_errorW = new NoticeTabWidget(ERRORINDEX,this->v_ui->error_layout,this->v_ui->error_tab,

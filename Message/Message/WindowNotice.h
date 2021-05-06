@@ -69,6 +69,9 @@ public:
     */
     void add(QSharedPointer<NoticePage> p);
 
+    /*! Clears all NoticePages */
+    void clear();
+
 private:
     Ui::WindowNotice* v_ui = nullptr;
     QMenu* v_languageM = nullptr;
