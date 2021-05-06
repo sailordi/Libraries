@@ -99,6 +99,11 @@ void WindowNotice::prepare() {
     this->setTabsShown();
 }
 
+//Private slots:
+void WindowNotice::listChange() {
+    this->setTabsShown();
+}
+
 //Private functions
 void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
     this->v_errorW = new NoticeTabWidget(ERRORINDEX,this->v_ui->error_layout,this->v_ui->error_tab,

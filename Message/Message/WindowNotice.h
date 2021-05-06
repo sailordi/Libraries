@@ -75,6 +75,10 @@ public:
     /*! Prepere window for being shown */
     void prepare();
 
+private slots:
+    /*! Slot for NoticeList changed */
+    void listChange();
+
 private:
     Ui::WindowNotice* v_ui = nullptr;
     QMenu* v_languageM = nullptr;
