@@ -50,6 +50,10 @@ public:
     /*! Deconstructor */
     ~WindowNotice();
 
+    /*! Loads settings
+     * \param s - Settings handle
+    */
+    void loadSettings(Settings* s);
     /*! Saves settings
      * \param s - Settings handle
     */

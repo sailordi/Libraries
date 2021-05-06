@@ -62,6 +62,16 @@ WindowNotice::~WindowNotice() {
     delete this->v_ui;
 }
 
+void WindowNotice::loadSettings(Settings* s) {
+    s->startGroup("WindowNotice");
+
+    QPoint p = s->getBlockData("Pos",QPoint(100,100) ).toPoint();
+
+    this->move(p);
+
+    s->endGroup();
+}
+
 void WindowNotice::saveSettings(Settings* s) {
     s->startGroup("WindowNotice");
 
