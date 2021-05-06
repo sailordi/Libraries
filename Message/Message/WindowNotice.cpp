@@ -47,6 +47,10 @@ WindowNotice::WindowNotice(Translator* tr,QStringList languageTitle,QStringList 
     this->v_translator->populateLanguageMenu(this->v_languageM,this->v_languageTitle);
 
     this->init(tabText,pageText,true);
+
+    connect(this->v_translator,&Translator::reTranslate,this,&WindowNotice::reTranslate);
+
+    this->reTranslate();
 }
 
 WindowNotice::~WindowNotice() {
@@ -97,6 +101,23 @@ void WindowNotice::prepare() {
     this->v_pageW->resetIndex(ResetFlag::BOTH);
 
     this->setTabsShown();
+}
+
+//Public slots
+void WindowNotice::reTranslate() {
+    if(this->v_languageTitleTr.isEmpty() == false) {
+        this->v_languageTitle = WindowNotice::tr(this->v_languageTitleTr.toStdString().c_str() );
+    }
+
+    if(this->v_translator != nullptr) {
+        this->v_translator->reTranslateLanguageMenu(this->v_languageM,this->v_languageTitle);
+    }
+
+    this->v_errorW->reTranslate();
+    this->v_warningW->reTranslate();
+    this->v_messageW->reTranslate();
+
+    this->v_pageW->reTranslate();
 }
 
 //Private slots:

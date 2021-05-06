@@ -76,6 +76,10 @@ public:
     /*! Prepere window for being shown */
     void prepare();
 
+public slots:
+    /*! Slot for retranslation */
+    void reTranslate();
+
 private slots:
     /*! Slot for NoticeList changed */
     void listChange();
