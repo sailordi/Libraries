@@ -93,6 +93,12 @@ void WindowNotice::clear() {
     this->v_pageW->clear();
 }
 
+void WindowNotice::prepare() {
+    this->v_pageW->resetIndex(ResetFlag::BOTH);
+
+    this->setTabsShown();
+}
+
 //Private functions
 void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
     this->v_errorW = new NoticeTabWidget(ERRORINDEX,this->v_ui->error_layout,this->v_ui->error_tab,
