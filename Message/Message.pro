@@ -35,6 +35,7 @@ SOURCES += \
     Message/Notice/Notice.cpp \
     Message/Notice/NoticeList.cpp \
     Message/Notice/NoticePage.cpp \
+    Message/WindowNotice.cpp \
     Message/WindowNoticeWidgets/NoticPageWidget.cpp \
     Message/WindowNoticeWidgets/NoticeTabWidget.cpp
 
@@ -43,6 +44,7 @@ HEADERS += Message_global.h \
     Message/Notice/NoticeFlag.h \
     Message/Notice/NoticeList.h \
     Message/Notice/NoticePage.h \
+    Message/WindowNotice.h \
     Message/WindowNoticeWidgets/NoticPageWidget.h \
     Message/WindowNoticeWidgets/NoticeTabWidget.h
 
@@ -51,3 +53,6 @@ unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
+
+FORMS += \
+    Message/WindowNotice.ui
