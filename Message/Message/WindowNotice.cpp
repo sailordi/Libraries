@@ -7,6 +7,7 @@
 #include "Base/Other/Translator.h"
 
 #include "Message/Notice/NoticeFlag.h"
+#include "Message/Notice/NoticeList.h"
 #include "Message/WindowNoticeWidgets/NoticeTabWidget.h"
 #include "Message/WindowNoticeWidgets/NoticPageWidget.h"
 
@@ -86,4 +87,18 @@ void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
     QRect defG(0,0,1150,720);
 
     this->setMinimumSize(defG.width(),defG.height() );
+}
+
+void WindowNotice::setTabsShown() {
+    this->v_errorW->resetTab(true);
+
+    NoticeListP tmp =  this->v_pageW->curretList();
+
+    int errorS    = (tmp.isNull() == true) ? 0 : tmp->size(NoticeFlag::ERROR);
+    int warningS  = (tmp.isNull() == true) ? 0 : tmp->size(NoticeFlag::WARNING);
+    int messageS  = (tmp.isNull() == true) ? 0 : tmp->size(NoticeFlag::MESSAGE);
+
+    this->v_errorW->setData(errorS,1);
+    this->v_warningW->setData(warningS,1);
+    this->v_messageW->setData(messageS,1);
 }

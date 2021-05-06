@@ -66,5 +66,8 @@ private:
     */
     void init(QStringList tabText,QStringList pageText,bool tr);
 
+    /*! Sets the tabs that should be shown */
+    void setTabsShown();
+
 };
 #endif // WINDOWNOTICE_H
