@@ -104,6 +104,30 @@ void WindowNotice::listChange() {
     this->setTabsShown();
 }
 
+void WindowNotice::messageChange(int pos,NoticeFlag flag) {
+    if(pos <= 0) {
+        return;
+    }
+
+    NoticeTabWidget* tmp = nullptr;
+    NoticeListP l = this->v_pageW->curretList();
+
+    switch(flag) {
+        case NoticeFlag::ERROR:
+            tmp = this->v_errorW;
+            break;
+        case NoticeFlag::WARNING:
+            tmp = this->v_warningW;
+            break;
+        case NoticeFlag::MESSAGE:
+            tmp = this->v_messageW;
+            break;
+    }
+
+    tmp->setText(l->msg(pos-1,flag),Qt::AlignCenter);
+    tmp->setLabel(pos,l->size(flag) );
+}
+
 //Private functions
 void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
     this->v_errorW = new NoticeTabWidget(ERRORINDEX,this->v_ui->error_layout,this->v_ui->error_tab,
@@ -116,6 +140,12 @@ void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
                                          this->v_ui->messages_widget,tabText,tr,NoticeFlag::MESSAGE);
 
     this->v_pageW = new NoticPageWidget(pageText,this->v_ui->page_layout,this->v_ui->list_layout);
+
+    connect(this->v_errorW,&NoticeTabWidget::messageChanged,this,&WindowNotice::messageChange);
+    connect(this->v_warningW,&NoticeTabWidget::messageChanged,this,&WindowNotice::messageChange);
+    connect(this->v_messageW,&NoticeTabWidget::messageChanged,this,&WindowNotice::messageChange);
+
+    connect(this->v_pageW,&NoticPageWidget::listChanged,this,&WindowNotice::listChange);
 
     QFont f = QFont("Times New Roman",16);
 

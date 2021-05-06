@@ -11,6 +11,7 @@ namespace Ui { class WindowNotice; }
 
 class QMenu;
 
+enum class NoticeFlag;
 class NoticePage;
 class NoticeTabWidget;
 class NoticPageWidget;
@@ -22,7 +23,7 @@ class Translator;
  *
  * Incudes: QMainWindow, QSharedPointer, QString, QStringList & Message_global.h
  *
- * Forward declarations: QMen, NoticePage, NoticeTabWidget, NoticPageWidget, Settings & Translator
+ * Forward declarations: QMen, NoticeFlag, NoticePage, NoticeTabWidget, NoticPageWidget, Settings & Translator
  *
  * Inherits: QMainWindow
  *
@@ -78,6 +79,12 @@ public:
 private slots:
     /*! Slot for NoticeList changed */
     void listChange();
+
+    /*! Slot for Notice changed
+     * \param pos - The notice position
+     * \param flag - The notice type [ERROR, WARNING, MESSAGE]
+    */
+    void messageChange(int pos,NoticeFlag flag);
 
 private:
     Ui::WindowNotice* v_ui = nullptr;
