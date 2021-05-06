@@ -5,6 +5,7 @@
 #include <QMenu>
 
 #include "Base/Other/Translator.h"
+#include "Base/Settings/Settings.h"
 
 #include "Message/Notice/NoticeFlag.h"
 #include "Message/Notice/NoticeList.h"
@@ -59,6 +60,14 @@ WindowNotice::~WindowNotice() {
     }
 
     delete this->v_ui;
+}
+
+void WindowNotice::saveSettings(Settings* s) {
+    s->startGroup("WindowNotice");
+
+    s->addBlockData("Pos",this->pos() );
+
+    s->endGroup();
 }
 
 //Private functions

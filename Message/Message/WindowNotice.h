@@ -50,6 +50,12 @@ public:
     /*! Deconstructor */
     ~WindowNotice();
 
+    /*! Saves settings
+     * \param s - Settings handle
+    */
+    void saveSettings(Settings* s);
+
+
 private:
     Ui::WindowNotice* v_ui = nullptr;
     QMenu* v_languageM = nullptr;
