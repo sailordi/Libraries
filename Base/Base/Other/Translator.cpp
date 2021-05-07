@@ -19,6 +19,10 @@ Translator::Translator(QString path,QLocale lang,QString fileFilter,QObject *par
     this->setData(path,lang,fileFilter);
 }
 
+Translator::~Translator() {
+    qApp->removeTranslator(&this->v_trans);
+}
+
 void Translator::setData(QString path,QLocale lang,QString fileFilter) {
     this->v_langPath = path;
     this->v_fileFilter = fileFilter;
