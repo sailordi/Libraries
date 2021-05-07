@@ -21,3 +21,9 @@ Added a function that removes a settings array
 Added a function that removes a settings block
 Created a class that is an base adapter against a QTreeView, contains common functions between TreeView adapters
 Added the base view adapter to the view adapters
+```
+## V3
+```
+Created the file Common .pri the file contains common elements that all libraries .pro files share
+Created a .pro for the shared library Message witch contains base classes for messages
+Fixed problem where deconstructor was missing
