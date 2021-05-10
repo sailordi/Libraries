@@ -27,3 +27,10 @@ Added the base view adapter to the view adapters
 Created the file Common .pri the file contains common elements that all libraries .pro files share
 Created a .pro for the shared library Message witch contains base classes for messages
 Fixed problem where deconstructor was missing
+```
+## V3_1
+```
+Fixed some comment errors
+Added the option to only translate the windowNotice manually
+Added a function that checks for errors with the tab / page text
+Refactoring: removed error checks from WindowNoticeWidgets classes
