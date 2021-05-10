@@ -14,7 +14,7 @@
 #include "Message/Notice/NoticeFlag.h"
 
 //Public functions
-NoticeTabWidget::NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget* tabW,QStringList& text,bool trans,NoticeFlag f,QWidget* parent) :  SingleLayoutWidget(parent) {
+NoticeTabWidget::NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget* tabW,QStringList& text,bool tr,NoticeFlag f,QWidget* parent) :  SingleLayoutWidget(parent) {
     this->clearLayout(gL);
 
     this->v_gLayout = gL;
@@ -23,16 +23,14 @@ NoticeTabWidget::NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget*
     this->v_flag = f;
     this->v_index = this->v_originalIndex = in;
 
-    if(QList<int>({4,8,12}).contains(text.size() ) == true && trans == true) {
+    if(tr == true) {
         this->v_tabText = text.takeFirst();
         this->v_trTab = text.takeFirst();
         this->v_labelText = text.takeFirst();
         this->v_trLabel = text.takeFirst();
-    }else if(QList<int>({2,4,6}).contains(text.size() ) == true && trans == false) {
+    }else {
         this->v_tabText = text.takeFirst();
         this->v_labelText = text.takeFirst();
-    }else {
-        Helper::quitProgram("Error text to few / many arguments ["+QString::number(text.size() )+"]",1);
     }
 
     this->init();

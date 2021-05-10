@@ -9,14 +9,11 @@
 #include "Base/Other/Helper.h"
 
 //Public functions
-NoticPageWidget::NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout* hL,QWidget* parent) : SingleLayoutWidget(parent) {
-    this->clearLayout(gL);
-    this->clearLayout(hL);
-
+NoticPageWidget::NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout* hL,bool tr,QWidget* parent) : SingleLayoutWidget(parent) {
     this->v_gLayout = gL;
     this->v_hLayout = hL;
 
-    if(btnText.size() == 8) {
+    if(tr == true) {
         this->v_nextPageText = btnText.takeFirst();
         this->v_nextPageTr = btnText.takeFirst();
 
@@ -29,14 +26,11 @@ NoticPageWidget::NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout
         this->v_prevListText = btnText.takeFirst();
         this->v_prevListTr = btnText.takeFirst();
     }
-    else if(btnText.size() == 4) {
+    else {
         this->v_nextPageText = btnText.takeFirst();
         this->v_nextListText = btnText.takeFirst();
         this->v_prevPageText = btnText.takeFirst();
         this->v_prevListText = btnText.takeFirst();
-    }
-    else {
-        Helper::quitProgram("Error button text to few / many arguments ["+QString::number(btnText.size() )+"]",1);
     }
 
     this->init();

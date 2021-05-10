@@ -36,7 +36,7 @@ typedef QSharedPointer<NoticePage> NoticePageP;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-05-04
- * \date Last update: 2021-05-04
+ * \date Last update: 2021-05-10
 */
 class NoticPageWidget : public SingleLayoutWidget
 {
@@ -46,9 +46,10 @@ public:
     * \param btnText - Button text
     * \param gL - Gridlayout
     * \param hL - Hboxlayout
+    * \param tr - If the text has translation text
     * \param parent - The parent [Default: nullptr]
     */
-    NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout* hL,QWidget* parent = nullptr);
+    NoticPageWidget(QStringList btnText,QGridLayout* gL,QHBoxLayout* hL,bool tr,QWidget* parent = nullptr);
     /*! Deconstructor */
     virtual ~NoticPageWidget();
 
@@ -113,7 +114,7 @@ protected:
     QList<NoticePageP> v_pages;
 
     /*! Function for initializing variables that are needed in NoticPageWidget */
-    virtual void init();
+    void init();
 
     /*! Checks if page can be updated
      * \param num - The number to check if can be updated

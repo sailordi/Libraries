@@ -168,7 +168,7 @@ void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
     this->v_messageW = new NoticeTabWidget(MESSAGEINDEX,this->v_ui->message_layout,this->v_ui->message_tab,
                                          this->v_ui->messages_widget,tabText,tr,NoticeFlag::MESSAGE);
 
-    this->v_pageW = new NoticPageWidget(pageText,this->v_ui->page_layout,this->v_ui->list_layout);
+    this->v_pageW = new NoticPageWidget(pageText,this->v_ui->page_layout,this->v_ui->list_layout,tr);
 
     connect(this->v_errorW,&NoticeTabWidget::messageChanged,this,&WindowNotice::messageChange);
     connect(this->v_warningW,&NoticeTabWidget::messageChanged,this,&WindowNotice::messageChange);
