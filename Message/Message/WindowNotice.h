@@ -43,12 +43,13 @@ public:
     explicit WindowNotice(QWidget *parent = nullptr);
     /*! Constructor
      * \param tr - Translation handle
+     * \param manualTr - If manual translation should be used
      * \param languageTitle - The language menu title
      * \param tabText - The text for all TabWidgets
      * \param pageText - The text for the NoticePageWidget buttons
      * \param parent - The parent [Default: nullptr]
     */
-    explicit WindowNotice(Translator* tr,QStringList languageTitle,QStringList tabText,QStringList pageText,QWidget *parent = nullptr);
+    explicit WindowNotice(Translator* tr,bool manualTr,QStringList languageTitle,QStringList tabText,QStringList pageText,QWidget *parent = nullptr);
     /*! Deconstructor */
     ~WindowNotice();
 

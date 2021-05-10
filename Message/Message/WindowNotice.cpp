@@ -24,7 +24,7 @@ WindowNotice::WindowNotice(QWidget* parent) : QMainWindow(parent), v_ui(new Ui::
                false);
 }
 
-WindowNotice::WindowNotice(Translator* tr,QStringList languageTitle,QStringList tabText,QStringList pageText,QWidget* parent) : QMainWindow(parent), v_ui(new Ui::WindowNotice) {
+WindowNotice::WindowNotice(Translator* tr,bool manualTr,QStringList languageTitle,QStringList tabText,QStringList pageText,QWidget* parent) : QMainWindow(parent), v_ui(new Ui::WindowNotice) {
     this->v_ui->setupUi(this);
 
     this->v_translator = tr;
@@ -48,9 +48,12 @@ WindowNotice::WindowNotice(Translator* tr,QStringList languageTitle,QStringList 
 
     this->init(tabText,pageText,true);
 
-    connect(this->v_translator,&Translator::reTranslate,this,&WindowNotice::reTranslate);
+    if(manualTr == false) {
+        connect(this->v_translator,&Translator::reTranslate,this,&WindowNotice::reTranslate);
 
-    this->reTranslate();
+        this->reTranslate();
+    }
+
 }
 
 WindowNotice::~WindowNotice() {
