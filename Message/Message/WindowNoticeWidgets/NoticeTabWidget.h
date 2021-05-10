@@ -28,7 +28,7 @@ enum class NoticeFlag;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-05-04
- * \date Last update: 2021-05-04
+ * \date Last update: 2021-05-10
 */
 class MESSAGE_EXPORT NoticeTabWidget : public SingleLayoutWidget
 {
@@ -56,7 +56,7 @@ public:
 
     /*! Sets textedit text
      * \param t - The text
-     * \param a - The aligment to be used
+     * \param f - The aligment to be used
     */
     void setText(QString t,QFlags<Qt::AlignmentFlag> f);
 
@@ -88,7 +88,7 @@ public:
 signals:
     /*! Signal for message changed
      * \param pos - The message position
-     * \param f - The notice type [ERROR,WARNING,MESSAGE]
+     * \param flag - The notice type [ERROR,WARNING,MESSAGE]
     */
     void messageChanged(int pos,NoticeFlag flag);
 
