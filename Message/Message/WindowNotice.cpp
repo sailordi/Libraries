@@ -4,6 +4,7 @@
 #include <QFont>
 #include <QMenu>
 
+#include "Base/Other/Helper.h"
 #include "Base/Other/Translator.h"
 #include "Base/Settings/Settings.h"
 
@@ -14,6 +15,8 @@
 #include "Message/WindowNoticeWidgets/NoticPageWidget.h"
 
 enum TABINDEX_WINDOWNOTICE{ERRORINDEX = 0,WARNINGINDEX,MESSAGEINDEX};
+
+const int TAB_TEXT_LIST_SIZE = 6,PAGE_TEXT_LIST_SIZE = 4;
 
 //Public functions
 WindowNotice::WindowNotice(QWidget* parent) : QMainWindow(parent), v_ui(new Ui::WindowNotice) {
@@ -154,6 +157,8 @@ void WindowNotice::messageChange(int pos,NoticeFlag flag) {
 
 //Private functions
 void WindowNotice::init(QStringList tabText,QStringList pageText,bool tr) {
+    this->errorCheck(tabText,pageText,tr);
+
     this->v_errorW = new NoticeTabWidget(ERRORINDEX,this->v_ui->error_layout,this->v_ui->error_tab,
                                     this->v_ui->messages_widget,tabText,tr,NoticeFlag::ERROR);
 
@@ -198,4 +203,29 @@ void WindowNotice::setTabsShown() {
     this->v_errorW->setData(errorS,1);
     this->v_warningW->setData(warningS,1);
     this->v_messageW->setData(messageS,1);
+}
+
+void WindowNotice::errorCheck(QStringList tabText,QStringList pageText,bool tr) {
+    int tS = tabText.size();
+    int pS = pageText.size();
+    QString er = "";
+
+        if(tS != TAB_TEXT_LIST_SIZE && tr == false) {
+            er.append("Error tab text has to few / many arguments ["+QString::number(tS)+"]"+Helper::newRow(2) );
+        }
+        else if(tS != (TAB_TEXT_LIST_SIZE * 2) && tr == true) {
+            er.append("Error transaction tab text has to few / many arguments ["+QString::number(tS)+"]"+Helper::newRow(2) );
+        }
+
+        if(pS != PAGE_TEXT_LIST_SIZE && tr == false) {
+            er.append("Error page button text has to few / many arguments ["+QString::number(pS)+"]"+Helper::newRow(1) );
+        }
+        if(pS != (PAGE_TEXT_LIST_SIZE * 2) && tr == true) {
+            er.append("Error translation page button text has to few / many arguments ["+QString::number(pS)+"]"+Helper::newRow(1) );
+        }
+
+        if(er.isEmpty() == false) {
+            Helper::quitProgram(er,1);
+        }
+
 }

@@ -110,5 +110,12 @@ private:
     /*! Sets the tabs that should be shown */
     void setTabsShown();
 
+    /*! Checks for errors with the tab / page text
+     *  \param tabText - The tab text
+     *  \param pageText - The page text
+     *  \param tr - If the text is for translation
+    */
+    void errorCheck(QStringList tabText,QStringList pageText,bool tr);
+
 };
 #endif // WINDOWNOTICE_H
