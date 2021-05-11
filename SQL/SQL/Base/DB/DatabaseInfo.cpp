@@ -50,3 +50,12 @@ void DatabaseInfo::setHostName(QString hostName,bool emitSignal) {
     }
 
 }
+
+void DatabaseInfo::setPort(int port,bool emitSignal) {
+    this->v_port = port;
+
+    if(emitSignal == true) {
+        emit this->infoChanged();
+    }
+
+}
