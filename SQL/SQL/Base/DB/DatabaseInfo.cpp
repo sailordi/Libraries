@@ -32,3 +32,12 @@ DatabaseInfo::DatabaseInfo(const DatabaseInfo* dI,QObject* parent) : QObject(par
 DatabaseInfo::~DatabaseInfo() {
 
 }
+
+void DatabaseInfo::setDatabaseName(QString name,bool emitSignal) {
+    this->v_dbName = name;
+
+    if(emitSignal == true) {
+        emit this->infoChanged();
+    }
+
+}

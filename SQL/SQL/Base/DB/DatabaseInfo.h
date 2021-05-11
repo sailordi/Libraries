@@ -51,6 +51,12 @@ public:
     /*! Deconstructor */
     virtual ~DatabaseInfo();
 
+    /*! Sets the database name
+     * \param name - The database name
+     * \param emitSignal - If signal should be emited [Default: true]
+    */
+    void setDatabaseName(QString name,bool emitSignal = true);
+
 signals:
     /*! Signal that the database info has changed */
     void infoChanged();
