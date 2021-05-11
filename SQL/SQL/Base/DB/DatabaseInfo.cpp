@@ -6,7 +6,7 @@ DatabaseInfo::DatabaseInfo(QObject *parent) : QObject(parent) {
 }
 
 DatabaseInfo::DatabaseInfo(QList<QVariant> n_h_p,QObject* parent) : QObject(parent) {
-
+    this->setData(n_h_p);
 }
 
 DatabaseInfo::DatabaseInfo(const DatabaseInfo& dI,QObject* parent) : QObject(parent) {
@@ -53,6 +53,17 @@ void DatabaseInfo::setHostName(QString hostName,bool emitSignal) {
 
 void DatabaseInfo::setPort(int port,bool emitSignal) {
     this->v_port = port;
+
+    if(emitSignal == true) {
+        emit this->infoChanged();
+    }
+
+}
+
+void DatabaseInfo::setData(QList<QVariant> n_h_p,bool emitSignal) {
+    this->v_dbName = n_h_p.takeFirst().toString();
+    this->v_hostName = n_h_p.takeFirst().toString();
+    this->v_port = n_h_p.takeFirst().toInt();
 
     if(emitSignal == true) {
         emit this->infoChanged();

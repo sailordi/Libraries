@@ -66,6 +66,11 @@ public:
      * \param emitSignal - If signal should be emited [Default: false]
     */
     void setPort(int port,bool emitSignal = false);
+    /*! Sets the database name,host name & port
+     * \param n_h_p - The list with database name, host name & port
+     * \param emitSignal - If signal should be emited [Default: true]
+    */
+    void setData(QList<QVariant> n_h_p,bool emitSignal = true);
 
 signals:
     /*! Signal that the database info has changed */
