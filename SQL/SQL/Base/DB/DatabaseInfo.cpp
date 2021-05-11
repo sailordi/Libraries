@@ -41,3 +41,12 @@ void DatabaseInfo::setDatabaseName(QString name,bool emitSignal) {
     }
 
 }
+
+void DatabaseInfo::setHostName(QString hostName,bool emitSignal) {
+    this->v_hostName = hostName;
+
+    if(emitSignal == true) {
+        emit this->infoChanged();
+    }
+
+}

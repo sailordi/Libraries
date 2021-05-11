@@ -56,6 +56,11 @@ public:
      * \param emitSignal - If signal should be emited [Default: true]
     */
     void setDatabaseName(QString name,bool emitSignal = true);
+    /*! Sets the host name
+     * \param hostName - The host name
+     * \param emitSignal - If signal should be emited [Default: true]
+    */
+    void setHostName(QString hostName,bool emitSignal = true);
 
 signals:
     /*! Signal that the database info has changed */
