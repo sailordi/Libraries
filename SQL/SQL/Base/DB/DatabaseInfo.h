@@ -76,6 +76,10 @@ public:
      * \returns QString
     */
     QString databaseName();
+    /*! Returns host name
+     * \returns QString
+    */
+    QString hostName();
 
 signals:
     /*! Signal that the database info has changed */
