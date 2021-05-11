@@ -78,3 +78,7 @@ QString DatabaseInfo::databaseName() {
 QString DatabaseInfo::hostName() {
     return this->v_hostName;
 }
+
+int DatabaseInfo::port() {
+    return this->v_port;
+}

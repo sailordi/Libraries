@@ -80,6 +80,10 @@ public:
      * \returns QString
     */
     QString hostName();
+    /*! Returns port
+     * \returns int
+    */
+    int port();
 
 signals:
     /*! Signal that the database info has changed */
