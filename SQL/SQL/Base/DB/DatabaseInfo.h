@@ -52,6 +52,8 @@ public:
     virtual ~DatabaseInfo();
 
 signals:
+    /*! Signal that the database info has changed */
+    void infoChanged();
 
 private:
     QString v_dbName = "",v_hostName = "";
