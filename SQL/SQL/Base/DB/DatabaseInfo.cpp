@@ -70,3 +70,7 @@ void DatabaseInfo::setData(QList<QVariant> n_h_p,bool emitSignal) {
     }
 
 }
+
+QString DatabaseInfo::databaseName() {
+    return this->v_dbName;
+}

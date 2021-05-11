@@ -72,6 +72,11 @@ public:
     */
     void setData(QList<QVariant> n_h_p,bool emitSignal = true);
 
+    /*! Returns database name
+     * \returns QString
+    */
+    QString databaseName();
+
 signals:
     /*! Signal that the database info has changed */
     void infoChanged();
