@@ -2,7 +2,8 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     Base \
-    Message
+    Message \
+    SQL
 
 Message.depends = Base
 
