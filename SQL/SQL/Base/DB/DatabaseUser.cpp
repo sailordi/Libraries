@@ -35,3 +35,12 @@ void DatabaseUser::setUsername(QString usr,bool emitsignal) {
     }
 
 }
+
+void DatabaseUser::setPassword(QString pass,bool emitsignal) {
+    this->v_pass = pass;
+
+    if(emitsignal == true) {
+        emit this->infoChanged();
+    }
+
+}
