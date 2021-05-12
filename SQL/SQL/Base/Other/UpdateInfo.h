@@ -50,6 +50,10 @@ public:
      * \returns T*
     */
     T* oldData() { return this->v_oldD; }
+    /*! Returns the new data
+    * \returns T*
+    */
+    T* newData() { return this->v_newD; }
 
 private:
     T* v_oldD = nullptr,*v_newD = nullptr;
