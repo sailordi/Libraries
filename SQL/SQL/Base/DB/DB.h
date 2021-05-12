@@ -45,6 +45,11 @@ public:
     /*! Deconstructor */
     virtual ~DB();
 
+    /*! Sets the DatabaseInfo
+     * \param i - The DatabaseInfo
+    */
+    void setInfo(DatabaseInfo* i);
+
 signals:
     /*! Signal that data has changed */
     void dataHasChanged();
