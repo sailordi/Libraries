@@ -45,6 +45,8 @@ public:
     virtual ~DatabaseUser();
 
 signals:
+    /*! Signal that the user info has changed */
+    void infoChanged();
 
 protected:
     QString v_usr = "",v_pass = "";
