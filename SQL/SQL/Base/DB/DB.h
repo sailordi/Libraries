@@ -49,6 +49,11 @@ signals:
     /*! Signal that data has changed */
     void dataHasChanged();
 
+    /*! Signal for removal of connection
+     * \param con - The connection name
+    */
+    void removeConnection(QString con);
+
 protected:
     QString v_driver = "",v_connName = "";
 

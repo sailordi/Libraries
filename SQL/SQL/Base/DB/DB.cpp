@@ -20,5 +20,5 @@ DB::~DB() {
 
     QSqlDatabase::removeDatabase(this->v_connName);
 
-
+    emit this->removeConnection(this->v_connName);
 }
