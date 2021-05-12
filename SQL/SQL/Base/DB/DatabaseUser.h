@@ -54,6 +54,12 @@ public:
      * \param emitsignal - If signal should be emited [Default: true]
     */
     virtual void setPassword(QString pass,bool emitsignal = true);
+    /*! Sets the username & password
+     * \param usr - The username
+     * \param pass - The password
+     * \param emisignal - If signal should be emited [Default: true]
+    */
+    virtual void setData(QString usr,QString pass,bool emitsignal = true);
 
 signals:
     /*! Signal that the user info has changed */

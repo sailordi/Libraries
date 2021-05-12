@@ -44,3 +44,8 @@ void DatabaseUser::setPassword(QString pass,bool emitsignal) {
     }
 
 }
+
+void DatabaseUser::setData(QString usr,QString pass,bool emitsignal) {
+    this->setUsername(usr,false);
+    this->setPassword(pass,emitsignal);
+}
