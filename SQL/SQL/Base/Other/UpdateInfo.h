@@ -29,6 +29,11 @@ public:
     /*! Deconstructor */
     ~UpdateInfo() {  }
 
+    /*! Set´s the old data
+     * \param oldD - The old data
+    */
+    void setOldData(T* oldD) { this->v_oldD = oldD; }
+
 private:
     T* v_oldD = nullptr,*v_newD = nullptr;
 
