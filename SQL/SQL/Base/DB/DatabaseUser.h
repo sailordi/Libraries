@@ -65,6 +65,10 @@ public:
     * \returns QString
     */
     virtual QString username();
+    /*! Returns password
+     * \returns QString
+    */
+    virtual QString password();
 
 signals:
     /*! Signal that the user info has changed */

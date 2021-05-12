@@ -53,3 +53,7 @@ void DatabaseUser::setData(QString usr,QString pass,bool emitsignal) {
 QString DatabaseUser::username() {
     return this->v_usr;
 }
+
+QString DatabaseUser::password() {
+    return this->v_pass;
+}
