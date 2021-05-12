@@ -1,6 +1,7 @@
 #include "DB.h"
 
 #include "SQL/Base/DB/DatabaseInfo.h"
+#include "SQL/Base/DB/DatabaseUser.h"
 
 //Public functions
 DB::DB(QString connName,QObject* parent) : QObject(parent) {
@@ -38,6 +39,22 @@ void DB::setInfo(DatabaseInfo* i) {
     this->v_info = i;
 
     connect(this->v_info,&DatabaseInfo::infoChanged,this,&DB::dataChanged);
+}
+
+void DB::setUser(DatabaseUser* u) {
+    if(this->v_user != nullptr) {
+        disconnect(this->v_user,&DatabaseUser::infoChanged,this,&DB::dataChanged);
+
+        this->v_user = nullptr;
+    }
+
+    if(u == nullptr) {
+        return;
+    }
+
+    this->v_user = u;
+
+    connect(this->v_user,&DatabaseUser::infoChanged,this,&DB::dataChanged);
 }
 
 //Protected slot
