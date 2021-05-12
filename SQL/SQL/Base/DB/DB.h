@@ -62,6 +62,12 @@ public:
     /*! Function to test database */
     virtual void test() = 0;
 
+    /*! Checks if database can use size
+     * \param db - The database
+     * \returns bool
+    */
+    static bool hasSize(QSqlDatabase db);
+
 signals:
     /*! Signal that data has changed */
     void dataHasChanged();

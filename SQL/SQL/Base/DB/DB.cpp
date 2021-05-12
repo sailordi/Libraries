@@ -1,5 +1,7 @@
 #include "DB.h"
 
+#include <QSqlDriver>
+
 #include "SQL/Base/DB/DatabaseInfo.h"
 #include "SQL/Base/DB/DatabaseUser.h"
 
@@ -63,6 +65,14 @@ void DB::setUser(DatabaseUser* u) {
 void DB::setData(DatabaseInfo* i,DatabaseUser* u) {
     this->setInfo(i);
     this->setUser(u);
+}
+
+bool DB::hasSize(QSqlDatabase db) {
+    if(db.isValid() == false) {
+        return false;
+    }
+
+    return db.driver()->hasFeature(QSqlDriver::QuerySize);
 }
 
 //Protected slot
