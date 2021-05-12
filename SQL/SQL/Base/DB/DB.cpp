@@ -10,9 +10,12 @@ DB::DB(QString connName,QObject* parent) : QObject(parent) {
 
 DB::DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject* parent) : QObject(parent) {
     this->v_connName = connName;
+    this->setData(i,u);
 }
 
 DB::~DB() {
+    this->setData(nullptr,nullptr);
+
     QSqlDatabase d = QSqlDatabase::database(this->v_connName,false);
 
     if(d.isOpen() == true) {
@@ -55,6 +58,11 @@ void DB::setUser(DatabaseUser* u) {
     this->v_user = u;
 
     connect(this->v_user,&DatabaseUser::infoChanged,this,&DB::dataChanged);
+}
+
+void DB::setData(DatabaseInfo* i,DatabaseUser* u) {
+    this->setInfo(i);
+    this->setUser(u);
 }
 
 //Protected slot

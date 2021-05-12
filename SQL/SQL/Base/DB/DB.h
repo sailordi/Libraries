@@ -53,6 +53,11 @@ public:
      * \param u - The DatabaseUser
     */
     void setUser(DatabaseUser* u);
+    /*! Sets the DatabaseInfo & the DatabaseUser
+     * \param i - The DatabaseInfo
+     * \param u - The DatabaseUser
+    */
+    void setData(DatabaseInfo* i,DatabaseUser* u);
 
 signals:
     /*! Signal that data has changed */
