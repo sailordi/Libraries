@@ -25,7 +25,7 @@ public:
      * \param oldD - The old data
      * \param newD - The new data [Default: nullptr]
     */
-    UpdateInfo(T* oldD,T* newD = nullptr) {  }
+    UpdateInfo(T* oldD,T* newD = nullptr) { this->setData(oldD,newD); }
     /*! Deconstructor */
     ~UpdateInfo() {  }
 
@@ -37,6 +37,11 @@ public:
      * \param newD - The new data
     */
     void setNewData(T* newD) { this->v_newD = newD; }
+    /*! Set´s the old & new data
+     * \param oldD - The old data
+     * \param newD - The new data
+    */
+    void setData(T* oldD,T* newD) { this->setOldData(oldD); this->setNewData(newD); }
 
 private:
     T* v_oldD = nullptr,*v_newD = nullptr;
