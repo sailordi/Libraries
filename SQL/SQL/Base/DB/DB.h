@@ -59,6 +59,9 @@ public:
     */
     void setData(DatabaseInfo* i,DatabaseUser* u);
 
+    /*! Function to test database */
+    virtual void test() = 0;
+
 signals:
     /*! Signal that data has changed */
     void dataHasChanged();
