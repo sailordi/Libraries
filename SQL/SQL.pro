@@ -39,7 +39,8 @@ SOURCES += \
 HEADERS += SQL_global.h \
     SQL/Base/DB/DB.h \
     SQL/Base/DB/DatabaseInfo.h \
-    SQL/Base/DB/DatabaseUser.h
+    SQL/Base/DB/DatabaseUser.h \
+    SQL/Base/Other/UpdateInfo.h
 
 # Default rules for deployment.
 unix {
