@@ -87,10 +87,12 @@ void DB::initDB() {
     if(QSqlDatabase::connectionNames().contains(this->v_connName) == false) {
         QSqlDatabase d = QSqlDatabase::addDatabase(this->v_driver,this->v_connName);
     }
-
+    this->infoChanged();
 }
 
 //Protected slot
 void DB::dataChanged() {
     emit this->dataHasChanged();
+
+    this->infoChanged();
 }

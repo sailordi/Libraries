@@ -75,6 +75,8 @@ public:
 
     /*! Initialises the database */
     virtual void initDB();
+    /*! Database info changed */
+    virtual void infoChanged() = 0;
 
 signals:
     /*! Signal that data has changed */
