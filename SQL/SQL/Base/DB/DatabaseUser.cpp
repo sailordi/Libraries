@@ -26,3 +26,12 @@ DatabaseUser::DatabaseUser(DatabaseUser* dU,QObject* parent) : QObject (parent) 
 DatabaseUser::~DatabaseUser() {
 
 }
+
+void DatabaseUser::setUsername(QString usr,bool emitsignal) {
+    this->v_usr = usr;
+
+    if(emitsignal == true) {
+        emit this->infoChanged();
+    }
+
+}

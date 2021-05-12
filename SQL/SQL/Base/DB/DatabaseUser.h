@@ -44,6 +44,12 @@ public:
     /*! Deconstructor */
     virtual ~DatabaseUser();
 
+    /*! Sets the username
+     * \param usr - The username
+     * \param emitsignal - If signal should be emited [Default: true]
+    */
+    virtual void setUsername(QString usr,bool emitsignal = true);
+
 signals:
     /*! Signal that the user info has changed */
     void infoChanged();
