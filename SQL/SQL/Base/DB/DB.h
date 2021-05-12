@@ -88,6 +88,10 @@ public:
     */
     static void open(QSqlDatabase db);
 
+    /*! Tries to close database
+     * param db - The database
+    */
+    static void close(QSqlDatabase db);
 
 signals:
     /*! Signal that data has changed */

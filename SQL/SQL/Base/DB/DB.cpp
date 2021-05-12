@@ -116,6 +116,13 @@ void DB::open(QSqlDatabase db) {
 
 }
 
+void DB::close(QSqlDatabase db) {
+    if(db.isOpen() == true) {
+        db.close();
+    }
+
+}
+
 //Protected slot
 void DB::dataChanged() {
     emit this->dataHasChanged();
