@@ -75,6 +75,14 @@ bool DB::hasSize(QSqlDatabase db) {
     return db.driver()->hasFeature(QSqlDriver::QuerySize);
 }
 
+bool DB::hasTransaction(QSqlDatabase db) {
+    if(db.isValid() == false) {
+        return false;
+    }
+
+    return db.driver()->hasFeature(QSqlDriver::Transactions);
+}
+
 //Protected slot
 void DB::dataChanged() {
     emit this->dataHasChanged();

@@ -67,6 +67,11 @@ public:
      * \returns bool
     */
     static bool hasSize(QSqlDatabase db);
+    /*! Checks if database can use transactions
+     * \param db - The database
+     * \returns bool
+    */
+    static bool hasTransaction(QSqlDatabase db);
 
 signals:
     /*! Signal that data has changed */
