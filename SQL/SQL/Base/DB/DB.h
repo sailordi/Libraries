@@ -46,6 +46,8 @@ public:
     virtual ~DB();
 
 signals:
+    /*! Signal that data has changed */
+    void dataHasChanged();
 
 protected:
     QString v_driver = "",v_connName = "";
