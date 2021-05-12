@@ -46,6 +46,11 @@ public:
     /*! Clear´s the update info */
     void clear() { this->setData(nullptr,nullptr); }
 
+    /*! Returns the old data
+     * \returns T*
+    */
+    T* oldData() { return this->v_oldD; }
+
 private:
     T* v_oldD = nullptr,*v_newD = nullptr;
 
