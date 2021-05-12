@@ -73,6 +73,9 @@ public:
     */
     static bool hasTransaction(QSqlDatabase db);
 
+    /*! Initialises the database */
+    virtual void initDB();
+
 signals:
     /*! Signal that data has changed */
     void dataHasChanged();
