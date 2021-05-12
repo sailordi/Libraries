@@ -22,3 +22,8 @@ DB::~DB() {
 
     emit this->removeConnection(this->v_connName);
 }
+
+//Protected slot
+void DB::dataChanged() {
+    emit this->dataHasChanged();
+}

@@ -54,6 +54,10 @@ signals:
     */
     void removeConnection(QString con);
 
+protected slots:
+    /*! Slot for the database has changed */
+    void dataChanged();
+
 protected:
     QString v_driver = "",v_connName = "";
 
