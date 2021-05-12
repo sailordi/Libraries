@@ -33,6 +33,10 @@ public:
      * \param oldD - The old data
     */
     void setOldData(T* oldD) { this->v_oldD = oldD; }
+    /*! Set´s the new data
+     * \param newD - The new data
+    */
+    void setNewData(T* newD) { this->v_newD = newD; }
 
 private:
     T* v_oldD = nullptr,*v_newD = nullptr;
