@@ -32,10 +32,12 @@ else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/
 else:unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
 
 SOURCES += \
-    SQL/Base/DB/DatabaseInfo.cpp
+    SQL/Base/DB/DatabaseInfo.cpp \
+    SQL/Base/DB/DatabaseUser.cpp
 
 HEADERS += SQL_global.h \
-    SQL/Base/DB/DatabaseInfo.h
+    SQL/Base/DB/DatabaseInfo.h \
+    SQL/Base/DB/DatabaseUser.h
 
 # Default rules for deployment.
 unix {
