@@ -49,3 +49,7 @@ void DatabaseUser::setData(QString usr,QString pass,bool emitsignal) {
     this->setUsername(usr,false);
     this->setPassword(pass,emitsignal);
 }
+
+QString DatabaseUser::username() {
+    return this->v_usr;
+}

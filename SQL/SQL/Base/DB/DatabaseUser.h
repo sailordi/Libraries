@@ -61,6 +61,11 @@ public:
     */
     virtual void setData(QString usr,QString pass,bool emitsignal = true);
 
+    /*! Returns username
+    * \returns QString
+    */
+    virtual QString username();
+
 signals:
     /*! Signal that the user info has changed */
     void infoChanged();
