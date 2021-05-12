@@ -1,7 +1,9 @@
 #include "DB.h"
 
 #include <QSqlDriver>
+#include <QSqlError>
 
+#include "Base/Other/Helper.h"
 #include "SQL/Base/DB/DatabaseInfo.h"
 #include "SQL/Base/DB/DatabaseUser.h"
 
@@ -88,6 +90,30 @@ void DB::initDB() {
         QSqlDatabase d = QSqlDatabase::addDatabase(this->v_driver,this->v_connName);
     }
     this->infoChanged();
+}
+
+QSqlDatabase DB::open() {
+    QSqlDatabase db = QSqlDatabase::database(this->v_connName);
+
+    if(db.isValid() == false) {
+        throw QString("Error database not valid can not open database:"+Helper::newRow() )+db.lastError().text();
+    }
+    if(db.isOpen() == false) {
+        if(db.open() == false) {
+            throw QString("Error can not open database:"+Helper::newRow() )+db.lastError().text();
+        }
+    }
+
+    return db;
+}
+
+void DB::open(QSqlDatabase db) {
+    if(db.isOpen() == false) {
+        if(db.open() == false) {
+            throw QString("Error can not open database:"+Helper::newRow() )+db.lastError().text();
+        }
+    }
+
 }
 
 //Protected slot

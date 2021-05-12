@@ -78,6 +78,17 @@ public:
     /*! Database info changed */
     virtual void infoChanged() = 0;
 
+    /*! Tries to open database
+     * \returns QSqlDatabase
+     * \throws QString
+    */
+    virtual QSqlDatabase open();
+    /*! Tries to open database
+     * \param db - The database
+    */
+    static void open(QSqlDatabase db);
+
+
 signals:
     /*! Signal that data has changed */
     void dataHasChanged();
