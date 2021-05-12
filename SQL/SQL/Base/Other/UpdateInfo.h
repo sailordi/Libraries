@@ -43,6 +43,9 @@ public:
     */
     void setData(T* oldD,T* newD) { this->setOldData(oldD); this->setNewData(newD); }
 
+    /*! Clear´s the update info */
+    void clear() { this->setData(nullptr,nullptr); }
+
 private:
     T* v_oldD = nullptr,*v_newD = nullptr;
 
