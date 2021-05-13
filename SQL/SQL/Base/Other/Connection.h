@@ -67,6 +67,12 @@ public:
     */
     QString connectionName(ConnectionFlag f);
 
+public slots:
+    /*! Slot for connection removed
+     * \param str - The connection str
+    */
+    void connectionRemoved(QString str);
+
 private:
     QList<int> v_cons;
 

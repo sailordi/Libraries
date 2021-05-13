@@ -51,6 +51,18 @@ QString Connection::connectionName(ConnectionFlag f) {
         return ret;
 }
 
+//Public sots
+void Connection::connectionRemoved(QString str) {
+    ConnectionFlag f = this->strToConnectionFlag(str);
+    int tmp = this->connections(f) - 1;
+
+            if(tmp < 0) {
+                tmp = 0;
+            }
+
+            this->v_cons.replace(connectionFlagToNum(f),tmp);
+}
+
 //Private functions
 QStringList Connection::getBaseConnectionStr() {
     QStringList r({"TEST_CON_","INSERT_CON_","SELECT_CON_","UPDATE_CON_","CREATE_CON_","REMOVE_CON_","MODEL_CON_","OTHER_CON_"});
