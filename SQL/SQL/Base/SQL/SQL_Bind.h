@@ -48,6 +48,11 @@ public:
     /*! Deconstructor */
     virtual ~SQL_Bind();
 
+    /*! Sets the bind key
+     * \param key - The bind key
+    */
+    virtual void setKey(QString key);
+
 protected:
     QString v_key = "";
     QVariant v_val;

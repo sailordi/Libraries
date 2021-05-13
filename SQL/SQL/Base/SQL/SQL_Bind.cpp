@@ -32,6 +32,10 @@ SQL_Bind::~SQL_Bind() {
 
 }
 
+void SQL_Bind::setKey(QString key) {
+    this->v_key = key;
+}
+
 
 //Protected functions
 SQL_Bind::SQL_Bind(QObject* parent) : QObject(parent) {
