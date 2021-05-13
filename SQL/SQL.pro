@@ -35,14 +35,16 @@ SOURCES += \
     SQL/Base/DB/DB.cpp \
     SQL/Base/DB/DatabaseInfo.cpp \
     SQL/Base/DB/DatabaseUser.cpp \
-    SQL/Base/Other/Connection.cpp
+    SQL/Base/Other/Connection.cpp \
+    SQL/Base/SQL/SQL_Bind.cpp
 
 HEADERS += SQL_global.h \
     SQL/Base/DB/DB.h \
     SQL/Base/DB/DatabaseInfo.h \
     SQL/Base/DB/DatabaseUser.h \
     SQL/Base/Other/Connection.h \
-    SQL/Base/Other/UpdateInfo.h
+    SQL/Base/Other/UpdateInfo.h \
+    SQL/Base/SQL/SQL_Bind.h
 
 # Default rules for deployment.
 unix {
