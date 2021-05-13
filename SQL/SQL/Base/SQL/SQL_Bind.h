@@ -52,6 +52,10 @@ public:
      * \param key - The bind key
     */
     virtual void setKey(QString key);
+    /*! Sets the bind value
+     * \param val - The bind value
+    */
+    virtual void setValue(QVariant val);
 
 protected:
     QString v_key = "";
