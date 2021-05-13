@@ -76,5 +76,11 @@ private:
     */
     QString stripExtraToBaseConnectionStr(QString str,QChar rC);
 
+    /*! Converts string into connection flag
+     * \param str - The string to convert
+     * \returns ConnectionFlag
+    */
+    ConnectionFlag strToConnectionFlag (QString str);
+
 };
 #endif // CONNECTION_H

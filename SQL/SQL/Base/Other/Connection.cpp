@@ -66,3 +66,35 @@ QString Connection::stripExtraToBaseConnectionStr(QString str,QChar rC) {
 
     return ret;
 }
+
+ConnectionFlag Connection::strToConnectionFlag(QString str) {
+    str = this->stripExtraToBaseConnectionStr(str,QChar('_') );
+    QStringList l = this->getBaseConnectionStr();
+
+    if(l.at(connectionFlagToNum(ConnectionFlag::TEST) ).contains(str) == true) {
+        return ConnectionFlag::TEST;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::INSERT) ).contains(str) == true) {
+        return ConnectionFlag::INSERT;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::SELECT) ).contains(str) == true) {
+        return ConnectionFlag::SELECT;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::UPDATE) ).contains(str) == true) {
+        return ConnectionFlag::UPDATE;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::CREATE) ).contains(str) == true) {
+        return ConnectionFlag::CREATE;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::REMOVE) ).contains(str) == true) {
+        return ConnectionFlag::REMOVE;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::MODEL) ).contains(str) == true) {
+        return ConnectionFlag::MODEL;
+    }
+    if(l.at(connectionFlagToNum(ConnectionFlag::OTHER) ).contains(str) == true) {
+        return ConnectionFlag::OTHER;
+    }
+
+    return ConnectionFlag::COUNT;
+}
