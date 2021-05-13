@@ -30,3 +30,10 @@ Connection::Connection(Connection* c,QObject* parent) : QObject(parent) {
 Connection::~Connection() {
     this->v_cons.clear();
 }
+
+//Private functions
+QStringList Connection::getBaseConnectionStr() {
+    QStringList r({"TEST_CON_","INSERT_CON_","SELECT_CON_","UPDATE_CON_","CREATE_CON_","REMOVE_CON_","MODEL_CON_","OTHER_CON_"});
+
+        return r;
+}

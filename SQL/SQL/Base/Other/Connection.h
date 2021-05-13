@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QList>
 #include <QString>
+#include <QStringList>
 
 #include "SQL_global.h"
 
@@ -57,6 +58,10 @@ public:
 private:
     QList<int> v_cons;
 
+    /*! Returns the list of base connection strings
+     *  \returns QStringList
+    */
+    QStringList getBaseConnectionStr();
 
 };
 #endif // CONNECTION_H
