@@ -51,3 +51,18 @@ int Connection::connectionFlagToNum(ConnectionFlag f) {
 
         return cU.num;
 }
+
+QString Connection::stripExtraToBaseConnectionStr(QString str,QChar rC) {
+    int i = str.size()-1;
+    QString ret = "";
+    QChar c;
+
+        do {
+            c = str.at(i);
+
+            ret.insert(0,c);
+            i--;
+        }while(c != rC);
+
+    return ret;
+}

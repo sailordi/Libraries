@@ -69,5 +69,12 @@ private:
     */
     int connectionFlagToNum(ConnectionFlag f);
 
+    /*! Strips the string back down to the base connection string
+     * \param str - The string to strip
+     * \param rC - Character to strip to
+     * \returns QString
+    */
+    QString stripExtraToBaseConnectionStr(QString str,QChar rC);
+
 };
 #endif // CONNECTION_H
