@@ -34,12 +34,14 @@ else:unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
 SOURCES += \
     SQL/Base/DB/DB.cpp \
     SQL/Base/DB/DatabaseInfo.cpp \
-    SQL/Base/DB/DatabaseUser.cpp
+    SQL/Base/DB/DatabaseUser.cpp \
+    SQL/Base/Other/Connection.cpp
 
 HEADERS += SQL_global.h \
     SQL/Base/DB/DB.h \
     SQL/Base/DB/DatabaseInfo.h \
     SQL/Base/DB/DatabaseUser.h \
+    SQL/Base/Other/Connection.h \
     SQL/Base/Other/UpdateInfo.h
 
 # Default rules for deployment.

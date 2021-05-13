@@ -6,7 +6,7 @@
 /*! \class UpdateInfo
  * \brief The class contains SQL update info
  *
- * Incudes: SQL_global
+ * Incudes: SQL_global.h
  *
  * \tparam T - The class to be used as a for updating info
  *
