@@ -55,6 +55,12 @@ public:
     /*! Deconstructor */
     ~Connection();
 
+    /*! Returns number of connections for a specific ConnectionFlag
+     * \param f - The ConnectionFlag [TEST, INSERT, SELECT, UPDATE, CREATE, REMOVE, MODEL, OTHER, COUNT]
+     * \returns int
+    */
+    int connections(ConnectionFlag f);
+
 private:
     QList<int> v_cons;
 

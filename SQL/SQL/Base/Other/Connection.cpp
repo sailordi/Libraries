@@ -36,6 +36,10 @@ Connection::~Connection() {
     this->v_cons.clear();
 }
 
+int Connection::connections(ConnectionFlag f) {
+    return this->v_cons.at(this->connectionFlagToNum(f) );
+}
+
 //Private functions
 QStringList Connection::getBaseConnectionStr() {
     QStringList r({"TEST_CON_","INSERT_CON_","SELECT_CON_","UPDATE_CON_","CREATE_CON_","REMOVE_CON_","MODEL_CON_","OTHER_CON_"});
