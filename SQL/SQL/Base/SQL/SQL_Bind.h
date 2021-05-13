@@ -62,6 +62,11 @@ public:
     */
     virtual void setData(QString key,QVariant val);
 
+    /*! Returns bind key
+     * \returns QString
+    */
+    virtual QString key();
+
 protected:
     QString v_key = "";
     QVariant v_val;

@@ -45,6 +45,10 @@ void SQL_Bind::setData(QString key, QVariant val) {
     this->setValue(val);
 }
 
+QString SQL_Bind::key() {
+    return this->v_key;
+}
+
 
 //Protected functions
 SQL_Bind::SQL_Bind(QObject* parent) : QObject(parent) {
