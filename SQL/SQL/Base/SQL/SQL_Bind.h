@@ -66,6 +66,10 @@ public:
      * \returns QString
     */
     virtual QString key();
+    /*! Returns value
+     * \returns QVariant
+    */
+    virtual QVariant value();
 
 protected:
     QString v_key = "";

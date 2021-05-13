@@ -49,6 +49,9 @@ QString SQL_Bind::key() {
     return this->v_key;
 }
 
+QVariant SQL_Bind::value() {
+    return this->v_val;
+}
 
 //Protected functions
 SQL_Bind::SQL_Bind(QObject* parent) : QObject(parent) {
