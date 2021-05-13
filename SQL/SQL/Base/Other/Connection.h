@@ -61,6 +61,12 @@ public:
     */
     int connections(ConnectionFlag f);
 
+    /*! Returns the connection str
+     * \param f - The ConnectionFlag [TEST, INSERT, SELECT, UPDATE, CREATE, REMOVE, MODEL, OTHER, COUNT]
+     * \returns QString
+    */
+    QString connectionName(ConnectionFlag f);
+
 private:
     QList<int> v_cons;
 

@@ -40,6 +40,17 @@ int Connection::connections(ConnectionFlag f) {
     return this->v_cons.at(this->connectionFlagToNum(f) );
 }
 
+QString Connection::connectionName(ConnectionFlag f) {
+    int tmp = this->connections(f) + 1;
+    QStringList l = this->getBaseConnectionStr();
+
+        this->v_cons.replace(this->connectionFlagToNum(f),tmp);
+
+        QString ret = l.at(this->connectionFlagToNum(f) )+QString::number(tmp);
+
+        return ret;
+}
+
 //Private functions
 QStringList Connection::getBaseConnectionStr() {
     QStringList r({"TEST_CON_","INSERT_CON_","SELECT_CON_","UPDATE_CON_","CREATE_CON_","REMOVE_CON_","MODEL_CON_","OTHER_CON_"});
