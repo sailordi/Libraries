@@ -63,5 +63,11 @@ private:
     */
     QStringList getBaseConnectionStr();
 
+    /*! Converst a ConnectionFlag into a number
+     *  \param f - The connection flag
+     *  \returns int
+    */
+    int connectionFlagToNum(ConnectionFlag f);
+
 };
 #endif // CONNECTION_H

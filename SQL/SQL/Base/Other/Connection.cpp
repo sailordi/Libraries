@@ -2,7 +2,12 @@
 
 //Public functions
 Connection::Connection(QObject* parent) : QObject(parent) {
-
+    for(int i = 0; i < this->connectionFlagToNum(ConnectionFlag::COUNT); i++) {
+        this->v_cons.push_back(0);
+    }
+    for(int i = 0; i < this->connectionFlagToNum(ConnectionFlag::COUNT); i++) {
+        this->v_cons.push_back(0);
+    }
 }
 
 Connection::Connection(Connection& c,QObject* parent) : QObject(parent) {
@@ -35,5 +40,14 @@ Connection::~Connection() {
 QStringList Connection::getBaseConnectionStr() {
     QStringList r({"TEST_CON_","INSERT_CON_","SELECT_CON_","UPDATE_CON_","CREATE_CON_","REMOVE_CON_","MODEL_CON_","OTHER_CON_"});
 
-        return r;
+    return r;
+}
+
+int Connection::connectionFlagToNum(ConnectionFlag f) {
+    union un{ ConnectionFlag flag; int num; };
+    un cU;
+
+        cU.flag = f;
+
+        return cU.num;
 }
