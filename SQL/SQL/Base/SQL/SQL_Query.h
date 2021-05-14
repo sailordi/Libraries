@@ -43,5 +43,10 @@ protected:
     QSqlQuery* v_q = nullptr;
     bool v_transaction;
 
+    /*! Beggins a transaction
+     * \throws QString
+    */
+    void transaction();
+
 };
 #endif // SQL_QUERY_H
