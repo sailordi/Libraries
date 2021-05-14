@@ -19,6 +19,8 @@ void SQL_QueryData::setQuery(QString q) {
 }
 
 void SQL_QueryData::setQuery(QString q,QList<SQL_Bind>& l) {
+    this->clear();
+
     this->v_qStr = q;
 
     while(l.size() > 0) {
@@ -28,6 +30,8 @@ void SQL_QueryData::setQuery(QString q,QList<SQL_Bind>& l) {
 }
 
 void SQL_QueryData::setQuery(QString q,QList<SQL_Bind*>& l) {
+    this->clear();
+
     this->v_qStr = q;
 
     while(l.size() > 0) {
@@ -70,4 +74,10 @@ void SQL_QueryData::setBindVaues(QList<SQL_Bind*>& l) {
     while(l.size() > 0) {
         this->v_bindL.push_back(QSharedPointer<SQL_Bind>(l.takeFirst() ) );
     }
+}
+
+void SQL_QueryData::clear() {
+    this->v_qStr = "";
+
+    this->v_bindL.clear();
 }

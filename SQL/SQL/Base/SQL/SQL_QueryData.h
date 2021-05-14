@@ -77,5 +77,8 @@ public:
     */
     virtual void setBindVaues(QList<SQL_Bind*>& l);
 
+    /*! Clears all values */
+    virtual void clear();
+
 };
 #endif // SQL_QUERYDATA_H
