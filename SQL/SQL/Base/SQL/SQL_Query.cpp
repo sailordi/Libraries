@@ -18,7 +18,8 @@ SQL_Query::SQL_Query(QSqlDatabase db,bool transaction,QObject* parent) : QObject
 }
 
 SQL_Query::~SQL_Query() {
-    delete this->v_q;
+    this->finishQuery();
+
     this->v_db = QSqlDatabase();
 }
 
@@ -73,6 +74,16 @@ void SQL_Query::exec(SQL_QueryData qD) {
 
     if(this->v_q->exec() == false) {
         throw this->v_q->lastError().text()+Helper::newRow();
+    }
+
+}
+
+void SQL_Query::finishQuery() {
+    if(this->v_q != nullptr) {
+        this->v_q->finish();
+
+        delete this->v_q;
+        this->v_q = nullptr;
     }
 
 }

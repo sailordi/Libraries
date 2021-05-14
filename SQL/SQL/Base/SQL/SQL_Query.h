@@ -54,6 +54,9 @@ public:
     */
     virtual void exec(SQL_QueryData qD);
 
+    /*! Finishes a query */
+    void finishQuery();
+
 protected:
     QSqlDatabase v_db;
     QSqlQuery* v_q = nullptr;
