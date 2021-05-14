@@ -93,6 +93,10 @@ void SQL_Query::finishTransaction() {
     this->commit();
 }
 
+void SQL_Query::nextRecord() {
+    this->v_q->next();
+}
+
 //Protected functions
 void SQL_Query::transaction() {
     if(this->v_transaction == false) {

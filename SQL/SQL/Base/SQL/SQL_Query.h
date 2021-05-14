@@ -61,6 +61,9 @@ public:
     */
     void finishTransaction();
 
+    /*! Goes to the next record in the query */
+    void nextRecord();
+
 protected:
     QSqlDatabase v_db;
     QSqlQuery* v_q = nullptr;
