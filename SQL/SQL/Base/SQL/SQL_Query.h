@@ -56,6 +56,10 @@ public:
 
     /*! Finishes a query */
     void finishQuery();
+    /*! Finishes the transaction
+     * \throws QString
+    */
+    void finishTransaction();
 
 protected:
     QSqlDatabase v_db;

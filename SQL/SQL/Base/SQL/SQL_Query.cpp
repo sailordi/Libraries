@@ -18,6 +18,7 @@ SQL_Query::SQL_Query(QSqlDatabase db,bool transaction,QObject* parent) : QObject
 }
 
 SQL_Query::~SQL_Query() {
+    this->finishTransaction();
     this->finishQuery();
 
     this->v_db = QSqlDatabase();
@@ -86,6 +87,10 @@ void SQL_Query::finishQuery() {
         this->v_q = nullptr;
     }
 
+}
+
+void SQL_Query::finishTransaction() {
+    this->commit();
 }
 
 //Protected functions
