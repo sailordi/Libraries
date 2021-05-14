@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <QSqlQuery>
+#include <QSqlRecord>
 
 #include "SQL_global.h"
 
@@ -63,6 +64,11 @@ public:
 
     /*! Goes to the next record in the query */
     void nextRecord();
+    /*! Returns the current record
+     * \param nextRecord - If it should go to the next query [Default: false]
+     * \returns QSqlRecord
+    */
+    QSqlRecord record(bool nextRecord = false);
 
 protected:
     QSqlDatabase v_db;

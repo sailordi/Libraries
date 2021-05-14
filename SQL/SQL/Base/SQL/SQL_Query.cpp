@@ -97,6 +97,16 @@ void SQL_Query::nextRecord() {
     this->v_q->next();
 }
 
+QSqlRecord SQL_Query::record(bool nextRecord) {
+    QSqlRecord r = this->v_q->record();
+
+        if(nextRecord == true) {
+            this->nextRecord();
+        }
+
+        return r;
+}
+
 //Protected functions
 void SQL_Query::transaction() {
     if(this->v_transaction == false) {
