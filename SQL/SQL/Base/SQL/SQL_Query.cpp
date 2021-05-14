@@ -35,3 +35,18 @@ void SQL_Query::transaction() {
     }
 
 }
+
+void SQL_Query::commit() {
+    if(this->v_transaction == false) {
+        return;
+    }
+    if(DB::hasTransaction(this->v_db) == false) {
+        return;
+    }
+
+    if(this->v_db.commit() == false) {
+        QString er = this->v_db.lastError().text()+Helper::newRow(2);
+        throw er;
+    }
+
+}

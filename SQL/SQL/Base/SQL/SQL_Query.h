@@ -47,6 +47,10 @@ protected:
      * \throws QString
     */
     void transaction();
+    /*! Commits changes to the database
+     * \throws QString
+    */
+    void commit();
 
 };
 #endif // SQL_QUERY_H
