@@ -51,6 +51,10 @@ protected:
      * \throws QString
     */
     void commit();
+    /*! Rolls back changes to database
+     * \param er - Error string
+    */
+    void rollback(QString& er);
 
 };
 #endif // SQL_QUERY_H
