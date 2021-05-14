@@ -68,5 +68,14 @@ public:
     */
     virtual void addBindVaues(QList<SQL_Bind*>& l);
 
+    /*! Sets SQL_Bind values to the SQL_Bind list
+     * \param l - SQL_Bind list
+    */
+    virtual void setBindVaues(QList<SQL_Bind>& l);
+    /*! Sets SQL_Bind values to the SQL_Bind list
+     * \param l - SQL_Bind list
+    */
+    virtual void setBindVaues(QList<SQL_Bind*>& l);
+
 };
 #endif // SQL_QUERYDATA_H
