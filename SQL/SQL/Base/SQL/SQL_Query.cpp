@@ -127,6 +127,13 @@ QVariant SQL_Query::recordValue(int v,bool nextRecord) {
         return r;
 }
 
+//Public slots
+void SQL_Query::dataChange() {
+    this->finishTransaction();
+    this->finishQuery();
+    this->v_db = QSqlDatabase();
+}
+
 //Protected functions
 void SQL_Query::transaction() {
     if(this->v_transaction == false) {

@@ -82,6 +82,10 @@ public:
     */
     QVariant recordValue(int v,bool nextRecord = false);
 
+public slots:
+    /*! Slot for data change */
+    void dataChange();
+
 protected:
     QSqlDatabase v_db;
     QSqlQuery* v_q = nullptr;
