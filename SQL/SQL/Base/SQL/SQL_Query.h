@@ -38,6 +38,11 @@ public:
     /*! Deconstructor */
     virtual ~SQL_Query();
 
+    /*! Checks the number of rows affected by the query
+     * \param select - If selection query was used [Default: true]
+    */
+    virtual int rowsAffected(bool select = true);
+
 protected:
     QSqlDatabase v_db;
     QSqlQuery* v_q = nullptr;
