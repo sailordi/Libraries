@@ -50,5 +50,14 @@ public:
     */
     virtual void setQuery(QString q,QList<SQL_Bind*>& l);
 
+    /*! Add SQL_Bind value to the SQL_Bind list
+     * \param b - SQL_Bind value
+    */
+    virtual void addBindValue(SQL_Bind b);
+    /*! Add SQL_Bind value to the SQL_Bind list
+     * \param b - SQL_Bind value
+    */
+    virtual void addBindValue(SQL_Bind* b);
+
 };
 #endif // SQL_QUERYDATA_H

@@ -35,3 +35,11 @@ void SQL_QueryData::setQuery(QString q,QList<SQL_Bind*>& l) {
     }
 
 }
+
+void SQL_QueryData::addBindValue(SQL_Bind b) {
+    this->v_bindL.push_back(QSharedPointer<SQL_Bind>(new SQL_Bind(b) ) );
+}
+
+void SQL_QueryData::addBindValue(SQL_Bind* b) {
+    this->v_bindL.push_back(QSharedPointer<SQL_Bind>(new SQL_Bind(b) ) );
+}
