@@ -24,6 +24,10 @@ SQL_Query::~SQL_Query() {
     this->v_db = QSqlDatabase();
 }
 
+void SQL_Query::setDatabase(QSqlDatabase db) {
+    this->v_db = db;
+}
+
 int SQL_Query::rowsAffected(bool select) {
     if(this->v_q == nullptr) {
         return -1;

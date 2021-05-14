@@ -39,6 +39,11 @@ public:
     /*! Deconstructor */
     virtual ~SQL_Query();
 
+    /*! Sets the database
+     * \param db - The database
+    */
+    void setDatabase(QSqlDatabase db);
+
     /*! Checks the number of rows affected by the query
      * \param select - If selection query was used [Default: true]
     */
