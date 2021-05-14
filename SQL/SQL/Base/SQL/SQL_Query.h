@@ -69,6 +69,18 @@ public:
      * \returns QSqlRecord
     */
     QSqlRecord record(bool nextRecord = false);
+    /*! Returns value of current record
+     * \param c - The column name
+     * \param nextRecord - If it should go to the next query [Default: false]
+     * \returns QVariant
+    */
+    QVariant recordValue(QString c,bool nextRecord = false);
+    /*! Returns value of current record
+     * \param v - The column
+     * \param nextRecord - If it should go to the next query [Default: false]
+     * \returns QVariant
+    */
+    QVariant recordValue(int v,bool nextRecord = false);
 
 protected:
     QSqlDatabase v_db;

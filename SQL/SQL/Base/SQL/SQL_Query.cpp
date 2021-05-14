@@ -107,6 +107,26 @@ QSqlRecord SQL_Query::record(bool nextRecord) {
         return r;
 }
 
+QVariant SQL_Query::recordValue(QString c,bool nextRecord) {
+    QVariant r = this->v_q->value(c);
+
+        if(nextRecord == true) {
+            this->nextRecord();
+        }
+
+        return r;
+}
+
+QVariant SQL_Query::recordValue(int v,bool nextRecord) {
+    QVariant r = this->v_q->value(v);
+
+        if(nextRecord == true) {
+            this->nextRecord();
+        }
+
+        return r;
+}
+
 //Protected functions
 void SQL_Query::transaction() {
     if(this->v_transaction == false) {
