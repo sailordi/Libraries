@@ -6,6 +6,8 @@
 #include "Base/Other/Helper.h"
 
 #include "SQL/Base/DB/DB.h"
+#include "SQL/Base/SQL/SQL_Bind.h"
+#include "SQL/Base/SQL/SQL_QueryData.h"
 
 //Public functions
 SQL_Query::SQL_Query(QSqlDatabase db,bool transaction,QObject* parent) : QObject(parent) {
@@ -39,6 +41,40 @@ int SQL_Query::rowsAffected(bool select) {
     this->v_q->first();
 
     return ret;
+}
+
+void SQL_Query::exec(QString query) {
+    if(this->v_q == nullptr) {
+        this->v_q = new QSqlQuery(this->v_db);
+    }
+
+    if(this->v_q->exec(query+";") == false) {
+        throw this->v_q->lastError().text()+Helper::newRow();
+    }
+
+}
+
+void SQL_Query::exec(SQL_QueryData qD) {
+    if(qD.v_bindL.size() == 0) {
+        this->exec(qD.v_qStr);
+        return;
+    }
+
+    if(this->v_q == nullptr) {
+        this->v_q = new QSqlQuery(this->v_db);
+    }
+
+    this->v_q->prepare(qD.v_qStr+";");
+
+    for(int i = 0; i < qD.v_bindL.size(); i++) {
+        SQL_Bind b = *qD.v_bindL.at(i);
+        this->v_q->bindValue(b.key(),b.value() );
+    }
+
+    if(this->v_q->exec() == false) {
+        throw this->v_q->lastError().text()+Helper::newRow();
+    }
+
 }
 
 //Protected functions

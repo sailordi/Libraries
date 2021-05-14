@@ -43,6 +43,17 @@ public:
     */
     virtual int rowsAffected(bool select = true);
 
+    /*! Executes a query
+     * \param query - The query str
+     * \throws QString
+    */
+    virtual void exec(QString query);
+    /*! Executes a query
+     * \param qD – The SQL_QueryData
+     * \throws QString
+    */
+    virtual void exec(SQL_QueryData qD);
+
 protected:
     QSqlDatabase v_db;
     QSqlQuery* v_q = nullptr;
