@@ -13,3 +13,7 @@ SQL_QueryData::~SQL_QueryData() {
     this->v_qStr = "";
     this->v_bindL.clear();
 }
+
+void SQL_QueryData::setQuery(QString q) {
+    this->v_qStr = q;
+}

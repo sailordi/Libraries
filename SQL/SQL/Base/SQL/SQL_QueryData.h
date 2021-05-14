@@ -34,5 +34,10 @@ public:
     /*! Deconstructor */
     virtual ~ SQL_QueryData ();
 
+    /*! Sets the query string
+     * \param q - The query
+    */
+    void setQuery(QString q);
+
 };
 #endif // SQL_QUERYDATA_H
