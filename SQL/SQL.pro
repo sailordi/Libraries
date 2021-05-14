@@ -37,6 +37,7 @@ SOURCES += \
     SQL/Base/DB/DatabaseUser.cpp \
     SQL/Base/Other/Connection.cpp \
     SQL/Base/SQL/SQL_Bind.cpp \
+    SQL/Base/SQL/SQL_Query.cpp \
     SQL/Base/SQL/SQL_QueryData.cpp
 
 HEADERS += SQL_global.h \
@@ -46,6 +47,7 @@ HEADERS += SQL_global.h \
     SQL/Base/Other/Connection.h \
     SQL/Base/Other/UpdateInfo.h \
     SQL/Base/SQL/SQL_Bind.h \
+    SQL/Base/SQL/SQL_Query.h \
     SQL/Base/SQL/SQL_QueryData.h
 
 # Default rules for deployment.
