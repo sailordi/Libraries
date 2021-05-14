@@ -39,5 +39,16 @@ public:
     */
     void setQuery(QString q);
 
+    /*! Sets the query and the SQL_Bind list
+     * \param q - The query
+     * \param l - List of SQL_Bind list
+    */
+    virtual void setQuery(QString q,QList<SQL_Bind>& l);
+    /*! Sets the query and the SQL_Bind list
+     * \param q - The query
+     * \param l - List of SQL_Bind list
+    */
+    virtual void setQuery(QString q,QList<SQL_Bind*>& l);
+
 };
 #endif // SQL_QUERYDATA_H

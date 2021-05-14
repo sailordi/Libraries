@@ -17,3 +17,21 @@ SQL_QueryData::~SQL_QueryData() {
 void SQL_QueryData::setQuery(QString q) {
     this->v_qStr = q;
 }
+
+void SQL_QueryData::setQuery(QString q,QList<SQL_Bind>& l) {
+    this->v_qStr = q;
+
+    while(l.size() > 0) {
+        this->v_bindL.push_back(QSharedPointer<SQL_Bind>(new SQL_Bind(l.takeFirst() ) ) );
+    }
+
+}
+
+void SQL_QueryData::setQuery(QString q,QList<SQL_Bind*>& l) {
+    this->v_qStr = q;
+
+    while(l.size() > 0) {
+        this->v_bindL.push_back(QSharedPointer<SQL_Bind>(l.takeFirst() ) );
+    }
+
+}
