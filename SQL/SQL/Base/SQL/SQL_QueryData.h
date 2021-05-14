@@ -59,5 +59,14 @@ public:
     */
     virtual void addBindValue(SQL_Bind* b);
 
+    /*! Adds SQL_Bind values to the SQL_Bind list
+     * \param l - SQL_Bind list
+    */
+    virtual void addBindVaues(QList<SQL_Bind>& l);
+    /*! Adds SQL_Bind values to the SQL_Bind list
+     * \param l - SQL_Bind list
+    */
+    virtual void addBindVaues(QList<SQL_Bind*>& l);
+
 };
 #endif // SQL_QUERYDATA_H

@@ -43,3 +43,15 @@ void SQL_QueryData::addBindValue(SQL_Bind b) {
 void SQL_QueryData::addBindValue(SQL_Bind* b) {
     this->v_bindL.push_back(QSharedPointer<SQL_Bind>(new SQL_Bind(b) ) );
 }
+
+void SQL_QueryData::addBindVaues(QList<SQL_Bind>& l) {
+    while(l.size() > 0) {
+        this->v_bindL.push_front(QSharedPointer<SQL_Bind>(new SQL_Bind(l.takeFirst() ) ) );
+    }
+}
+
+void SQL_QueryData::addBindVaues(QList<SQL_Bind*>& l) {
+    while(l.size() > 0) {
+        this->v_bindL.push_front(QSharedPointer<SQL_Bind>(l.takeFirst() ) );
+    }
+}
