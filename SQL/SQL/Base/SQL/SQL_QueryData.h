@@ -80,5 +80,10 @@ public:
     /*! Clears all values */
     virtual void clear();
 
+    /*! Checks if the SQL_Bind list is empty
+     * \returns bool
+    */
+    bool boundListEmpty();
+
 };
 #endif // SQL_QUERYDATA_H

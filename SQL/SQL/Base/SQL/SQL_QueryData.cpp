@@ -81,3 +81,7 @@ void SQL_QueryData::clear() {
 
     this->v_bindL.clear();
 }
+
+bool SQL_QueryData::boundListEmpty() {
+    return this->v_bindL.isEmpty();
+}
