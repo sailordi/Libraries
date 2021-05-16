@@ -35,5 +35,10 @@ public:
     */
     explicit SQLite_DB(QString connName,DatabaseInfo* i,QObject *parent = nullptr);
 
+    /*! Function to test database
+     * \throws QString
+    */
+    virtual void test() override;
+
 };
 #endif // SQLITE_DB_H
