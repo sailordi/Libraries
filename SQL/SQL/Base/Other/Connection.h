@@ -7,24 +7,12 @@
 #include <QStringList>
 
 #include "SQL_global.h"
-
-/*! Conection names */
-enum class ConnectionFlag {
-    TEST, /*!< Test connection */
-    INSERT, /*!< Insertion flag */
-    SELECT, /*!< Selection flag */
-    UPDATE, /*!< Update flag */
-    CREATE, /*!< Creation flag */
-    REMOVE, /*!< Removal flag */
-    MODEL, /*!< Model flag */
-    OTHER, /*!< Other flag */
-    COUNT /*!< The flag count */
-};
+#include "SQL/Base/Other/ConnectionFlag.h"
 
 /*! \class Connection
  * \brief The class handles connection names
  *
- * Incudes: QObject, QList, QString & SQL_global.h
+ * Incudes: QObject, QList, QString, ConnectionFlag.h & SQL_global.h
  *
  * Inherits: QObject
  *

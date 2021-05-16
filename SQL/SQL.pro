@@ -46,6 +46,7 @@ HEADERS += SQL_global.h \
     SQL/Base/DB/DatabaseInfo.h \
     SQL/Base/DB/DatabaseUser.h \
     SQL/Base/Other/Connection.h \
+    SQL/Base/Other/ConnectionFlag.h \
     SQL/Base/Other/UpdateInfo.h \
     SQL/Base/SQL/SQL_Bind.h \
     SQL/Base/SQL/SQL_Query.h \
