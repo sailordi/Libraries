@@ -18,9 +18,9 @@
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2020-05-13
- * \date Last update: 2020-05-13
+ * \date Last update: 2020-05-16
 */
-class SQL_EXPORT SQL_Bind : QObject
+class SQL_EXPORT SQL_Bind : public QObject
 {
     Q_OBJECT
 public:
