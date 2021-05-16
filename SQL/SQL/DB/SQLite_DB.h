@@ -40,5 +40,8 @@ public:
     */
     virtual void test() override;
 
+    /*! Database info changed */
+    virtual void infoChanged() override;
+
 };
 #endif // SQLITE_DB_H
