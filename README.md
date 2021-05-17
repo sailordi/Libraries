@@ -34,3 +34,7 @@ Fixed some comment errors
 Added the option to only translate the windowNotice manually
 Added a function that checks for errors with the tab / page text
 Refactoring: removed error checks from WindowNoticeWidgets classes
+```
+## V4
+```
+Created the shared library SQL which contains all SQL clases
