@@ -9,14 +9,12 @@
 class DatabaseInfo;
 class DatabaseUser;
 
-/*! \class DatabaseUser
- * \brief The class contains the info about the database user
+/*! \class DB
+ * \brief The class handles database functionality
  *
- * It contains:
+ * Incudes: QObject & QSqlDatabase
  *
- * The username and passport
- *
- * Incudes: QObject, QString & SQL_global.h
+ * Forward declarations: DatabaseInfo & DatabaseUser
  *
  * Inherits: QObject
  *
@@ -24,7 +22,7 @@ class DatabaseUser;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-05-12
- * \date Last update: 2021-05-12
+ * \date Last update: 2021-05-17
 */
 class SQL_EXPORT DB : public QObject
 {
