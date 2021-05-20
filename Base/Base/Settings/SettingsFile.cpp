@@ -28,6 +28,14 @@ SettingsFile::SettingsFile(QString file,bool read) {
         d.mkdir(d.absolutePath() );
     }
 
+    if(i.exists() == false && this->v_read == true) {
+        QFile t(file);
+
+        t.open(QFile::WriteOnly);
+        t.flush();
+        t.close();
+    }
+
     if(this->v_read == false) {
         if(this->v_f->open(QFile::WriteOnly) == false) {
            return;
