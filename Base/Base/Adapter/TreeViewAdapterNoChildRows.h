@@ -14,7 +14,7 @@
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-25
- * \date Last update: 2021-04-28
+ * \date Last update: 2021-10-06
 */
 class TreeViewAdapterNoChildRows : public TreeViewBaseAdapter
 {
@@ -55,45 +55,6 @@ public:
      * \returns QList<int>
     */
     QList<int> selectedRowsPosition(bool clearSelection = true);
-    /*! Returns the selected rows indexes
-     * \param clearSelection - Option to clear the views selection [Default: true]
-     * \returns QModelIndexList
-    */
-    QModelIndexList selectedIndexs(bool clearSelection = true);
-
-    /*! Returns number of rows in view
-     * \returns int
-    */
-    int rows();
-
-    /*! Set´s the views heders
-     * \param aligments - Aligment flags
-     * \param headers - The headers
-    */
-    virtual void setHeaders(QList<QFlags<Qt::AlignmentFlag> > aligments,QStringList headers);
-
-    /*! Set´s the views item creator
-     * \param itemCreator - The standard item creator
-     * \param deleteOld - Option to delete old item creator [Default: true]
-    */
-    void setItemCreator(StandardItemCreator* itemCreator,bool deleteOld = true);
-
-    /*! Clear´s all rows from the view */
-    void clear();
-
-    /*! Resizes all columns to fit the content inside them */
-    void resize();
-
-    /*! Returns the view
-     * \returns QTreeView*
-    */
-    QTreeView* view();
-
-protected:
-    bool v_del;
-    QTreeView* v_view = nullptr;
-    QStandardItemModel* v_model = nullptr;
-    StandardItemCreator* v_itemCreator = nullptr;
 
 };
 #endif // TREEVIEWADAPTERNOCHILDROWS_H

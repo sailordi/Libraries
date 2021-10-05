@@ -14,7 +14,7 @@
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-26
- * \date Last update: 2021-04-28
+ * \date Last update: 2021-10-06
 */
 class TreeViewAdapterChildRows : public TreeViewBaseAdapter
 {
@@ -44,12 +44,6 @@ public:
      * \param parentIndex - The parent index [Default: QModelIndex()]
     */
     virtual void removeRow(int pos,QModelIndex parentIndex = QModelIndex() );
-
-protected:
-    bool v_del;
-    QTreeView* v_view = nullptr;
-    QStandardItemModel* v_model = nullptr;
-    StandardItemCreator* v_itemCreator = nullptr;
 
 };
 #endif // TREEVIEWADAPTERCHILDROWS_H
