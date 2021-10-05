@@ -92,7 +92,7 @@ void SettingsFile::write(QString groupName,SettingsGroup* gD) {
          SettingsKey n = names.at(i);
          QList<SettingsBlocks>* bL = gD->arrayData(n.key() );
 
-         *this->v_s<<n.key()<<QString("¤")<<QString::number(bL->size() )<<Helper::newRow();
+         *this->v_s<<QString("[")<<n.key()<<QString("]")<<QString::number(bL->size() )<<Helper::newRow();
 
          for(int j = 0,col = 1; j < bL->size(); j++,col++) {
              SettingsBlocks b = bL->at(j);
@@ -178,11 +178,12 @@ bool SettingsFile::open() {
 
 //Private functions
 bool SettingsFile::isGoup(QString s) {
+    if(this->isArray(s) == true) { return false; }
     return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\[|\\]") );
 }
 
 bool SettingsFile::isArray(QString s) {
-    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\¤") );
+    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\b(\\[|\\]\\d)\\b") );
 }
 
 bool SettingsFile::isBlock(QString s) {
@@ -291,11 +292,10 @@ void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
 }
 
 void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
-    qint64 pos = s->pos();
     QString currentLine = s->readLine();
 
     QStringList l = currentLine.split(QRegExp("\\[|\\]") );
-    QString name = l.first();
+    QString name = (l.size() == 2) ? l.first() : l.at(1);
     int size = l.last().toInt();
 
         for(int i = 0; i < size; i++) {
@@ -305,26 +305,26 @@ void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
 
             do{
                 currentLine = s->readLine();
-                pos = s->pos();
+                qint64 pos = s->pos();
                 QString nextLine = s->readLine();
 
                 QStringList c = currentLine.split(QRegExp("\\¤") );
-                int columns = c.takeFirst().toInt();
+                int ent = c.takeFirst().toInt();
+                int nextEnt = -1;
 
-                if(isArray(nextLine) == false && nextLine.isEmpty() == false) {
+                if(this->isArray(nextLine) == false && nextLine.isEmpty() == false) {
                     QStringList n = nextLine.split(QRegExp("\\¤") );
+                    nextEnt = n.takeFirst().toInt();
+                }
 
-                    if(columns != n.first().toInt() ) {
-                        stopLoop = true;
-                    }
-                }
-                else {
-                    stopLoop = true;
-                }
                 QStringList d = c.first().split(QRegExp("\\=") );
 
                 keys.push_back(d.first() );
                 (d.size() == 2) ? vals.push_back(stringToVariant(d.last() ) ) : vals.push_back("");
+
+                if(ent != nextEnt) {
+                    stopLoop = true;
+                }
 
                 s->seek(pos);
 
