@@ -38,3 +38,10 @@ Refactoring: removed error checks from WindowNoticeWidgets classes
 ## V4
 ```
 Created the shared library SQL which contains all SQL clases
+```
+## V4_1
+```
+Fixed issue where the file was not created on file being read in the class SettingsFile
+Fixed issue where multiple things was not removed from the header file in the TreeViewAdapters
+Added a constructor to ComboBoxAdapter
+Fixed an issue where arrays were not red from settings files correctly and updated how the array is written
