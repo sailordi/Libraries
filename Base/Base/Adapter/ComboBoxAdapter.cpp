@@ -4,6 +4,24 @@
 #include <QLineEdit>
 
 //Public functions
+ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,bool connectBoxToSlot,QObject* parent) : QObject(parent) {
+    this->v_box = box;
+
+    this->v_box->setEditable(true);
+    this->v_box->lineEdit()->setReadOnly(true);
+    this->v_box->lineEdit()->setAlignment(Qt::AlignCenter);
+
+    this->v_model = new QStringListModel();
+
+    this->v_box->setModel(this->v_model);
+
+    if(connectBoxToSlot == true) {
+        connect(this->v_box,SIGNAL(currentIndexChanged(int) ),this,SLOT(indexChanged(int) ) );
+    }
+
+    this->v_del = del;
+}
+
 ComboBoxAdapter::ComboBoxAdapter(QComboBox* box,bool del,bool connectBoxToSlot,QString first,QObject* parent) : QObject(parent) {
     this->v_box = box;
     this->v_first = first;
