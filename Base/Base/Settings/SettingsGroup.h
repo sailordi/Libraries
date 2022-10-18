@@ -19,7 +19,7 @@ typedef QHash<SettingsKey,QVariant> SettingsBlocks;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-22
- * \date Last update: 2021-04-29
+ * \date Last update: 2022-10-18
 */
 class SettingsGroup
 {
@@ -97,7 +97,7 @@ private:
 
 };
 
-inline uint qHash(const SettingsKey& c,uint seed) {
+inline size_t qHash(const SettingsKey& c,size_t seed) {
     return qHash(c.keyC(),seed);
 }
 #endif // SETTINGSGROUP_H

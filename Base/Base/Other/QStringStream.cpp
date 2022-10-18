@@ -5,7 +5,7 @@ QStringStream::QStringStream() {
     this->v_str = "";
     this->v_steam = new QTextStream(&this->v_str);
 
-    this->v_steam->setCodec("UTF-8");
+    this->v_steam->setEncoding(QStringConverter::Utf8);
 }
 
 QStringStream::~QStringStream() {

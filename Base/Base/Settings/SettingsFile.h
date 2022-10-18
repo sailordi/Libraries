@@ -20,7 +20,7 @@ class SettingsGroup;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-04-22
- * \date Last update: 2021-10-06
+ * \date Last update: 2022-10-18
 */
 class SettingsFile
 {

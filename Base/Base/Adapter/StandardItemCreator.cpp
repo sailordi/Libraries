@@ -13,7 +13,7 @@ QStandardItem* StandardItemCreator::editable(QVariant data,Qt::AlignmentFlag ali
     QStandardItem* it = new QStandardItem();
 
         it->setData(data,Qt::EditRole);
-        it->setData(QColor("black"),Qt::TextColorRole);
+        it->setData(QColor("black"),Qt::ForegroundRole);
         it->setData(aligment,Qt::TextAlignmentRole);
 
         it->setFlags(it->flags() | Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable);
@@ -25,7 +25,7 @@ QStandardItem* StandardItemCreator::nonEditable(QVariant data,Qt::AlignmentFlag 
     QStandardItem* it = new QStandardItem();
 
         it->setData(data,Qt::EditRole);
-        it->setData(QColor("black"),Qt::TextColorRole);
+        it->setData(QColor("black"),Qt::ForegroundRole);
         it->setData(aligment,Qt::TextAlignmentRole);
 
         it->setFlags(it->flags() | Qt::ItemIsSelectable | Qt::ItemIsEnabled);

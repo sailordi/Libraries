@@ -5,7 +5,7 @@
 #include <QFileInfo>
 #include <QRect>
 #include <QRectF>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QPoint>
 #include <QPointF>
 #include <QSize>
@@ -15,6 +15,8 @@
 
 #include "Base/Other/Helper.h"
 #include "Base/Settings/SettingsGroup.h"
+
+QRegularExpression reg;
 
 //Public functions
 SettingsFile::SettingsFile(QString file,bool read) {
@@ -48,7 +50,7 @@ SettingsFile::SettingsFile(QString file,bool read) {
     }
 
     this->v_s = new QTextStream(this->v_f);
-    this->v_s->setCodec("UTF-8");
+    this->v_s->setEncoding(QStringConverter::Utf8);
 
     this->v_s->seek(0);
 }
@@ -178,12 +180,15 @@ bool SettingsFile::open() {
 
 //Private functions
 bool SettingsFile::isGoup(QString s) {
-    if(this->isArray(s) == true) { return false; }
-    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\[|\\]") );
+    reg.setPattern("\\[.*\\]$");
+
+    return (s.isEmpty() == true) ? false : s.contains(reg);
 }
 
 bool SettingsFile::isArray(QString s) {
-    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\b(\\[|\\]\\d)\\b") );
+    reg.setPattern("\\[.*\\]\\d.");
+
+    return (s.isEmpty() == true) ? false : s.contains(reg);
 }
 
 bool SettingsFile::isBlock(QString s) {
@@ -193,8 +198,9 @@ bool SettingsFile::isBlock(QString s) {
     if(this->isArray(s) == true) {
         return false;
     }
+    reg.setPattern("\\=");
 
-    return (s.isEmpty() == true) ? false : s.contains(QRegExp("\\=") );
+    return (s.isEmpty() == true) ? false : s.contains(reg);
 }
 
 QStringList SettingsFile::separate(QString type,QString str) {
@@ -203,34 +209,34 @@ QStringList SettingsFile::separate(QString type,QString str) {
         str.replace("(","");
         str.replace(")","");
     }
-    return str.split(QRegExp("\\s+") );
+    reg.setPattern("s+");
+
+    return str.split(reg);
 }
 
 QString SettingsFile::variantToString(QVariant v) {
-    switch(v.type() ) {
-        case QVariant::Invalid:
-            return QString("@Invalid()");
-        case QVariant::Rect: {
+    switch(v.typeId() ) {
+        case QMetaType::QRect: {
             QRect r = v.toRect();
             return QString("@Rect(%1 %2 %3 %4)").arg(r.x() ).arg(r.y() ).arg(r.width() ).arg(r.height() );
         }
-        case QVariant::RectF: {
+        case QMetaType::QRectF: {
             QRectF r = v.toRectF();
             return QString("@RectF(%1 %2 %3 %4)").arg(r.x() ).arg(r.y() ).arg(r.width() ).arg(r.height() );
         }
-        case QVariant::Size:{
+        case QMetaType::QSize:{
             QSize s = v.toSize();
             return QString("@Size(%1 %2)").arg(s.width() ).arg(s.height() );
         }
-        case QVariant::SizeF:{
+        case QMetaType::QSizeF:{
             QSizeF s = v.toSizeF();
             return QString("@SizeF(%1 %2)").arg(s.width() ).arg(s.height() );
         }
-        case QVariant::Point:{
+        case QMetaType::QPoint:{
             QPoint p = v.toPoint();
             return QString("@Point(%1 %2)").arg(p.x() ).arg(p.y() );
         }
-        case QVariant::PointF:{
+        case QMetaType::QPointF:{
             QPointF p = v.toPointF();
             return QString("@PointF(%1 %2)").arg(p.x() ).arg(p.y() );
         }
@@ -241,8 +247,9 @@ QString SettingsFile::variantToString(QVariant v) {
 }
 
 QVariant SettingsFile::stringToVariant(QString s) {
-    if(s.contains(QRegExp("\\@") ) == false)  { return QVariant(s); }
-    if(s.contains(QRegExp("\\@Invalid") ) == true)  { return QVariant(); }
+    reg.setPattern("\\@");
+
+    if(s.contains(reg) == false)  { return QVariant(s); }
 
     if(s.contains("@RectF") == true) {
         QStringList l = this->separate("@RectF",s);
@@ -286,7 +293,9 @@ QString SettingsFile::parseGroupName(QString str) {
 }
 
 void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
-    QStringList l = str.split(QRegExp("\\=") );
+    reg.setPattern("\\=");
+
+    QStringList l = str.split(reg);
 
     (l.size() == 2) ? gD->addBlockData(l.first(),this->stringToVariant(l.last() ) ) : gD->addBlockData(l.first(),"");
 }
@@ -294,7 +303,9 @@ void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
 void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
     QString currentLine = s->readLine();
 
-    QStringList l = currentLine.split(QRegExp("\\[|\\]") );
+    reg.setPattern("\\[|\\]");
+
+    QStringList l = currentLine.split(reg);
     QString name = (l.size() == 2) ? l.first() : l.at(1);
     int size = l.last().toInt();
 
@@ -308,16 +319,20 @@ void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
                 qint64 pos = s->pos();
                 QString nextLine = s->readLine();
 
-                QStringList c = currentLine.split(QRegExp("\\¤") );
+                reg.setPattern("\\¤");
+
+                QStringList c = currentLine.split(reg);
                 int ent = c.takeFirst().toInt();
                 int nextEnt = -1;
 
                 if(this->isArray(nextLine) == false && nextLine.isEmpty() == false) {
-                    QStringList n = nextLine.split(QRegExp("\\¤") );
+                    QStringList n = nextLine.split(reg);
                     nextEnt = n.takeFirst().toInt();
                 }
 
-                QStringList d = c.first().split(QRegExp("\\=") );
+                reg.setPattern("\\=");
+
+                QStringList d = c.first().split(reg);
 
                 keys.push_back(d.first() );
                 (d.size() == 2) ? vals.push_back(stringToVariant(d.last() ) ) : vals.push_back("");
