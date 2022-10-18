@@ -91,7 +91,7 @@ signals:
 
 private:
     QString v_dbName = "",v_hostName = "";
-    int v_port = 0;
+    int v_port = -1;
 
 };
 #endif // DATABASEINFO_H
