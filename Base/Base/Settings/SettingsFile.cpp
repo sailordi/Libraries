@@ -209,7 +209,7 @@ QStringList SettingsFile::separate(QString type,QString str) {
         str.replace("(","");
         str.replace(")","");
     }
-    reg.setPattern("s+");
+    reg.setPattern("\\s+");
 
     return str.split(reg);
 }

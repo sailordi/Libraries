@@ -53,3 +53,4 @@ Created the class MySQL_DB
 Created the class MariaDb_DB
 Uppdated how the retranslation works in notice classes
 Uppdated how the fonts are sett in the notice classes
+Fixed issue where data was not split correctly
