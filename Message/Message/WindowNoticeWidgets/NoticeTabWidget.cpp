@@ -10,7 +10,6 @@
 #include <QTextEdit>
 #include <QSpinBox>
 
-#include "Base/Other/Helper.h"
 #include "Message/Notice/NoticeFlag.h"
 
 //Public functions
@@ -59,15 +58,17 @@ void NoticeTabWidget::setText(QString t,QFlags<Qt::AlignmentFlag> f) {
     this->alignTextEdit(f);
 }
 
-void NoticeTabWidget::setLabel(int pos,int size) {
+void NoticeTabWidget::setLabel(int pos) {
     QString pS = QString::number(pos);
-    QString sS = QString::number(size);
+    QString sS = QString::number(this->v_size);
 
     this->v_label->setText(this->v_labelText+"[ "+pS+" / "+sS+" ]");
 }
 
 void NoticeTabWidget::setData(int size,int pos) {
-    if(this->tabUsed(size) == false) {
+    this->v_size = size;
+
+    if(this->tabUsed() == false) {
         return;
     }
 
@@ -103,7 +104,9 @@ void NoticeTabWidget::reTranslate() {
     if(this->v_trTab.isEmpty() == false) {
         this->v_tabText = NoticeTabWidget::tr(this->v_trTab.toStdString().c_str() );
     }
-
+    if(this->v_size > 0) {
+        emit this->messageChanged(this->v_spin->value(),this->v_flag);
+    }
 }
 
 //Protected slots
@@ -148,7 +151,7 @@ void NoticeTabWidget::init() {
     this->v_gLayout->addWidget(this->v_spin,0,1);
     this->v_gLayout->addWidget(this->v_edit,1,0,1,2);
 
-    this->setLabel(0,0);
+    this->setLabel(0);
 }
 
 void NoticeTabWidget::alignTextEdit(QFlags<Qt::AlignmentFlag> f) {
@@ -170,8 +173,8 @@ void NoticeTabWidget::alignTextEdit(QFlags<Qt::AlignmentFlag> f) {
         this->v_edit->setTextCursor(cu);
 }
 
-bool NoticeTabWidget::tabUsed(int size) {
-    if(size > 0) {
+bool NoticeTabWidget::tabUsed() {
+    if(this->v_size > 0) {
         return true;
     }
 

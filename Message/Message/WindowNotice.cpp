@@ -118,12 +118,11 @@ void WindowNotice::reTranslate() {
     if(this->v_translator != nullptr) {
         this->v_translator->reTranslateLanguageMenu(this->v_languageM,this->v_languageTitle);
     }
+    this->v_pageW->reTranslate();
 
     this->v_errorW->reTranslate();
     this->v_warningW->reTranslate();
     this->v_messageW->reTranslate();
-
-    this->v_pageW->reTranslate();
 }
 
 //Private slots:
@@ -152,7 +151,7 @@ void WindowNotice::messageChange(int pos,NoticeFlag flag) {
     }
 
     tmp->setText(l->msg(pos-1,flag),Qt::AlignCenter);
-    tmp->setLabel(pos,l->size(flag) );
+    tmp->setLabel(pos);
 }
 
 //Private functions

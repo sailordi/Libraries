@@ -28,7 +28,7 @@ enum class NoticeFlag;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-05-04
- * \date Last update: 2021-05-10
+ * \date Last update: 2022-10-18
 */
 class MESSAGE_EXPORT NoticeTabWidget : public SingleLayoutWidget
 {
@@ -62,12 +62,10 @@ public:
 
     /*! Sets label text
      * \param pos - The text position
-     * \param size - Amount of messages
     */
-    void setLabel(int pos,int size);
+    void setLabel(int pos);
 
     /*! Sets data for the tab if it is in use
-     * \param size - The amount of messages
      * \param pos - The text position
     */
     virtual void setData(int size,int pos);
@@ -97,7 +95,7 @@ protected slots:
     void numberChanged();
 
 protected:
-    int v_originalIndex = 0,v_index = 0;
+    int v_originalIndex = 0,v_index = 0,v_size = 0;
     NoticeFlag v_flag;
 
     NoticeTabWidget* v_child = nullptr;
@@ -125,10 +123,9 @@ protected:
     void alignTextEdit(QFlags<Qt::AlignmentFlag> f);
 
     /*! Checks if tab should be used
-     * \param size - The amount of messages
      * \returns bool
     */
-    bool tabUsed(int size);
+    bool tabUsed();
 
     /*! Change the child index */
     void childIndexChange();
