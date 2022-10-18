@@ -1,5 +1,5 @@
-#ifndef SQL_QUERY_H
-#define SQL_QUERY_H
+#ifndef SQLQUERY_H
+#define SQLQUERY_H
 
 #include <QObject>
 #include <QString>
@@ -8,15 +8,15 @@
 
 #include "SQL_global.h"
 
-class SQL_QueryData;
+class SqlQueryData;
 class QSqlDatabase;
 
-/*! \class SQL_Query
+/*! \class SqlQuery
  * \brief The class handles SQL queries
  *
  * Incudes: Object, QString, QSqlRecord, QSqlQuery & SQL_global.h
  *
- * Forward declarations: SQL_QueryData & QSqlDatabase
+ * Forward declarations: SqlQueryData & QSqlDatabase
  *
  * Inherits: QObject
  *
@@ -26,7 +26,7 @@ class QSqlDatabase;
  * \date Created: 2021-05-14
  * \date Last update: 2021-05-14
 */
-class SQL_EXPORT SQL_Query : public QObject
+class SQL_EXPORT SqlQuery : public QObject
 {
     Q_OBJECT
 public:
@@ -35,9 +35,9 @@ public:
      * \param transaction - If transaction should be used
      * \param parent - The parent [Default: nullptr]
     */
-    explicit SQL_Query(QSqlDatabase db,bool transaction,QObject* parent = nullptr);
+    explicit SqlQuery(QSqlDatabase db,bool transaction,QObject* parent = nullptr);
     /*! Deconstructor */
-    virtual ~SQL_Query();
+    virtual ~SqlQuery();
 
     /*! Sets the database
      * \param db - The database
@@ -55,10 +55,10 @@ public:
     */
     virtual void exec(QString query);
     /*! Executes a query
-     * \param qD – The SQL_QueryData
+     * \param qD – The SqlQueryData
      * \throws QString
     */
-    virtual void exec(SQL_QueryData qD);
+    virtual void exec(SqlQueryData qD);
 
     /*! Finishes a query */
     void finishQuery();
@@ -110,4 +110,4 @@ protected:
     void rollback(QString& er);
 
 };
-#endif // SQL_QUERY_H
+#endif // SQLQUERY_H

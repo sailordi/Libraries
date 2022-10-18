@@ -1,4 +1,4 @@
-#include "SQL_Query.h"
+#include "SqlQuery.h"
 
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -6,29 +6,29 @@
 #include "Base/Other/Helper.h"
 
 #include "SQL/Base/DB/DB.h"
-#include "SQL/Base/SQL/SQL_Bind.h"
-#include "SQL/Base/SQL/SQL_QueryData.h"
+#include "SQL/Base/Query/SqlQueryBind.h"
+#include "SQL/Base/Query/SqlQueryData.h"
 
 //Public functions
-SQL_Query::SQL_Query(QSqlDatabase db,bool transaction,QObject* parent) : QObject(parent) {
+SqlQuery::SqlQuery(QSqlDatabase db,bool transaction,QObject* parent) : QObject(parent) {
     this->v_db = db;
     this->v_transaction = transaction;
 
     this->transaction();
 }
 
-SQL_Query::~SQL_Query() {
+SqlQuery::~SqlQuery() {
     this->finishTransaction();
     this->finishQuery();
 
     this->v_db = QSqlDatabase();
 }
 
-void SQL_Query::setDatabase(QSqlDatabase db) {
+void SqlQuery::setDatabase(QSqlDatabase db) {
     this->v_db = db;
 }
 
-int SQL_Query::rowsAffected(bool select) {
+int SqlQuery::rowsAffected(bool select) {
     if(this->v_q == nullptr) {
         return -1;
     }
@@ -49,7 +49,7 @@ int SQL_Query::rowsAffected(bool select) {
     return ret;
 }
 
-void SQL_Query::exec(QString query) {
+void SqlQuery::exec(QString query) {
     if(this->v_q == nullptr) {
         this->v_q = new QSqlQuery(this->v_db);
     }
@@ -60,7 +60,7 @@ void SQL_Query::exec(QString query) {
 
 }
 
-void SQL_Query::exec(SQL_QueryData qD) {
+void SqlQuery::exec(SqlQueryData qD) {
     if(qD.v_bindL.size() == 0) {
         this->exec(qD.v_qStr);
         return;
@@ -73,7 +73,7 @@ void SQL_Query::exec(SQL_QueryData qD) {
     this->v_q->prepare(qD.v_qStr+";");
 
     for(int i = 0; i < qD.v_bindL.size(); i++) {
-        SQL_Bind b = *qD.v_bindL.at(i);
+        SqlQueryBind b = *qD.v_bindL.at(i);
         this->v_q->bindValue(b.key(),b.value() );
     }
 
@@ -83,7 +83,7 @@ void SQL_Query::exec(SQL_QueryData qD) {
 
 }
 
-void SQL_Query::finishQuery() {
+void SqlQuery::finishQuery() {
     if(this->v_q != nullptr) {
         this->v_q->finish();
 
@@ -93,15 +93,15 @@ void SQL_Query::finishQuery() {
 
 }
 
-void SQL_Query::finishTransaction() {
+void SqlQuery::finishTransaction() {
     this->commit();
 }
 
-void SQL_Query::nextRecord() {
+void SqlQuery::nextRecord() {
     this->v_q->next();
 }
 
-QSqlRecord SQL_Query::record(bool nextRecord) {
+QSqlRecord SqlQuery::record(bool nextRecord) {
     QSqlRecord r = this->v_q->record();
 
         if(nextRecord == true) {
@@ -111,7 +111,7 @@ QSqlRecord SQL_Query::record(bool nextRecord) {
         return r;
 }
 
-QVariant SQL_Query::recordValue(QString c,bool nextRecord) {
+QVariant SqlQuery::recordValue(QString c,bool nextRecord) {
     QVariant r = this->v_q->value(c);
 
         if(nextRecord == true) {
@@ -121,7 +121,7 @@ QVariant SQL_Query::recordValue(QString c,bool nextRecord) {
         return r;
 }
 
-QVariant SQL_Query::recordValue(int v,bool nextRecord) {
+QVariant SqlQuery::recordValue(int v,bool nextRecord) {
     QVariant r = this->v_q->value(v);
 
         if(nextRecord == true) {
@@ -132,14 +132,14 @@ QVariant SQL_Query::recordValue(int v,bool nextRecord) {
 }
 
 //Public slots
-void SQL_Query::dataChange() {
+void SqlQuery::dataChange() {
     this->finishTransaction();
     this->finishQuery();
     this->v_db = QSqlDatabase();
 }
 
 //Protected functions
-void SQL_Query::transaction() {
+void SqlQuery::transaction() {
     if(this->v_transaction == false) {
         return;
     }
@@ -155,7 +155,7 @@ void SQL_Query::transaction() {
 
 }
 
-void SQL_Query::commit() {
+void SqlQuery::commit() {
     if(this->v_transaction == false) {
         return;
     }
@@ -171,7 +171,7 @@ void SQL_Query::commit() {
 
 }
 
-void SQL_Query::rollback(QString& er) {
+void SqlQuery::rollback(QString& er) {
     if(this->v_transaction == false) {
         return;
     }

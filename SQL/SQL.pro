@@ -36,9 +36,9 @@ SOURCES += \
     SQL/Base/DB/DatabaseInfo.cpp \
     SQL/Base/DB/DatabaseUser.cpp \
     SQL/Base/Other/Connection.cpp \
-    SQL/Base/Query/SQL_Bind.cpp \
-    SQL/Base/Query/SQL_Query.cpp \
-    SQL/Base/Query/SQL_QueryData.cpp \
+    SQL/Base/Query/SqlQuery.cpp \
+    SQL/Base/Query/SqlQueryBind.cpp \
+    SQL/Base/Query/SqlQueryData.cpp \
     SQL/DB/SQLite_DB.cpp
 
 HEADERS += SQL_global.h \
@@ -48,9 +48,9 @@ HEADERS += SQL_global.h \
     SQL/Base/Other/Connection.h \
     SQL/Base/Other/ConnectionFlag.h \
     SQL/Base/Other/UpdateInfo.h \
-    SQL/Base/Query/SQL_Bind.h \
-    SQL/Base/Query/SQL_Query.h \
-    SQL/Base/Query/SQL_QueryData.h \
+    SQL/Base/Query/SqlQuery.h \
+    SQL/Base/Query/SqlQueryBind.h \
+    SQL/Base/Query/SqlQueryData.h \
     SQL/DB/SQLite_DB.h
 
 # Default rules for deployment.
