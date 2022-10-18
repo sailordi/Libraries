@@ -39,6 +39,7 @@ SOURCES += \
     SQL/Base/Query/SqlQuery.cpp \
     SQL/Base/Query/SqlQueryBind.cpp \
     SQL/Base/Query/SqlQueryData.cpp \
+    SQL/DB/MariaDb_DB.cpp \
     SQL/DB/MySQL_DB.cpp \
     SQL/DB/SQLite_DB.cpp
 
@@ -52,6 +53,7 @@ HEADERS += SQL_global.h \
     SQL/Base/Query/SqlQuery.h \
     SQL/Base/Query/SqlQueryBind.h \
     SQL/Base/Query/SqlQueryData.h \
+    SQL/DB/MariaDb_DB.h \
     SQL/DB/MySQL_DB.h \
     SQL/DB/SQLite_DB.h
 
