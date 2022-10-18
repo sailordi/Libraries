@@ -46,8 +46,14 @@ public:
     */
     NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget* tabW,QStringList& text,bool tr,NoticeFlag f,QWidget* parent = nullptr);
 
-    /*! Sets the font for the NoticeTabWidget */
+    /*! Sets the font for the NoticeTabWidget
+     *  \param f - The font
+    */
     void setFont(QFont f);
+    /*! Sets the fonts for the NoticeTabWidget
+     *  \param f - The fonts
+    */
+    void setFont(QList<QFont> f);
 
     /*! Sets the child tab widget
      * \param ch - Child tab widget

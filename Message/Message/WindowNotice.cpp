@@ -37,11 +37,6 @@ WindowNotice::WindowNotice(Translator* tr,bool manualTr,QStringList languageTitl
 
     this->v_languageM = new QMenu(this);
 
-    QFont f = QFont("Times New Roman",16);
-    f.setBold(true);
-
-    this->v_languageM->setFont(f);
-
     this->v_ui->menubar->addMenu(this->v_languageM);
 
     this->v_languageTitle = languageTitle.takeFirst();
@@ -71,6 +66,26 @@ WindowNotice::~WindowNotice() {
     }
 
     delete this->v_ui;
+}
+
+void WindowNotice::setFont(QFont mF,QFont pageF,QFont errorTabF,QFont warningTabF,QFont messageTabF) {
+    if(this->v_languageM != nullptr) {
+        this->v_languageM->setFont(mF);
+    }
+    this->v_pageW->setFont(pageF);
+    this->v_errorW->setFont(errorTabF);
+    this->v_warningW->setFont(warningTabF);
+    this->v_messageW->setFont(messageTabF);
+}
+
+void WindowNotice::setFont(QFont mF,QList<QFont> pageF,QList<QFont> errorTabF,QList<QFont> warningTabF,QList<QFont> messageTabF) {
+    if(this->v_languageM != nullptr) {
+        this->v_languageM->setFont(mF);
+    }
+    this->v_pageW->setFont(pageF);
+    this->v_errorW->setFont(errorTabF);
+    this->v_warningW->setFont(warningTabF);
+    this->v_messageW->setFont(messageTabF);
 }
 
 void WindowNotice::loadSettings(Settings* s) {

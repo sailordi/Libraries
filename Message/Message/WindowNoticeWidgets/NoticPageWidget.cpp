@@ -41,24 +41,27 @@ NoticPageWidget::~NoticPageWidget() {
 }
 
 void NoticPageWidget::setFont(QFont f) {
-    if(this->v_pageLabel != nullptr) {
-        this->v_pageLabel->setFont(f);
+    this->setFont({f,f,f,f,f});
+}
+
+void NoticPageWidget::setFont(QList<QFont> f) {
+    if(this->v_pageLabel != nullptr && f.size() > 0) {
+        this->v_pageLabel->setFont(f.takeFirst() );
     }
 
-    if(this->v_prevPageB != nullptr) {
-        this->v_prevPageB->setFont(f);
+    if(this->v_prevPageB != nullptr && f.size() > 0) {
+        this->v_prevPageB->setFont(f.takeFirst() );
     }
-    if(this->v_nextPageB != nullptr) {
-        this->v_nextPageB->setFont(f);
-    }
-
-    if(this->v_prevListB != nullptr) {
-        this->v_prevListB->setFont(f);
-    }
-    if(this->v_nextListB != nullptr) {
-        this->v_nextListB->setFont(f);
+    if(this->v_nextPageB != nullptr && f.size() > 0) {
+        this->v_nextPageB->setFont(f.takeFirst() );
     }
 
+    if(this->v_prevListB != nullptr && f.size() > 0) {
+        this->v_prevListB->setFont(f.takeFirst() );
+    }
+    if(this->v_nextListB != nullptr && f.size() > 0) {
+        this->v_nextListB->setFont(f.takeFirst() );
+    }
 }
 
 void NoticPageWidget::add(NoticePage* p) {

@@ -1,8 +1,6 @@
 #ifndef NOTICEFLAG_H
 #define NOTICEFLAG_H
 
-#include "Message_global.h"
-
 /*! \class NoticeFlag
  * \brief Enumeration for the message type
  *

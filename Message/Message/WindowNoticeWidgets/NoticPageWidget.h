@@ -38,7 +38,7 @@ typedef QSharedPointer<NoticePage> NoticePageP;
  * \date Created: 2021-05-04
  * \date Last update: 2021-05-10
 */
-class NoticPageWidget : public SingleLayoutWidget
+class MESSAGE_EXPORT NoticPageWidget : public SingleLayoutWidget
 {
     Q_OBJECT
 public:
@@ -53,8 +53,14 @@ public:
     /*! Deconstructor */
     virtual ~NoticPageWidget();
 
-    /*! Sets the font for the NoticPageWidget */
+    /*! Sets the font for the NoticPageWidget
+     * \param f - The font
+    */
     void setFont(QFont f);
+    /*! Sets the fonts for the NoticPageWidget
+     * \param f - The fonts
+    */
+    void setFont(QList<QFont> f);
 
     /*! Adds a NoticePage to list
      * \param p - The page to add

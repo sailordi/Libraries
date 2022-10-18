@@ -53,6 +53,23 @@ public:
     /*! Deconstructor */
     ~WindowNotice();
 
+    /*! Sets the fonts for the WindowNotice
+     * \param mF - The menu font
+     * \param pageF - The PageWidget font
+     * \param errorTabF - The error TabWidget font
+     * \param warningTabF - The warning TabWidget font
+     * \param messageTabF - The message TabWidget font
+    */
+    void setFont(QFont mF,QFont pageF,QFont errorTabF,QFont warningTabF,QFont messageTabF);
+    /*! Sets the fonts for the WindowNotice
+     * \param mF - The menu font
+     * \param pageF - The PageWidget fonts
+     * \param errorTabF - The error TabWidget fonts
+     * \param warningTabF - The warning TabWidget fonts
+     * \param messageTabF - The message TabWidget fonts
+    */
+    void setFont(QFont mF,QList<QFont> pageF,QList<QFont> errorTabF,QList<QFont> warningTabF,QList<QFont> messageTabF);
+
     /*! Loads settings
      * \param s - Settings handle
     */

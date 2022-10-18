@@ -36,16 +36,19 @@ NoticeTabWidget::NoticeTabWidget(int in,QGridLayout* gL,QWidget* tab,QTabWidget*
 }
 
 void NoticeTabWidget::setFont(QFont f) {
-    if(this->v_label != nullptr) {
-        this->v_label->setFont(f);
-    }
-    if(this->v_edit != nullptr) {
-        this->v_edit->setFont(f);
-    }
-    if(this->v_spin != nullptr) {
-        this->v_spin->setFont(f);
-    }
+    this->setFont({f,f,f});
+}
 
+void NoticeTabWidget::setFont(QList<QFont> f) {
+    if(this->v_label != nullptr && f.size() > 0) {
+        this->v_label->setFont(f.takeFirst() );
+    }
+    if(this->v_edit != nullptr && f.size() > 0) {
+        this->v_edit->setFont(f.takeFirst() );
+    }
+    if(this->v_spin != nullptr && f.size() > 0) {
+        this->v_spin->setFont(f.takeFirst() );
+    }
 }
 
 void NoticeTabWidget::setChild(NoticeTabWidget* ch) {
