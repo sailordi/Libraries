@@ -16,7 +16,7 @@
 #include "Base/Other/Helper.h"
 #include "Base/Settings/SettingsGroup.h"
 
-QRegularExpression reg;
+enum RegIndex{Group,Array,Block,ArrayData};
 
 //Public functions
 SettingsFile::SettingsFile(QString file,bool read) {
@@ -180,15 +180,15 @@ bool SettingsFile::open() {
 
 //Private functions
 bool SettingsFile::isGoup(QString s) {
-    reg.setPattern("\\[.*\\]$");
+    this->v_reg.setPattern("\\[.*\\]$");
 
-    return (s.isEmpty() == true) ? false : s.contains(reg);
+    return (s.isEmpty() == true) ? false : s.contains(this->v_reg);
 }
 
 bool SettingsFile::isArray(QString s) {
-    reg.setPattern("\\[.*\\]\\d.");
+    this->v_reg.setPattern("\\[.*\\]\\d");
 
-    return (s.isEmpty() == true) ? false : s.contains(reg);
+    return (s.isEmpty() == true) ? false : s.contains(this->v_reg);
 }
 
 bool SettingsFile::isBlock(QString s) {
@@ -198,9 +198,9 @@ bool SettingsFile::isBlock(QString s) {
     if(this->isArray(s) == true) {
         return false;
     }
-    reg.setPattern("\\=");
+    this->v_reg.setPattern("\\=");
 
-    return (s.isEmpty() == true) ? false : s.contains(reg);
+    return (s.isEmpty() == true) ? false : s.contains(this->v_reg);
 }
 
 QStringList SettingsFile::separate(QString type,QString str) {
@@ -209,9 +209,9 @@ QStringList SettingsFile::separate(QString type,QString str) {
         str.replace("(","");
         str.replace(")","");
     }
-    reg.setPattern("\\s+");
+    this->v_reg.setPattern("\\s+");
 
-    return str.split(reg);
+    return str.split(this->v_reg,Qt::SkipEmptyParts);
 }
 
 QString SettingsFile::variantToString(QVariant v) {
@@ -247,9 +247,9 @@ QString SettingsFile::variantToString(QVariant v) {
 }
 
 QVariant SettingsFile::stringToVariant(QString s) {
-    reg.setPattern("\\@");
+    this->v_reg.setPattern("\\@");
 
-    if(s.contains(reg) == false)  { return QVariant(s); }
+    if(s.contains(this->v_reg) == false)  { return QVariant(s); }
 
     if(s.contains("@RectF") == true) {
         QStringList l = this->separate("@RectF",s);
@@ -293,9 +293,9 @@ QString SettingsFile::parseGroupName(QString str) {
 }
 
 void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
-    reg.setPattern("\\=");
+    this->v_reg.setPattern("\\=");
 
-    QStringList l = str.split(reg);
+    QStringList l = str.split(this->v_reg);
 
     (l.size() == 2) ? gD->addBlockData(l.first(),this->stringToVariant(l.last() ) ) : gD->addBlockData(l.first(),"");
 }
@@ -303,9 +303,9 @@ void SettingsFile::parseBlock(QString str,SettingsGroup* gD) {
 void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
     QString currentLine = s->readLine();
 
-    reg.setPattern("\\[|\\]");
+    this->v_reg.setPattern("\\[|\\]");
 
-    QStringList l = currentLine.split(reg);
+    QStringList l = currentLine.split(this->v_reg,Qt::SkipEmptyParts);
     QString name = (l.size() == 2) ? l.first() : l.at(1);
     int size = l.last().toInt();
 
@@ -319,20 +319,21 @@ void SettingsFile::parseArray(QTextStream* s,SettingsGroup* gD) {
                 qint64 pos = s->pos();
                 QString nextLine = s->readLine();
 
-                reg.setPattern("\\¤");
+                this->v_reg.setPattern("\\¤");
 
-                QStringList c = currentLine.split(reg);
+                QStringList c = currentLine.split(this->v_reg);
                 int ent = c.takeFirst().toInt();
                 int nextEnt = -1;
 
                 if(this->isArray(nextLine) == false && nextLine.isEmpty() == false) {
-                    QStringList n = nextLine.split(reg);
+                    this->v_reg.setPattern("\\¤");
+                    QStringList n = nextLine.split(this->v_reg,Qt::SkipEmptyParts);
                     nextEnt = n.takeFirst().toInt();
                 }
 
-                reg.setPattern("\\=");
+                this->v_reg.setPattern("\\=");
 
-                QStringList d = c.first().split(reg);
+                QStringList d = c.first().split(this->v_reg,Qt::SkipEmptyParts);
 
                 keys.push_back(d.first() );
                 (d.size() == 2) ? vals.push_back(stringToVariant(d.last() ) ) : vals.push_back("");

@@ -2,6 +2,7 @@
 #define SETTINGSFILE_H
 
 #include <QString>
+#include <QRegularExpression>
 
 class QFile;
 class QTextStream;
@@ -60,6 +61,7 @@ private:
     QFile* v_f = nullptr;
     QTextStream* v_s = nullptr;
     bool v_read;
+   QRegularExpression v_reg;
 
     /*! Checks if a string is a group name
      *  \param s - The string to check
