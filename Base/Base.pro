@@ -1,5 +1,5 @@
 QT  += core widgets
-QT -= gui
+QT  -= gui
 
 ! include( ../Common.pri ) {
     error( "Couldn't find the Common.pri file!" )
@@ -9,6 +9,14 @@ CONFIG += staticlib
 
 CONFIG(release,debug|release)   { TARGET = Base }
 CONFIG(debug,debug|release)     { TARGET = Base_D }
+
+win32:!win32-g++ {
+    contains(QMAKE_HOST.arch, x86_64) {
+        QMAKE_LFLAGS += /MACHINE:X64
+    } else {
+        QMAKE_LFLAGS += /MACHINE:X86
+    }
+}
 
 SOURCES += \
     Base/Adapter/ComboBoxAdapter.cpp \

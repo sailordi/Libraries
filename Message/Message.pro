@@ -22,13 +22,15 @@ DEPENDPATH += $$PWD/../Base
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Base/ -lBase
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Base/ -lBase_D
-else:unix:!macx: LIBS += -L$$OUT_PWD/../Base/ -lBase_D
+else:unix:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Base/ -lBase
+else:unix:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Base/ -lBase_D
 
 win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase.a
 else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
 else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/Base.lib
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/Base_D.lib
-else:unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
+else:unix:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase.a
+else:unix:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
 
 
 SOURCES += \
@@ -48,11 +50,11 @@ HEADERS += Message_global.h \
     Message/WindowNoticeWidgets/NoticPageWidget.h \
     Message/WindowNoticeWidgets/NoticeTabWidget.h
 
+FORMS += \
+    Message/WindowNotice.ui
+
 # Default rules for deployment.
 unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
-
-FORMS += \
-    Message/WindowNotice.ui

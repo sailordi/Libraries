@@ -55,3 +55,4 @@ Uppdated how the retranslation works in notice classes
 Uppdated how the fonts are sett in the notice classes
 Fixed issue where data was not split correctly
 Fixed issue where settings arrays where not working properly
+Updated the qmake files
