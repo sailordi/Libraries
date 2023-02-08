@@ -5,7 +5,7 @@
 
 #include "Base/Other/Helper.h"
 
-#include "SQL/Base/DB/DB.h"
+#include "SQL/Base/DB/Db.h"
 #include "SQL/Base/Query/SqlQueryBind.h"
 #include "SQL/Base/Query/SqlQueryData.h"
 
@@ -33,10 +33,10 @@ int SqlQuery::rowsAffected(bool select) {
         return -1;
     }
 
-    if(DB::hasSize(this->v_db) == true && select == false) {
+    if(Db::hasSize(this->v_db) == true && select == false) {
         return this->v_q->numRowsAffected();
     }
-    else if(DB::hasSize(this->v_db) == true && select == true) {
+    else if(Db::hasSize(this->v_db) == true && select == true) {
         return this->v_q->size();
     }
 
@@ -143,7 +143,7 @@ void SqlQuery::transaction() {
     if(this->v_transaction == false) {
         return;
     }
-    if(DB::hasTransaction(this->v_db) == false) {
+    if(Db::hasTransaction(this->v_db) == false) {
         return;
     }
 
@@ -159,7 +159,7 @@ void SqlQuery::commit() {
     if(this->v_transaction == false) {
         return;
     }
-    if(DB::hasTransaction(this->v_db) == false) {
+    if(Db::hasTransaction(this->v_db) == false) {
         return;
     }
 
@@ -175,7 +175,7 @@ void SqlQuery::rollback(QString& er) {
     if(this->v_transaction == false) {
         return;
     }
-    if(DB::hasTransaction(this->v_db) == false) {
+    if(Db::hasTransaction(this->v_db) == false) {
         return;
     }
 

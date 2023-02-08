@@ -9,7 +9,7 @@
 class DatabaseInfo;
 class DatabaseUser;
 
-/*! \class DB
+/*! \class Db
  * \brief The class handles database functionality
  *
  * Incudes: QObject & QSqlDatabase
@@ -22,9 +22,9 @@ class DatabaseUser;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-05-12
- * \date Last update: 2021-05-17
+ * \date Last update: 2023-03-08
 */
-class SQL_EXPORT DB : public QObject
+class SQL_EXPORT Db : public QObject
 {
     Q_OBJECT
 public:
@@ -32,16 +32,16 @@ public:
      * \param connName - The connection name
      * \param parent - Thge parent [Default: nullptr]
     */
-    explicit DB(QString connName,QObject *parent = nullptr);
+    explicit Db(QString connName,QObject *parent = nullptr);
     /*! Constructor
      * \param connName - The connection name
      * \param i - The DatabaseInfo
      * \param u - The DatabaseUser
      * \param parent - Thge parent [Default: nullptr]
     */
-    explicit DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject *parent = nullptr);
+    explicit Db(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject *parent = nullptr);
     /*! Deconstructor */
-    virtual ~DB();
+    virtual ~Db();
 
     /*! Sets the DatabaseInfo
      * \param i - The DatabaseInfo
@@ -72,7 +72,7 @@ public:
     static bool hasTransaction(QSqlDatabase db);
 
     /*! Initialises the database */
-    virtual void initDB();
+    virtual void initDb();
     /*! Database info changed */
     virtual void infoChanged() = 0;
 

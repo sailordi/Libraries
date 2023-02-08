@@ -32,20 +32,21 @@ else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PW
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/Base_D.lib
 else:unix:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase.a
 else:unix:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../Base/libBase_D.a
+
 SOURCES += \
-    SQL/Base/DB/DB.cpp \
+    SQL/Base/DB/Db.cpp \
     SQL/Base/DB/DatabaseInfo.cpp \
     SQL/Base/DB/DatabaseUser.cpp \
     SQL/Base/Other/Connection.cpp \
     SQL/Base/Query/SqlQuery.cpp \
     SQL/Base/Query/SqlQueryBind.cpp \
     SQL/Base/Query/SqlQueryData.cpp \
-    SQL/DB/MariaDb_DB.cpp \
-    SQL/DB/MySQL_DB.cpp \
-    SQL/DB/SQLite_DB.cpp
+    SQL/DB/MariaDb.cpp \
+    SQL/DB/MySqlDb.cpp \
+    SQL/DB/SqLiteDb.cpp
 
 HEADERS += SQL_global.h \
-    SQL/Base/DB/DB.h \
+    SQL/Base/DB/Db.h \
     SQL/Base/DB/DatabaseInfo.h \
     SQL/Base/DB/DatabaseUser.h \
     SQL/Base/Other/Connection.h \
@@ -54,9 +55,9 @@ HEADERS += SQL_global.h \
     SQL/Base/Query/SqlQuery.h \
     SQL/Base/Query/SqlQueryBind.h \
     SQL/Base/Query/SqlQueryData.h \
-    SQL/DB/MariaDb_DB.h \
-    SQL/DB/MySQL_DB.h \
-    SQL/DB/SQLite_DB.h
+    SQL/DB/MariaDb.h \
+    SQL/DB/MySqlDb.h \
+    SQL/DB/SqLiteDb.h
 
 # Default rules for deployment.
 unix {

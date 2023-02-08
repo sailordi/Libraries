@@ -1,4 +1,4 @@
-#include "MySQL_DB.h"
+#include "MySqlDb.h"
 
 #include "Base/Other/Helper.h"
 
@@ -6,15 +6,24 @@
 #include "SQL/Base/DB/DatabaseUser.h"
 
 //Public functions
-MySQL_DB::MySQL_DB(QString connName,QObject* parent) : DB(connName,parent) {
+MySqlDb::MySqlDb(QString connName,QObject* parent) : Db(connName,parent) {
     this->v_driver = "QMYSQL";
 }
 
-MySQL_DB::MySQL_DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject* parent) : DB(connName,i,u,parent) {
+MySqlDb::MySqlDb(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject* parent) : Db(connName,i,u,parent) {
     this->v_driver = "QMYSQL";
 }
 
-void MySQL_DB::test() {
+MySqlDb::MySqlDb(QString connName,QString driver,QObject* parent) : Db(connName,parent) {
+    this->v_driver = driver;
+}
+
+MySqlDb::MySqlDb(QString connName,QString driver,DatabaseInfo* i,DatabaseUser* u,QObject* parent) : Db(connName,i,u,parent) {
+    this->v_driver = driver;
+}
+
+
+void MySqlDb::test() {
     QString er = "";
 
         if(this->v_info == nullptr) {
@@ -37,7 +46,7 @@ void MySQL_DB::test() {
         }
 }
 
-void MySQL_DB::infoChanged() {
+void MySqlDb::infoChanged() {
     if(this->v_info  == nullptr && this->v_user == nullptr) {
         throw QString("The DatabaseInfo is nullptr can not change info"+Helper::newRow()+"The Database user is nullptr"+Helper::newRow() );
     }
@@ -51,7 +60,7 @@ void MySQL_DB::infoChanged() {
     QSqlDatabase db = QSqlDatabase::database(this->v_connName,false);
 
     if(db.isOpen() == true) {
-        DB::close(db);
+        Db::close(db);
     }
 
     db.setDatabaseName(this->v_info->databaseName() );
@@ -61,13 +70,4 @@ void MySQL_DB::infoChanged() {
     }
     db.setUserName(this->v_user->username() );
     db.setPassword(this->v_user->password() );
-}
-
-//Protected functions
-MySQL_DB::MySQL_DB(QString connName,QString driver,QObject* parent) : DB(connName,parent) {
-    this->v_driver = driver;
-}
-
-MySQL_DB::MySQL_DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QString driver,QObject* parent) : DB(connName,i,u,parent) {
-    this->v_driver = driver;
 }

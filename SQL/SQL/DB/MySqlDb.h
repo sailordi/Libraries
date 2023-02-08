@@ -1,25 +1,25 @@
-#ifndef MYSQL_DB_H
-#define MYSQL_DB_H
+#ifndef MYSQL_Db_H
+#define MYSQL_Db_H
 
 #include <QObject>
 
-#include "SQL/Base/DB/DB.h"
+#include "SQL/Base/DB/Db.h"
 #include "SQL_global.h"
 
-/*! \class MySQL_DB
+/*! \class MySqlDb
  * \brief The class handles MySql database functionality
  *
- * Incudes: QObject, SQL_global.h & DB
+ * Incudes: QObject, SQL_global.h & Db
  *
- * Inherits: DB
+ * Inherits: Db
  *
  * \author Created by: Sailordi
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2022-10-18
- * \date Last update: 2022-10-18
+ * \date Last update: 2023-02-08
 */
-class SQL_EXPORT MySQL_DB : public DB
+class SQL_EXPORT MySqlDb : public Db
 {
     Q_OBJECT
 public:
@@ -27,14 +27,28 @@ public:
      * \param connName - The connection name
      * \param parent - Thge parent [Default: nullptr]
     */
-    explicit MySQL_DB(QString connName,QObject *parent = nullptr);
+    explicit MySqlDb(QString connName,QObject *parent = nullptr);
     /*! Constructor
      * \param connName - The connection name
      * \param i - The DatabaseInfo
      * \param u - The DatabaseUser
      * \param parent - Thge parent [Default: nullptr]
     */
-    explicit MySQL_DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject *parent = nullptr);
+    explicit MySqlDb(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject *parent = nullptr);
+    /*! Constructor
+     * \param connName - The connection name
+     * \param driver - The driver
+     * \param parent - The parent [Default: nullptr]
+    */
+    explicit MySqlDb(QString connName,QString driver,QObject *parent = nullptr);
+    /*! Constructor
+     * \param connName - The connection name
+     * \param driver - The driver
+     * \param i - The DatabaseInfo
+     * \param u - The DatabaseUser
+     * \param parent - Thge parent [Default: nullptr]
+    */
+    explicit MySqlDb(QString connName,QString driver,DatabaseInfo* i,DatabaseUser* u,QObject *parent = nullptr);
 
     /*! Function to test database
      * \throws QString
@@ -44,21 +58,6 @@ public:
     /*! Database info changed */
     virtual void infoChanged() override;
 
-protected:
-    /*! Constructor
-     * \param connName - The connection name
-     * \param driver - The driver
-     * \param parent - The parent [Default: nullptr]
-    */
-    explicit MySQL_DB(QString connName,QString driver,QObject *parent = nullptr);
-    /*! Constructor
-     * \param connName - The connection name
-     * \param i - The DatabaseInfo
-     * \param u - The DatabaseUser
-     * \param driver - The driver
-     * \param parent - Thge parent [Default: nullptr]
-    */
-    explicit MySQL_DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QString driver,QObject *parent = nullptr);
 
 };
-#endif // MYSQL_DB_H
+#endif // MYSQL_Db_H

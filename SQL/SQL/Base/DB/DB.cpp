@@ -1,4 +1,4 @@
-#include "DB.h"
+#include "Db.h"
 
 #include <QSqlDriver>
 #include <QSqlError>
@@ -8,16 +8,16 @@
 #include "SQL/Base/DB/DatabaseUser.h"
 
 //Public functions
-DB::DB(QString connName,QObject* parent) : QObject(parent) {
+Db::Db(QString connName,QObject* parent) : QObject(parent) {
     this->v_connName = connName;
 }
 
-DB::DB(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject* parent) : QObject(parent) {
+Db::Db(QString connName,DatabaseInfo* i,DatabaseUser* u,QObject* parent) : QObject(parent) {
     this->v_connName = connName;
     this->setData(i,u);
 }
 
-DB::~DB() {
+Db::~Db() {
     this->setData(nullptr,nullptr);
 
     QSqlDatabase d = QSqlDatabase::database(this->v_connName,false);
@@ -33,9 +33,9 @@ DB::~DB() {
     emit this->removeConnection(this->v_connName);
 }
 
-void DB::setInfo(DatabaseInfo* i) {
+void Db::setInfo(DatabaseInfo* i) {
     if(this->v_info != nullptr) {
-        disconnect(this->v_info,&DatabaseInfo::infoChanged,this,&DB::dataChanged);
+        disconnect(this->v_info,&DatabaseInfo::infoChanged,this,&Db::dataChanged);
         this->v_info = nullptr;
     }
 
@@ -45,12 +45,12 @@ void DB::setInfo(DatabaseInfo* i) {
 
     this->v_info = i;
 
-    connect(this->v_info,&DatabaseInfo::infoChanged,this,&DB::dataChanged);
+    connect(this->v_info,&DatabaseInfo::infoChanged,this,&Db::dataChanged);
 }
 
-void DB::setUser(DatabaseUser* u) {
+void Db::setUser(DatabaseUser* u) {
     if(this->v_user != nullptr) {
-        disconnect(this->v_user,&DatabaseUser::infoChanged,this,&DB::dataChanged);
+        disconnect(this->v_user,&DatabaseUser::infoChanged,this,&Db::dataChanged);
 
         this->v_user = nullptr;
     }
@@ -61,15 +61,15 @@ void DB::setUser(DatabaseUser* u) {
 
     this->v_user = u;
 
-    connect(this->v_user,&DatabaseUser::infoChanged,this,&DB::dataChanged);
+    connect(this->v_user,&DatabaseUser::infoChanged,this,&Db::dataChanged);
 }
 
-void DB::setData(DatabaseInfo* i,DatabaseUser* u) {
+void Db::setData(DatabaseInfo* i,DatabaseUser* u) {
     this->setInfo(i);
     this->setUser(u);
 }
 
-bool DB::hasSize(QSqlDatabase db) {
+bool Db::hasSize(QSqlDatabase db) {
     if(db.isValid() == false) {
         return false;
     }
@@ -77,7 +77,7 @@ bool DB::hasSize(QSqlDatabase db) {
     return db.driver()->hasFeature(QSqlDriver::QuerySize);
 }
 
-bool DB::hasTransaction(QSqlDatabase db) {
+bool Db::hasTransaction(QSqlDatabase db) {
     if(db.isValid() == false) {
         return false;
     }
@@ -85,14 +85,14 @@ bool DB::hasTransaction(QSqlDatabase db) {
     return db.driver()->hasFeature(QSqlDriver::Transactions);
 }
 
-void DB::initDB() {
+void Db::initDb() {
     if(QSqlDatabase::connectionNames().contains(this->v_connName) == false) {
         QSqlDatabase d = QSqlDatabase::addDatabase(this->v_driver,this->v_connName);
     }
     this->infoChanged();
 }
 
-QSqlDatabase DB::open() {
+QSqlDatabase Db::open() {
     QSqlDatabase db = QSqlDatabase::database(this->v_connName);
 
     if(db.isValid() == false) {
@@ -107,7 +107,7 @@ QSqlDatabase DB::open() {
     return db;
 }
 
-void DB::open(QSqlDatabase db) {
+void Db::open(QSqlDatabase db) {
     if(db.isOpen() == false) {
         if(db.open() == false) {
             throw QString("Error can not open database:"+Helper::newRow() )+db.lastError().text();
@@ -116,7 +116,7 @@ void DB::open(QSqlDatabase db) {
 
 }
 
-void DB::close(QSqlDatabase db) {
+void Db::close(QSqlDatabase db) {
     if(db.isOpen() == true) {
         db.close();
     }
@@ -124,7 +124,7 @@ void DB::close(QSqlDatabase db) {
 }
 
 //Protected slot
-void DB::dataChanged() {
+void Db::dataChanged() {
     emit this->dataHasChanged();
 
     this->infoChanged();
