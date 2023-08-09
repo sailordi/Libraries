@@ -56,3 +56,9 @@ Uppdated how the fonts are sett in the notice classes
 Fixed issue where data was not split correctly
 Fixed issue where settings arrays where not working properly
 Updated the qmake files
+```
+## V5_1
+```
+Fixed problem with MariaDb driver
+Also changed names of all the db files
+Fixed issues with file names and added mac flags

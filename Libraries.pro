@@ -6,5 +6,6 @@ SUBDIRS += \
     SQL
 
 Message.depends = Base
+SQL.depends = Base
 
 CONFIG += ordered

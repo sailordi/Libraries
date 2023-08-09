@@ -22,7 +22,7 @@ class DatabaseUser;
  * \author Last to touch it: Sailordi
  *
  * \date Created: 2021-05-12
- * \date Last update: 2023-03-08
+ * \date Last update: 2023-09-09
 */
 class SQL_EXPORT Db : public QObject
 {
